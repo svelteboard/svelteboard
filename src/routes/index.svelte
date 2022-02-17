@@ -3,8 +3,14 @@
 </svelte:head>
 <div class="mx-2">
 	<div
-		class="md:max-w-sm m-auto p-8 md:p-16 border-8 border-slate-800 text-slate-800 shadow-md hover:bg-green-900 hover:border-8 hover:border-orange-900 group transition-all"
+		class="relative md:max-w-sm m-auto p-8 md:p-16 border-8 border-slate-800 text-slate-800 shadow-md hover:bg-green-900 hover:border-8 hover:border-orange-900 group transition-all"
 	>
+		<img
+			class="mix-blend-overlay absolute inset-0 w-full h-full object-cover hidden group-hover:block"
+			src="/felt.png"
+			alt=""
+		/>
+
 		<h1 class="text-center text-2xl md:text-5xl font-bold ">
 			<span
 				class="inline-block transition-all group-hover:text-blue-200 group-hover:-rotate-6 top-5"

@@ -9,7 +9,7 @@
 >
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
-		class="h-6 w-6"
+		class="h-6 w-6 text-slate-500 group-hover:text-slate-700"
 		fill="none"
 		viewBox="0 0 24 24"
 		stroke="currentColor"
@@ -31,11 +31,11 @@
 	>
 		<button
 			on:click={() => (mobileMenu = false)}
-			class="m-2 absolute z-30 hover:bg-slate-200 p-2 rounded-md lg:hidden"
+			class="m-2 absolute z-30 hover:bg-slate-200 p-2 rounded-lg lg:hidden mt-4"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6"
+				class="h-6 w-6 text-slate-500 group-hover:text-slate-700"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
@@ -49,50 +49,72 @@
 			</svg>
 		</button>
 
-		<a href="/"
-			><img alt="Svelte Board Logo" src="/felt.jpeg" class="h-12 w-12 rounded-md m-auto mt-4" /></a
-		>
-		<ul class="space-y-2 p-4">
-			<li class="flex items-stretch space-x-1">
-				<span class="flex items-center justify-center mr-1">
+		<a href="/">
+			<div
+				class="bg-gradient-to-tr from-green-700 to-green-900 relative w-12 h-12 rounded-lg shadow-2xl m-auto mt-4 overflow-hidden"
+			>
+				<img
+					class="mix-blend-overlay absolute inset-0 w-full h-full object-cover"
+					src="/felt.png"
+					alt=""
+				/>
+			</div>
+		</a>
+		<ul class="space-y-1 p-4">
+			<li class="flex items-stretch space-x-1 hover:bg-slate-200 p-2 rounded-md group">
+				<span class="flex items-center justify-center mr-2">
 					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-6 w-6 text-slate-500 group-hover:text-slate-700 group-hover:rotate-6 animate-all"
+						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
-						stroke-width="2"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="h-5 w-5"
-						><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path
-							d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"
-						/></svg
-					></span
-				>
-				<span class="flex-1"> Tutorials </span>
-			</li>
-			<li class="flex items-stretch space-x-1">
-				<span class="flex items-center justify-center mr-1"
-					><svg
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						stroke-width="2"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="h-5 w-5"
-						><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line
-							x1="20"
-							y1="4"
-							x2="8.12"
-							y2="15.88"
-						/><line x1="14.47" y1="14.48" x2="20" y2="20" /><line
-							x1="8.12"
-							y1="8.12"
-							x2="12"
-							y2="12"
-						/></svg
 					>
-				</span><span class="flex-1">Code Snippets </span>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+						/>
+					</svg>
+				</span>
+				<span class="flex-1 text-slate-700 group-hover:text-slate-900"> Tutorials </span>
+			</li>
+			<li class="flex items-stretch space-x-1 hover:bg-slate-200 p-2 rounded-md group">
+				<span class="flex items-center justify-center mr-2"
+					><svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-6 w-6 text-slate-500 group-hover:text-slate-700 group-hover:rotate-6 animate-all"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+						/>
+					</svg>
+				</span><span class="flex-1 text-slate-700 group-hover:text-slate-900">Code Snippets </span>
+			</li>
+			<li class="flex items-stretch space-x-1 hover:bg-slate-200 p-2 rounded-md group">
+				<span class="flex items-center justify-center mr-2">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-6 w-6 text-slate-500 group-hover:text-slate-700 group-hover:rotate-6 animate-all"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+						/>
+					</svg>
+				</span><span class="flex-1 text-slate-700 group-hover:text-slate-900">Send a Question</span>
 			</li>
 		</ul>
 	</nav>
