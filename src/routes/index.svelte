@@ -1,6 +1,55 @@
 <svelte:head>
 	<title>Svelte Board- Svelte Tutorials, Code Snippets, and Svmore!</title>
 </svelte:head>
+<div class="mx-2">
+	<div
+		class="md:max-w-sm m-auto p-8 md:p-16 border-8 border-slate-800 text-slate-800 shadow-md hover:bg-green-900 hover:border-8 hover:border-orange-900 group transition-all"
+	>
+		<h1 class="text-center text-2xl md:text-5xl font-bold ">
+			<span
+				class="inline-block transition-all group-hover:text-blue-200 group-hover:-rotate-6 top-5"
+				>S</span
+			>
+			<span
+				class="inline-block transition-all group-hover:text-yellow-200 group-hover:-rotate-4 top-5"
+				>V</span
+			>
+			<span class="inline-block transition-all group-hover:text-red-200 group-hover:-rotate-6 top-5"
+				>E</span
+			>
+			<span
+				class="inline-block transition-all group-hover:text-orange-200 group-hover:rotate-6 top-5"
+				>L</span
+			>
+			<span
+				class="inline-block transition-all group-hover:text-green-100 group-hover:rotate-6 top-5"
+				>T</span
+			>
+			<span class="inline-block transition-all group-hover:text-white group-hover:rotate-12 top-5"
+				>E</span
+			><br /><span
+				class="inline-block transition-all group-hover:text-red-200 group-hover:-rotate-4 top-5"
+				>B</span
+			>
+			<span
+				class="inline-block transition-all group-hover:text-green-50 group-hover:rotate-12 top-5"
+				>O</span
+			>
+			<span
+				class="inline-block transition-all group-hover:text-yellow-200 group-hover:-rotate-6 top-5"
+				>A</span
+			>
+			<span class="inline-block transition-all group-hover:text-blue-200 group-hover:rotate-6 top-5"
+				>R</span
+			>
+			<span
+				class="inline-block transition-all group-hover:text-orange-200 group-hover:rotate-6 top-5"
+				>D</span
+			>
+		</h1>
 
-<h1 class="text-center mt-12 text-4xl font-black">Welcome to Svelte Board</h1>
-<p class="text-lg text-center">Tutorials, Code Snippets, and Svmore coming soon!</p>
+		<p class="text-lg md:text-xl text-center group-hover:text-green-50 pt-2">
+			Tutorials, Code Snippets, <span class="sm:whitespace-nowrap">and Svmore coming soon!</span>
+		</p>
+	</div>
+</div>

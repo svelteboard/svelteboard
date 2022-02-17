@@ -1,281 +1,105 @@
 <script>
 	import '../app.css';
+	let mobileMenu = false;
 </script>
 
-<!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  const colors = require('tailwindcss/colors')
-  
-  module.exports = {
-    // ...
-    theme: {
-      extend: {
-        colors: {
-          green: colors.green,
-        },
-      },
-    },
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-<!--
-  This example requires updating your template:
+<div
+	class="text-green-800 bg-green-50 shadow-sm p-2 m-2 fixed cursor-pointer z-30 rounded-full lg:hidden"
+	on:click={() => (mobileMenu = true)}
+>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		class="h-6 w-6"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke="currentColor"
+	>
+		<path
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			stroke-width="2"
+			d="M4 6h16M4 12h16M4 18h16"
+		/>
+	</svg>
+</div>
 
-  ```
-  <html class="h-full bg-gray-100">
-  <body class="h-full">
-  ```
--->
-<div class="min-h-full">
-	<!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-	<div class="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
-		<!--
-      Off-canvas menu overlay, show/hide based on off-canvas menu state.
+<div class="relative flex h-full min-h-screen w-full">
+	<nav
+		class="{mobileMenu
+			? 'block'
+			: 'hidden'} lg:block absolute z-30 h-full max-h-screen min-h-screen w-3/4 flex-none transform overflow-y-auto border-r border-slate-150 bg-white pb-10 transition duration-200 ease-in-out dark:border-slate-800 dark:bg-slate-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 lg:bg-slate-50 lg:dark:bg-slate-900 2xl:w-72"
+	>
+		<button
+			on:click={() => (mobileMenu = false)}
+			class="m-2 absolute z-30 hover:bg-slate-200 p-2 rounded-md lg:hidden"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M6 18L18 6M6 6l12 12"
+				/>
+			</svg>
+		</button>
 
-      Entering: "transition-opacity ease-linear duration-300"
-        From: "opacity-0"
-        To: "opacity-100"
-      Leaving: "transition-opacity ease-linear duration-300"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
-		<div class="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true" />
-
-		<!--
-      Off-canvas menu, show/hide based on off-canvas menu state.
-
-      Entering: "transition ease-in-out duration-300 transform"
-        From: "-translate-x-full"
-        To: "translate-x-0"
-      Leaving: "transition ease-in-out duration-300 transform"
-        From: "translate-x-0"
-        To: "-translate-x-full"
-    -->
-		<div class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-green-900">
-			<!--
-        Close button, show/hide based on off-canvas menu state.
-
-        Entering: "ease-in-out duration-300"
-          From: "opacity-0"
-          To: "opacity-100"
-        Leaving: "ease-in-out duration-300"
-          From: "opacity-100"
-          To: "opacity-0"
-      -->
-			<div class="absolute top-0 right-0 -mr-12 pt-2">
-				<button
-					type="button"
-					class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-				>
-					<span class="sr-only">Close sidebar</span>
-					<!-- Heroicon name: outline/x -->
+		<a href="/"
+			><img alt="Svelte Board Logo" src="/felt.jpeg" class="h-12 w-12 rounded-md m-auto mt-4" /></a
+		>
+		<ul class="space-y-2 p-4">
+			<li class="flex items-stretch space-x-1">
+				<span class="flex items-center justify-center mr-1">
 					<svg
-						class="h-6 w-6 text-white"
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
-						aria-hidden="true"
+						stroke-width="2"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="h-5 w-5"
+						><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path
+							d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"
+						/></svg
+					></span
+				>
+				<span class="flex-1"> Tutorials </span>
+			</li>
+			<li class="flex items-stretch space-x-1">
+				<span class="flex items-center justify-center mr-1"
+					><svg
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						stroke-width="2"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="h-5 w-5"
+						><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line
+							x1="20"
+							y1="4"
+							x2="8.12"
+							y2="15.88"
+						/><line x1="14.47" y1="14.48" x2="20" y2="20" /><line
+							x1="8.12"
+							y1="8.12"
+							x2="12"
+							y2="12"
+						/></svg
 					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M6 18L18 6M6 6l12 12"
-						/>
-					</svg>
-				</button>
-			</div>
+				</span><span class="flex-1">Code Snippets </span>
+			</li>
+		</ul>
+	</nav>
 
-			<div class="flex-shrink-0 flex items-center px-4">▦</div>
-			<nav
-				class="mt-5 flex-shrink-0 h-full divide-y divide-green-800 overflow-y-auto"
-				aria-label="Sidebar"
-			>
-				<div class="px-2 space-y-1">
-					<!-- Current: "bg-green-800 text-white", Default: "text-green-50 hover:text-white hover:bg-green-600" -->
-					<a
-						href="#"
-						class="bg-green-800 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
-						aria-current="page"
-					>
-						<!-- Heroicon name: outline/home -->
-						<svg
-							class="mr-4 flex-shrink-0 h-6 w-6 text-green-100"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							aria-hidden="true"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-							/>
-						</svg>
-						Home
-					</a>
-
-					<a
-						href="#"
-						class="text-green-50 hover:text-white hover:bg-green-700 group flex items-center px-2 py-2 text-base font-medium rounded-md"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="mr-4 flex-shrink-0 h-6 w-6 text-green-100"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path d="M12 14l9-5-9-5-9 5 9 5z" />
-							<path
-								d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-							/>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-							/>
-						</svg>
-						Tutorials
-					</a>
-
-					<a
-						href="/snippets"
-						class="text-green-50 hover:text-white hover:bg-green-700 group flex items-center px-2 py-2 text-base font-medium rounded-md"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="mr-4 flex-shrink-0 h-6 w-6 text-green-100"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path d="M12 14l9-5-9-5-9 5 9 5z" />
-							<path
-								d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-							/>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-							/>
-						</svg>
-						Code Snippets
-					</a>
-				</div>
-			</nav>
-		</div>
-
-		<div class="flex-shrink-0 w-14" aria-hidden="true">
-			<!-- Dummy element to force sidebar to shrink to fit close icon -->
-		</div>
+	<div class="w-full pt-8">
+		<main class="pb-8 max-w-5xl m-auto">
+			<slot />
+		</main>
 	</div>
-
-	<!-- Static sidebar for desktop -->
-	<div class="hidden lg:flex lg:w-64 lg:flex-col lg:fixed lg:inset-y-0">
-		<!-- Sidebar component, swap this element with another sidebar if you like -->
-		<div
-			class="flex flex-col flex-grow bg-gradient-to-b from-green-700 to-green-900 pt-5 pb-4 overflow-y-auto"
-		>
-			<div class="flex items-center flex-shrink-0 px-4">
-				<h4 class="text-center w-full -ml-4 text-3xl text-green-50">▦</h4>
-			</div>
-			<nav
-				class="mt-5 flex-1 flex flex-col divide-y divide-green-800 overflow-y-auto"
-				aria-label="Sidebar"
-			>
-				<div class="px-2 space-y-1">
-					<!-- Current: "bg-green-800 text-white", Default: "text-green-50 hover:text-white hover:bg-green-600" -->
-					<a
-						href="/"
-						class="bg-green-800 text-white group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md"
-						aria-current="page"
-					>
-						<!-- Heroicon name: outline/home -->
-						<svg
-							class="mr-4 flex-shrink-0 h-6 w-6 text-green-100"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							aria-hidden="true"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-							/>
-						</svg>
-						Home
-					</a>
-
-					<a
-						href="/tutorials"
-						class="text-green-50 hover:text-white hover:bg-green-700 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md"
-					>
-						<!-- Heroicon name: outline/clock -->
-
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="mr-4 flex-shrink-0 h-6 w-6 text-green-100"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path d="M12 14l9-5-9-5-9 5 9 5z" />
-							<path
-								d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-							/>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-							/>
-						</svg>
-						Tutorials
-					</a>
-					<a
-						href="/tutorials"
-						class="text-green-50 hover:text-white hover:bg-green-700 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="mr-4 flex-shrink-0 h-6 w-6 text-green-100"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"
-							/>
-						</svg>
-						Code Snippets
-					</a>
-				</div>
-			</nav>
-		</div>
-	</div>
-
-	<main class="flex-1 pb-8 pl-64 max-w-5xl m-auto">
-		<slot />
-	</main>
 </div>
