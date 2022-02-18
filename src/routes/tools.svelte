@@ -4,7 +4,9 @@
 			<h1 class="text-3xl font-extrabold tracking-wider text-slate-900 sm:text-4xl uppercase">
 				Tools
 			</h1>
-			<p class="mt-4 text-xl text-slate-600">Here are are some pretty handy tools we love.</p>
+			<p class="mt-4 text-xl text-slate-600">
+				This is a living and growing list of handy tools we love.
+			</p>
 		</div>
 		<div class="text-lg max-w-prose">
 			<div class="mt-6 prose prose-green lg:prose-xl prose-slate mx-auto">
@@ -12,7 +14,7 @@
 				<ul>
 					<li>
 						<a target="_blank" href="https://heroicons.com/">
-							<div class="flex"><h3>Heroicon</h3></div>
+							<h3>Heroicon</h3>
 						</a>
 						230 icons from the makers of Tailwind.
 						<div class="flex">
