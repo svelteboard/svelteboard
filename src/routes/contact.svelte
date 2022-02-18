@@ -4,7 +4,7 @@
 			<h2 class="text-3xl font-extrabold tracking-wider text-slate-900 sm:text-4xl uppercase">
 				Send a Question
 			</h2>
-			<p class="mt-4 text-lg leading-6 text-slate-500">Shoot us a question or comment.</p>
+			<p class="mt-4 text-xl leading-6 text-slate-600">Shoot us a question or comment.</p>
 		</div>
 		<div class="mt-12">
 			<form action="#" method="POST" class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">

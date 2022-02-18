@@ -1,6 +1,7 @@
 <script>
 	import '../app.css';
 	let mobileMenu = false;
+	let desktopMenu = true;
 </script>
 
 <div
@@ -23,17 +24,17 @@
 	</svg>
 </div>
 
-<div class="relative flex h-full min-h-screen w-full">
+<div class="flex h-full min-h-screen w-full">
 	<div
 		on:click={() => (mobileMenu = false)}
-		class="bg-slate-900/20 backdrop-blur-sm w-full h-full z-20 absolute animate-all duration-750 {mobileMenu
+		class="bg-slate-900/20 backdrop-blur-sm w-full h-full z-20 absolute transition-all duration-750 lg:hidden {mobileMenu
 			? 'block opacity-100'
 			: 'hidden opacity-0'} "
 	/>
 	<nav
-		class="{mobileMenu
-			? 'block'
-			: 'hidden'} lg:block absolute top-0 z-30 h-full max-h-screen min-h-screen w-3/4 flex-none transform overflow-y-auto border-r border-slate-100 pb-10 transition duration-200 ease-in-out dark:border-slate-800 dark:bg-slate-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 bg-slate-50 lg:dark:bg-slate-900 2xl:w-72"
+		class="{mobileMenu ? 'block' : 'hidden'} {desktopMenu
+			? 'lg:ml-0 2xl:ml-0'
+			: 'lg:-ml-64 2xl:-ml-72'} group lg:block fixed top-0 left-0 z-30 h-full max-h-screen min-h-screen flex-none overflow-y-scroll border-r border-slate-100 pb-10 transition-all duration-150 ease-out dark:border-slate-800 dark:bg-slate-900 sm:pb-0 bg-slate-50 lg:dark:bg-slate-900 w-full max-w-[285px] lg:w-64 2xl:w-72 b-r-8"
 	>
 		<button
 			on:click={() => (mobileMenu = false)}
@@ -55,17 +56,37 @@
 			</svg>
 		</button>
 
-		<a href="/">
-			<div
-				class="bg-gradient-to-tr from-green-700 to-green-900 relative w-12 h-12 rounded-lg shadow-2xl m-auto mt-4 overflow-hidden"
+		<button
+			on:click={() => (desktopMenu = false)}
+			class="m-2 absolute z-30 right-0 hidden mt-4 group-hover:lg:block"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="w-10 h-10 text-slate-400 hover:text-slate-500 animate-all hover:bg-slate-200 p-2 rounded-lg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
 			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M11 19l-7-7 7-7m8 14l-7-7 7-7"
+				/>
+			</svg>
+		</button>
+		<div
+			class="bg-gradient-to-tr from-green-700 to-green-900 relative w-12 h-12 rounded-lg shadow-2xl m-auto mt-4 overflow-hidden"
+		>
+			<a href="/">
 				<img
 					class="mix-blend-overlay absolute inset-0 w-full h-full object-cover"
 					src="/felt.png"
 					alt=""
-				/>
-			</div>
-		</a>
+				/></a
+			>
+		</div>
+
 		<ul class="space-y-1 p-4 2xl:text-xl font-normal">
 			<li class="flex items-stretch space-x-1 hover:bg-slate-200 p-2 rounded-md group">
 				<span class="flex items-center justify-center mr-2">
@@ -87,8 +108,8 @@
 				<span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1"> Tutorials </span>
 			</li>
 			<li class="flex items-stretch space-x-1 hover:bg-slate-200 p-2 rounded-md group">
-				<span class="flex items-center justify-center mr-2"
-					><svg
+				<span class="flex items-center justify-center mr-2">
+					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
 						fill="none"
@@ -98,13 +119,35 @@
 						<path
 							stroke-linecap="round"
 							stroke-linejoin="round"
-							stroke-width="1.5"
-							d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+							stroke-width="2"
+							d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"
 						/>
 					</svg>
 				</span><span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1"
 					>Code Snippets
 				</span>
+			</li>
+
+			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
+				<a href="/repl" class="flex w-full p-2">
+					<span class="flex items-center justify-center mr-2">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+							/>
+						</svg>
+					</span><span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1 ml-1">REPL</span
+					>
+				</a>
 			</li>
 			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
 				<a href="/tools" class="flex w-full p-2">
@@ -151,7 +194,7 @@
 		</ul>
 	</nav>
 
-	<div class="w-full">
+	<div class="w-full {desktopMenu ? 'lg:pl-64 2xl:pl-72' : 'lg:pl-0 2xl:pl-0'} transition-all">
 		<main>
 			<slot />
 		</main>

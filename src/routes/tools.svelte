@@ -4,9 +4,7 @@
 			<h1 class="text-3xl font-extrabold tracking-wider text-slate-900 sm:text-4xl uppercase">
 				Tools
 			</h1>
-			<p class="mt-4 text-xl text-slate-600">
-				This is a living and growing list of handy tools we love.
-			</p>
+			<p class="mt-4 text-xl text-slate-600">This is a living list of handy tools we love.</p>
 		</div>
 		<div class="text-lg max-w-prose">
 			<div class="mt-6 prose prose-green lg:prose-xl prose-slate mx-auto">
@@ -258,6 +256,16 @@
 								/><line x1="15" y1="9" x2="9" y2="15" /><line x1="9" y1="9" x2="15" y2="15" /></svg
 							>
 						</div>
+					</li>
+				</ul>
+				<hr />
+				<h2>Integrations</h2>
+				<ul>
+					<li>
+						<a target="_blank" href="https://pipedream.com/">
+							<h3>Pipedream</h3>
+						</a>
+						<p>Quickly make Zapier like integration for a fraction of the cost.</p>
 					</li>
 				</ul>
 			</div>
