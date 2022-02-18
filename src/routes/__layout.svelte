@@ -4,12 +4,12 @@
 </script>
 
 <div
-	class="text-green-800 bg-green-50 shadow-sm p-2 m-2 fixed cursor-pointer z-30 rounded-full lg:hidden"
+	class="bg-green-50 shadow-sm p-2 m-2 fixed cursor-pointer z-30 rounded-full lg:hidden"
 	on:click={() => (mobileMenu = true)}
 >
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
-		class="h-6 w-6 text-slate-500 group-hover:text-slate-700"
+		class="h-6 w-6 text-green-700"
 		fill="none"
 		viewBox="0 0 24 24"
 		stroke="currentColor"
@@ -24,10 +24,16 @@
 </div>
 
 <div class="relative flex h-full min-h-screen w-full">
+	<div
+		on:click={() => (mobileMenu = false)}
+		class="bg-slate-900/20 backdrop-blur-sm w-full h-full z-20 absolute animate-all duration-750 {mobileMenu
+			? 'block opacity-100'
+			: 'hidden opacity-0'} "
+	/>
 	<nav
 		class="{mobileMenu
 			? 'block'
-			: 'hidden'} lg:block absolute z-30 h-full max-h-screen min-h-screen w-3/4 flex-none transform overflow-y-auto border-r border-slate-150 bg-white pb-10 transition duration-200 ease-in-out dark:border-slate-800 dark:bg-slate-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 lg:bg-slate-50 lg:dark:bg-slate-900 2xl:w-72"
+			: 'hidden'} lg:block absolute top-0 z-30 h-full max-h-screen min-h-screen w-3/4 flex-none transform overflow-y-auto border-r border-slate-100 pb-10 transition duration-200 ease-in-out dark:border-slate-800 dark:bg-slate-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 bg-slate-50 lg:dark:bg-slate-900 2xl:w-72"
 	>
 		<button
 			on:click={() => (mobileMenu = false)}
@@ -65,7 +71,7 @@
 				<span class="flex items-center justify-center mr-2">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6 text-slate-500 group-hover:text-slate-700 group-hover:rotate-6 animate-all"
+						class="h-6 w-6 text-slate-500 group-hover:text-slate-700"
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
@@ -84,7 +90,7 @@
 				<span class="flex items-center justify-center mr-2"
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6 text-slate-500 group-hover:text-slate-700 group-hover:rotate-6 animate-all"
+						class="h-6 w-6 text-slate-500 group-hover:text-slate-700"
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
@@ -98,29 +104,50 @@
 					</svg>
 				</span><span class="flex-1 text-slate-700 group-hover:text-slate-900">Code Snippets </span>
 			</li>
-			<li class="flex items-stretch space-x-1 hover:bg-slate-200 p-2 rounded-md group">
-				<span class="flex items-center justify-center mr-2">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6 text-slate-500 group-hover:text-slate-700 group-hover:rotate-6 animate-all"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
+			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
+				<a href="/tools" class="flex w-full p-2">
+					<span class="flex items-center justify-center mr-2">
+						<svg
+							viewBox="0 0 24 24"
+							class="h-6 w-6 text-slate-500 group-hover:text-slate-700"
+							stroke="currentColor"
+							stroke-width="2"
+							fill="none"
 							stroke-linecap="round"
 							stroke-linejoin="round"
-							stroke-width="2"
-							d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-						/>
-					</svg>
-				</span><span class="flex-1 text-slate-700 group-hover:text-slate-900">Send a Question</span>
+							><path
+								d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+							/></svg
+						>
+					</span><span class="flex-1 text-slate-700 group-hover:text-slate-900">Tools</span>
+				</a>
+			</li>
+			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
+				<a href="/contact" class="flex w-full p-2">
+					<span class="flex items-center justify-center mr-2">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-6 w-6 text-slate-500 group-hover:text-slate-700"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+							/>
+						</svg>
+					</span><span class="flex-1 text-slate-700 group-hover:text-slate-900">Ask a Question</span
+					>
+				</a>
 			</li>
 		</ul>
 	</nav>
 
-	<div class="w-full pt-8">
-		<main class="pb-8 max-w-5xl m-auto">
+	<div class="w-full">
+		<main>
 			<slot />
 		</main>
 	</div>
