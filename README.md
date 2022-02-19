@@ -1,3 +1,7 @@
+This is a standard Sveltekit Skeleton project as the base. The REPL is based on [REPLicant: https://github.com/pngwn/REPLicant](https://github.com/pngwn/REPLicant) and the mdsvex repl. The Svelte REPL: [https://github.com/sveltejs/sites/tree/master/packages/repl](https://github.com/sveltejs/sites/tree/master/packages/repl) is a better way to do it, and more feature complete. 
+
+
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
