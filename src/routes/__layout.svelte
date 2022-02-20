@@ -192,7 +192,11 @@
 				</a>
 			</li>
 			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
-				<a href="https://github.com/svelteboard/svelteboard" class="flex w-full p-2">
+				<a
+					href="https://github.com/svelteboard/svelteboard"
+					target="_blank"
+					class="flex w-full p-2"
+				>
 					<span class="flex items-center justify-center mr-2">
 						<svg
 							viewBox="0 0 24 24"

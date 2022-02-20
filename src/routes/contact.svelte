@@ -1,3 +1,28 @@
+<script>
+	async function handleSubmit() {
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		const body = {
+			fname: fname,
+			lname: lname,
+			email: email,
+			question: quest
+		};
+		const options = {
+			method: 'POST',
+			headers,
+			mode: 'cors',
+			body: JSON.stringify(body)
+		};
+		fetch('/contact', options);
+		submitButton.disabled = true;
+		sent = true;
+		submitButton.innerText = 'Question Sent!';
+	}
+	let fname, lname, email, quest, submitButton;
+	let sent = false;
+</script>
+
 <div class="bg-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-24">
 	<div class="relative max-w-xl mx-auto">
 		<div class="text-center">
@@ -7,7 +32,11 @@
 			<p class="mt-4 text-xl leading-6 text-slate-600">Shoot us a question or comment.</p>
 		</div>
 		<div class="mt-12">
-			<form action="#" method="POST" class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+			<form
+				on:submit|preventDefault={handleSubmit}
+				method="POST"
+				class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+			>
 				<div>
 					<label for="first-name" class="block text-sm font-medium text-slate-700">First name</label
 					>
@@ -17,6 +46,7 @@
 							name="first-name"
 							id="first-name"
 							autocomplete="given-name"
+							bind:value={fname}
 							class="py-3 px-4 block w-full shadow-sm focus:ring-green-500 focus:border-green-500 border-slate-300 rounded-md"
 						/>
 					</div>
@@ -29,6 +59,7 @@
 							name="last-name"
 							id="last-name"
 							autocomplete="family-name"
+							bind:value={lname}
 							class="py-3 px-4 block w-full shadow-sm focus:ring-green-500 focus:border-green-500 border-slate-300 rounded-md"
 						/>
 					</div>
@@ -41,6 +72,7 @@
 							name="email"
 							type="email"
 							autocomplete="email"
+							bind:value={email}
 							class="py-3 px-4 block w-full shadow-sm focus:ring-green-500 focus:border-green-500 border-slate-300 rounded-md"
 						/>
 					</div>
@@ -54,6 +86,7 @@
 							id="question"
 							name="question"
 							rows="4"
+							bind:value={quest}
 							class="py-3 px-4 block w-full shadow-sm focus:ring-green-500 focus:border-green-500 border border-slate-300 rounded-md"
 						/>
 					</div>
@@ -61,12 +94,21 @@
 
 				<div class="sm:col-span-2">
 					<button
+						bind:this={submitButton}
 						type="submit"
-						class="block w-full py-3 text-center rounded bg-green-700 font-semibold text-white border-t border-green-500 shadow hover:bg-green-600 hover:border-green-300 focus:outline-none focus-visible:underline lg:text-base"
+						class="{sent
+							? 'text-green-800 bg-green-50'
+							: 'text-white bg-green-700 hover:bg-green-600 hover:border-green-300 border-t border-green-500'} block w-full py-3 text-center rounded font-semibold shadow focus:outline-none focus-visible:underline lg:text-base"
 						>Ask Question</button
 					>
 				</div>
 			</form>
+			{#if sent}
+				<p class="mt-4 text-xl leading-6 text-slate-600 text-center">
+					Great, we got your question! <br />
+					With any luck we may have an answer for you!
+				</p>
+			{/if}
 		</div>
 	</div>
 </div>
