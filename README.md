@@ -1,6 +1,9 @@
-This is a standard Sveltekit Skeleton project as the base. The REPL is based on [REPLicant: https://github.com/pngwn/REPLicant](https://github.com/pngwn/REPLicant) and the mdsvex repl.
+This is a standard Sveltekit Skeleton project as the base.
 
-The Svelte REPL: [https://github.com/sveltejs/sites/tree/master/packages/repl](https://github.com/sveltejs/sites/tree/master/packages/repl) is a better way to do it, and more feature complete.
+The REPL used here is the same one used on the Svelte Site: [https://github.com/sveltejs/sites/tree/master/packages/repl](https://github.com/sveltejs/sites/tree/master/packages/repl) (minus the saving your progress feature)
+
+The theme for the REPL was shamelessly stolen from Tailwind. Check them out if you haven't!
+[https://play.tailwindcss.com/](https://play.tailwindcss.com/)
 
 # create-svelte
 

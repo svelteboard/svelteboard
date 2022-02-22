@@ -2,7 +2,9 @@ const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
-		extend: {}
+		fontFamily: {
+			mono: ['PT Mono', 'monospace']
+		}
 	},
 
 	plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]

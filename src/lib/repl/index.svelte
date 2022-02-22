@@ -283,7 +283,7 @@
 				<ModuleEditor errorLoc={sourceErrorLoc} {theme} />
 			</section>
 
-			<section slot="b" style="height: 100%;">
+			<section slot="b" style="height: 100%; border-left:1px solid #64748b">
 				<Output
 					{svelteUrl}
 					status={status_visible && status}

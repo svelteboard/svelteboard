@@ -4,6 +4,12 @@
 	let desktopMenu = true;
 </script>
 
+<svelte:head>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet" />
+</svelte:head>
+
 <div
 	class="bg-green-50 shadow-sm p-2 m-2 fixed cursor-pointer z-30 rounded-full lg:hidden"
 	on:click={() => (mobileMenu = true)}

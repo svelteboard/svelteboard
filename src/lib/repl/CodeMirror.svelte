@@ -230,7 +230,7 @@
 	}
 </script>
 
-<div class="codemirror-container" bind:offsetWidth={w} bind:offsetHeight={h}>
+<div class="codemirror-container font-mono" bind:offsetWidth={w} bind:offsetHeight={h}>
 	<textarea bind:this={refs.editor} readonly value={code} />
 
 	{#if !CodeMirror}

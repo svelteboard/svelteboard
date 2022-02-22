@@ -37,7 +37,10 @@ function compile({ id, source, options, return_ast }) {
 			id,
 			result: {
 				js: js.code,
-				css: css.code || `/* Add a <sty` + `le> tag to see compiled CSS */`,
+				css:
+					css.code ||
+					`/* Add a <sty` +
+						`le> tag to see compiled CSS (The tailwind styles are using the CDN and won't show up here*/`,
 				ast: return_ast ? ast : null
 			}
 		};
