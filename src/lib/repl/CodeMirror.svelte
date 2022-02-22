@@ -250,6 +250,7 @@
 		border: none;
 		line-height: 1.5;
 		overflow: hidden;
+		font-family: 'PT Mono';
 	}
 
 	.codemirror-container :global(.CodeMirror) {
