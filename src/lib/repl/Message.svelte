@@ -1,31 +1,36 @@
 <script>
-	//import { getContext } from 'svelte';
-	import { loop_guard } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import { slide } from 'svelte/transition';
-	//const { navigate } = getContext('REPL');
+
+	const { navigate } = getContext('REPL');
+
 	export let kind;
 	export let details = null;
 	export let filename = null;
-	export let truncate;
+	export let truncate = false;
+
 	function message(details) {
 		let str = details.message || '[missing message]';
+
 		let loc = [];
+
 		if (details.filename && details.filename !== filename) {
 			loc.push(details.filename);
 		}
+
 		if (details.start) loc.push(details.start.line, details.start.column);
+
 		return str + (loc.length ? ` (${loc.join(':')})` : ``);
 	}
 </script>
 
 <div
-	in:slide={{ delay: 150, duration: 100 }}
-	out:slide={{ duration: 100 }}
+	transition:slide={{ duration: 100 }}
 	class="message {kind}"
 	class:truncate
 >
 	{#if details}
-		<p class:navigable={details.filename} />
+		<p class:navigable={details.filename} on:click={() => navigate(details)}>{message(details)}</p>
 	{:else}
 		<slot />
 	{/if}
@@ -40,9 +45,11 @@
 		margin: 0;
 		border-top: 1px solid white;
 	}
+
 	.navigable {
 		cursor: pointer;
 	}
+
 	.message::before {
 		content: '!';
 		position: absolute;
@@ -60,20 +67,25 @@
 		font-size: 11px;
 		font-weight: 700;
 	}
+
 	.truncate {
 		white-space: pre;
 		overflow-x: hidden;
 		text-overflow: ellipsis;
 	}
+
 	p {
 		margin: 0;
 	}
+
 	.error {
 		background-color: #da106e;
 	}
+
 	.warning {
 		background-color: #e47e0a;
 	}
+
 	.info {
 		background-color: var(--second);
 	}

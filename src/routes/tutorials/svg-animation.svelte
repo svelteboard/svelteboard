@@ -24,17 +24,6 @@
 	});
 </script>
 
-<main>
+<div class="max-w-5xl m-auto h-96 border shadow-xl rounded-lg">
 	<Repl bind:this={repl} showAst />
-</main>
-
-<style>
-	:global(body) {
-		margin: 0;
-		padding: 0;
-	}
-
-	main {
-		height: 100vh;
-	}
-</style>
+</div>
