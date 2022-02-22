@@ -21,6 +21,7 @@ specifiers:
   rollup: ^2.68.0
   sourcemap-codec: ^1.4.8
   svelte: ^3.44.0
+  svelte-json-tree: ^0.1.0
   svelte-preprocess: ^4.10.1
   tailwindcss: ^3.0.12
   yootils: ^0.3.1
@@ -35,6 +36,7 @@ dependencies:
   marked: 4.0.12
   rollup: 2.68.0
   sourcemap-codec: 1.4.8
+  svelte-json-tree: 0.1.0
   yootils: 0.3.1
 
 devDependencies:
@@ -2286,6 +2288,10 @@ packages:
     dependencies:
       svelte: 3.46.4
     dev: true
+
+  /svelte-json-tree/0.1.0:
+    resolution: {integrity: sha512-ufKWvS94z5m6Je9Hu0yosvdALy0mOPcaexbTcQQ/jW+3Rzi4oaHkOeg4RQ3cNpOlOQlIs0lfsF9FBlyquZ7XuQ==}
+    dev: false
 
   /svelte-preprocess/4.10.3_06670835898ebc1da7d1c97a8716c619:
     resolution: {integrity: sha512-ttw17lJfb/dx2ZJT9sesaXT5l7mPQ9Apx1H496Kli3Hkk7orIRGpOw6rCPkRNzr6ueVPqb4vzodS5x7sBFhKHw==}

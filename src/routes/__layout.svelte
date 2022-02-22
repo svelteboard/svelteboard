@@ -88,44 +88,48 @@
 		</div>
 
 		<ul class="space-y-1 p-4 2xl:text-xl font-normal">
-			<li class="flex items-stretch space-x-1 hover:bg-slate-200 p-2 rounded-md group">
-				<span class="flex items-center justify-center mr-2">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="1.5"
-							d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-						/>
-					</svg>
-				</span>
-				<span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1"> Tutorials </span>
+			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
+				<a href="/tutorials" class="flex w-full p-2">
+					<span class="flex items-center justify-center mr-2">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+							/>
+						</svg>
+					</span>
+					<span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1"> Tutorials </span>
+				</a>
 			</li>
-			<li class="flex items-stretch space-x-1 hover:bg-slate-200 p-2 rounded-md group">
-				<span class="flex items-center justify-center mr-2">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"
-						/>
-					</svg>
-				</span><span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1"
-					>Code Snippets
-				</span>
+			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
+				<a href="/repl" class="flex w-full p-2">
+					<span class="flex items-center justify-center mr-2">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"
+							/>
+						</svg>
+					</span><span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1"
+						>Code Snippets
+					</span>
+				</a>
 			</li>
 
 			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
