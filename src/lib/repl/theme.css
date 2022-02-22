@@ -1,12 +1,15 @@
 .cm-s-svelte.CodeMirror {
-	--base: hsl(45, 7%, 45%);
-	--comment: hsl(210, 25%, 60%);
-	--keyword: hsl(204, 58%, 45%);
-	--tags: hsl(19, 67%, 45%);
-	--string: hsl(41, 37%, 45%);
-	--number: hsl(102, 27%, 50%);
+	--base: #f8fafc;
+	--comment: #94a3b8;
+	--keyword: #cbd5e1;
+	--tags: #f472b6;
+	--string: #7dd3fc;
+	--number: #f8fafc;
 	background: transparent;
 	color: var(--base);
+}
+.CodeMirror {
+	background: #1e293b !important;
 }
 
 .cm-s-svelte .CodeMirror-selected {
@@ -33,7 +36,7 @@
 }
 
 .cm-s-svelte .CodeMirror-cursor {
-	border-left: 1px solid black;
+	border-left: 2px solid var(--comment);
 }
 
 .cm-s-svelte span.cm-comment {
@@ -67,7 +70,7 @@
 }
 
 .cm-s-svelte span.cm-link {
-	color: var(--flash);;
+	color: var(--flash);
 }
 
 .cm-s-svelte span.cm-error,
