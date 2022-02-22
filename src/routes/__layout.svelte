@@ -173,7 +173,7 @@
 					>
 				</a>
 			</li>
-			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
+			<!-- <li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
 				<a href="/contact" class="flex w-full p-2">
 					<span class="flex items-center justify-center mr-2">
 						<svg
@@ -194,7 +194,7 @@
 						>Ask a Question</span
 					>
 				</a>
-			</li>
+			</li> -->
 			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
 				<a
 					href="https://github.com/svelteboard/svelteboard"
