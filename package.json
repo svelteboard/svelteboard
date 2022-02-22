@@ -10,8 +10,6 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/kit": "next",
 		"autoprefixer": "^10.4.2",
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
@@ -20,7 +18,6 @@
 		"postcss-load-config": "^3.1.1",
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.5.0",
-		"svelte": "^3.44.0",
 		"svelte-preprocess": "^4.10.1",
 		"tailwindcss": "^3.0.12"
 	},
@@ -36,6 +33,9 @@
 		"rollup": "^2.68.0",
 		"sourcemap-codec": "^1.4.8",
 		"svelte-json-tree": "^0.1.0",
-		"yootils": "^0.3.1"
+		"yootils": "^0.3.1",
+		"@sveltejs/adapter-cloudflare": "^1.0.0-next.9",
+		"@sveltejs/kit": "next",
+		"svelte": "^3.44.0"
 	}
 }
