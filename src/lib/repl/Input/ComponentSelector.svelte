@@ -1,6 +1,8 @@
 <script>
 	import { getContext, createEventDispatcher } from 'svelte';
 
+	export let plMenu = false;
+
 	export let handle_select;
 	export let show_modified;
 
@@ -129,7 +131,7 @@
 	}
 </script>
 
-<div class="component-selector">
+<div class="component-selector pl-16 {plMenu ? 'lg:pl-14' : 'lg:pl-0'} transition-all">
 	{#if $components.length}
 		<div class="file-tabs" on:dblclick={addNew}>
 			{#each $components as component, index}
@@ -148,7 +150,7 @@
 					on:dragleave={dragLeave}
 					on:drop={dragEnd}
 				>
-					<i class="drag-handle bg-slate-900 border-x border-slate-400 border-dotted" />
+					<i class="drag-handle bg-transparent border-x border-slate-400/80 border-dotted" />
 					{#if component.name === 'App' && component !== editing}
 						<div class="uneditable">
 							App.svelte{#if show_modified && component.modified}*{/if}
@@ -196,8 +198,7 @@
 <style>
 	.component-selector {
 		position: relative;
-		background: #0f172a;
-		border-bottom: 1px solid rgb(30 41 59);
+		background: #293548;
 		overflow: hidden;
 	}
 
@@ -207,27 +208,28 @@
 		white-space: nowrap;
 		overflow-x: auto;
 		overflow-y: hidden;
-		height: 10em;
+		height: 49px;
 	}
 
 	.file-tabs .button,
 	.file-tabs button {
 		position: relative;
 		display: inline-block;
-		font: 400 12px/1.5 var(--font);
+		font-size: 12px;
 		border: none;
-		border-bottom: 3px solid transparent;
-		padding: 12px 14px 8px 16px;
-		margin: 0;
+		border-bottom: 1px solid transparent;
+		padding: 12px 22px 6px 22px;
+		margin-top: 9px;
 		color: #f8fafc;
 		border-radius: 0;
 		cursor: pointer;
 	}
 
 	.file-tabs .button.active {
-		/* color: var(--second); */
-		color: #38bdf8;
-		border-bottom: 3px solid var(--prime);
+		color: #7dd3fc;
+		border-bottom: 1px solid #7dd3fc !important;
+		background: #1e293b;
+		z-index: 10;
 	}
 
 	.editable,
@@ -246,9 +248,9 @@
 	input {
 		position: absolute;
 		width: 100%;
-		left: 16px;
-		top: 12px;
-		font: 400 12px/1.5 var(--font);
+		left: 22px;
+		top: 14px;
+		font: 12px;
 		border: none;
 		color: var(--flash);
 		outline: none;
@@ -262,11 +264,11 @@
 	.remove {
 		position: absolute;
 		display: none;
-		right: 1px;
-		top: 4px;
+		right: 9px;
+		top: 3px;
 		width: 16px;
 		text-align: right;
-		padding: 12px 0 12px 5px;
+		padding: 12px 0 12px 10px;
 		font-size: 8px;
 		cursor: pointer;
 	}

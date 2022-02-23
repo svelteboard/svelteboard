@@ -8,6 +8,25 @@
 		</div>
 		<div class="text-lg max-w-prose">
 			<div class="mt-6 prose prose-green lg:prose-xl prose-slate mx-auto">
+				<h2>Design</h2>
+				<ul>
+					<li>
+						<a target="_blank" href="https://tailwindcss.com/">
+							<h3>Tailwind CSS</h3>
+						</a>
+						<p>
+							Big shoutout to Tailwind for making design easier. We shamelessly stole our REPL
+							design from them.
+						</p>
+					</li>
+					<li>
+						<a target="_blank" href="https://tailwindui.com/">
+							<h3>Tailwind UI</h3>
+						</a>
+						<p>Use Tailwind</p>
+					</li>
+				</ul>
+				<hr />
 				<h2>Icons</h2>
 				<ul>
 					<li>
@@ -266,6 +285,32 @@
 							<h3>Pipedream</h3>
 						</a>
 						<p>Quickly make Zapier like integration for a fraction of the cost.</p>
+					</li>
+				</ul>
+				<hr />
+				<h2>Deploy</h2>
+				<ul>
+					<li>
+						<a target="_blank" href="https://vercel.com/">
+							<h3>Vercel</h3>
+						</a>
+						<p>Vercel is the quickest, and easiest way to get your site up and running.</p>
+					</li>
+					<li>
+						<a target="_blank" href="https://pages.cloudflare.com/">
+							<h3>Cloudflare Pages</h3>
+						</a>
+						<p>Cloudflare Pages</p>
+					</li>
+				</ul>
+				<hr />
+				<h2>Tutorials</h2>
+				<ul>
+					<li>
+						<a target="_blank" href="https://svelte.dev/tutorial/basics">
+							<h3>Svelte</h3>
+						</a>
+						<p>The Svelte Tutorial is a great interactive way to learn Svelte.</p>
 					</li>
 				</ul>
 			</div>

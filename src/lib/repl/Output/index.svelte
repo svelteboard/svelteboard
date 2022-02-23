@@ -126,7 +126,7 @@
 
 <!-- markdown output -->
 <div class="tab-content" class:visible={selected_type === 'md'}>
-	<iframe title="Markdown" srcdoc={markdown} />
+	<iframe title="Markdown" srcdoc={markdown} class="h-full" />
 </div>
 
 <style>
@@ -163,7 +163,7 @@
 	.tab-content {
 		position: absolute;
 		width: 100%;
-		height: calc(100% - 42px) !important;
+		height: calc(100% - 51px) !important;
 		visibility: hidden;
 		pointer-events: none;
 	}

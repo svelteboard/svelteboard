@@ -1,6 +1,7 @@
 <script>
 	import Repl from '$lib/repl';
 	import { onMount } from 'svelte';
+	import { desktopMenu } from '$lib/stores';
 
 	let repl;
 
@@ -25,7 +26,7 @@
 </script>
 
 <main>
-	<Repl bind:this={repl} showAst />
+	<Repl bind:this={repl} showAst plMenu={!$desktopMenu} />
 </main>
 
 <style>

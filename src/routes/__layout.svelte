@@ -1,7 +1,7 @@
 <script>
 	import '../app.css';
+	import { desktopMenu } from '$lib/stores';
 	let mobileMenu = false;
-	let desktopMenu = true;
 </script>
 
 <svelte:head>
@@ -9,6 +9,22 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet" />
 </svelte:head>
+<button on:click={() => ($desktopMenu = true)} class="m-2 fixed z-30 left-0 top-0">
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		class="w-10 h-10 text-slate-500 hover:text-slate-500 animate-all backdrop-blur-sm bg-slate-200/70 hover:bg-slate-200 p-2 rounded-lg"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke="currentColor"
+	>
+		<path
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			stroke-width="2"
+			d="M13 5l7 7-7 7M5 5l7 7-7 7"
+		/>
+	</svg>
+</button>
 
 <div
 	class="bg-green-50 shadow-sm p-2 m-2 fixed cursor-pointer z-30 rounded-full lg:hidden"
@@ -38,7 +54,7 @@
 			: 'hidden opacity-0'} "
 	/>
 	<nav
-		class="{mobileMenu ? 'block' : 'hidden'} {desktopMenu
+		class="{mobileMenu ? 'block' : 'hidden'} {$desktopMenu
 			? 'lg:ml-0 2xl:ml-0'
 			: 'lg:-ml-64 2xl:-ml-72'} group lg:block fixed top-0 left-0 z-30 h-full max-h-screen min-h-screen flex-none overflow-y-scroll border-r border-slate-100 pb-10 transition-all duration-150 ease-out dark:border-slate-800 dark:bg-slate-900 sm:pb-0 bg-slate-50 lg:dark:bg-slate-900 w-full max-w-[285px] lg:w-64 2xl:w-72 b-r-8"
 	>
@@ -63,7 +79,7 @@
 		</button>
 
 		<button
-			on:click={() => (desktopMenu = false)}
+			on:click={() => ($desktopMenu = false)}
 			class="m-2 absolute z-30 right-0 hidden mt-4 group-hover:lg:block"
 		>
 			<svg
@@ -228,7 +244,7 @@
 		</ul>
 	</nav>
 
-	<div class="w-full {desktopMenu ? 'lg:pl-64 2xl:pl-72' : 'lg:pl-0 2xl:pl-0'} transition-all">
+	<div class="w-full {$desktopMenu ? 'lg:pl-64 2xl:pl-72' : 'lg:pl-0 2xl:pl-0'} transition-all">
 		<main>
 			<slot />
 		</main>

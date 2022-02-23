@@ -35,12 +35,30 @@
 	}
 </script>
 
+<div class="editor-wrapper">
+	<div class="editor notranslate" translate="no">
+		<CodeMirror bind:this={editor} {errorLoc} {theme} on:change={handle_change} />
+	</div>
+
+	<div class="info">
+		{#if error}
+			<Message kind="error" details={error} filename="{$selected.name}.{$selected.type}" />
+		{:else if warnings.length > 0}
+			{#each warnings as warning}
+				<Message kind="warning" details={warning} filename="{$selected.name}.{$selected.type}" />
+			{/each}
+		{/if}
+	</div>
+</div>
+
 <style>
 	.editor-wrapper {
 		z-index: 5;
 		background: var(--back-light);
 		display: flex;
 		flex-direction: column;
+		border-top: 1px solid #3a485d;
+		margin-top: -1px;
 	}
 
 	.editor {
@@ -61,24 +79,3 @@
 		/* height: 100%; */
 	}
 </style>
-
-<div class="editor-wrapper">
-	<div class="editor notranslate" translate="no">
-		<CodeMirror
-			bind:this={editor}
-			{errorLoc}
-			{theme}
-			on:change={handle_change}
-		/>
-	</div>
-
-	<div class="info">
-		{#if error}
-			<Message kind="error" details={error} filename="{$selected.name}.{$selected.type}"/>
-		{:else if warnings.length > 0}
-			{#each warnings as warning}
-				<Message kind="warning" details={warning} filename="{$selected.name}.{$selected.type}"/>
-			{/each}
-		{/if}
-	</div>
-</div>

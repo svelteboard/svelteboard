@@ -44,7 +44,7 @@
 
 <style>
 	.panel-header {
-		height: 42px;
+		height: 51px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

@@ -102,7 +102,7 @@
 	$: dimension = type === 'horizontal' ? 'width' : 'height';
 </script>
 
-<div class="container" bind:this={refs.container} bind:clientWidth={w} bind:clientHeight={h}>
+<div class="cm-container" bind:this={refs.container} bind:clientWidth={w} bind:clientHeight={h}>
 	<div class="pane" style="{dimension}: {pos}%;">
 		<slot name="a" />
 	</div>
@@ -126,7 +126,7 @@
 {/if}
 
 <style>
-	.container {
+	.cm-container {
 		position: relative;
 		width: 100%;
 		height: 100%;

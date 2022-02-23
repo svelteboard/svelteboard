@@ -80,6 +80,7 @@
 			module_editor.clearHistory();
 		}
 	}
+	export let plMenu;
 
 	const dispatch = createEventDispatcher();
 
@@ -271,7 +272,7 @@
 
 <svelte:window on:beforeunload={beforeUnload} />
 
-<div class="container" class:toggleable={$toggleable} bind:clientWidth={width}>
+<div class="cm-container" class:toggleable={$toggleable} bind:clientWidth={width}>
 	<div class="viewport" class:output={show_output}>
 		<SplitPane
 			type={orientation === 'rows' ? 'vertical' : 'horizontal'}
@@ -279,7 +280,7 @@
 			{fixed}
 		>
 			<section slot="a">
-				<ComponentSelector show_modified={showModified} {handle_select} on:add on:remove />
+				<ComponentSelector {plMenu} show_modified={showModified} {handle_select} on:add on:remove />
 				<ModuleEditor errorLoc={sourceErrorLoc} {theme} />
 			</section>
 
@@ -303,30 +304,30 @@
 </div>
 
 <style>
-	.container {
+	.cm-container {
 		position: relative;
 		width: 100%;
 		height: 100%;
 		background: white;
 	}
 
-	.container :global(section) {
+	.cm-container :global(section) {
 		position: relative;
-		padding: 42px 0 0 0;
+		padding: 51px 0 0 0;
 		height: 100%;
 		box-sizing: border-box;
 	}
 
-	.container :global(section) > :global(*):first-child {
+	.cm-container :global(section) > :global(*):first-child {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 42px;
+		height: 51px;
 		box-sizing: border-box;
 	}
 
-	.container :global(section) > :global(*):last-child {
+	.cm-container :global(section) > :global(*):last-child {
 		width: 100%;
 		height: 100%;
 	}
@@ -337,7 +338,7 @@
 
 	.toggleable .viewport {
 		width: 200%;
-		height: calc(100% - 42px);
+		height: calc(100% - 51px);
 		transition: transform 0.3s;
 	}
 
