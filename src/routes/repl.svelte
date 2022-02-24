@@ -30,6 +30,14 @@
 
 <svelte:window bind:innerHeight />
 
-<div style="height:100vh; calc(var({vh}, 1vh) * 100)">
+<div class="full-height">
 	<Repl bind:this={repl} showAst plMenu={!$desktopMenu} {viewToggle} />
 </div>
+
+<style>
+	.full-height {
+		min-height: 100vh;
+		/* mobile viewport bug fix */
+		min-height: -webkit-fill-available;
+	}
+</style>
