@@ -4,7 +4,7 @@
 </script>
 
 <!-- svelte-ignore a11y-label-has-associated-control -->
-<label class="input-output-toggle">
+<label class="input-output-toggle bg-white/40">
 	<span class:active={!checked} style="text-align: right">input</span>
 	<Checkbox bind:checked />
 	<span class:active={checked}>output</span>
@@ -12,7 +12,6 @@
 
 <style>
 	.input-output-toggle {
-		position: relative;
 		display: grid;
 		user-select: none;
 		flex: 0;
