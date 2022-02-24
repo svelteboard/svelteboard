@@ -25,19 +25,10 @@
 		});
 	});
 	let innerHeight;
-	let vh = innerHeight * 0.01;
 </script>
 
 <svelte:window bind:innerHeight />
 
-<div class="full-height">
+<div style="height:{innerHeight}px">
 	<Repl bind:this={repl} showAst plMenu={!$desktopMenu} {viewToggle} />
 </div>
-
-<style>
-	.full-height {
-		min-height: 100vh;
-		/* mobile viewport bug fix */
-		min-height: -webkit-fill-available;
-	}
-</style>
