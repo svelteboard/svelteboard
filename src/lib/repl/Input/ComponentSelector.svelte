@@ -186,9 +186,19 @@
 			{/each}
 
 			<button class="add-new" on:click={addNew} title="add new component">
-				<svg width="12" height="12" viewBox="0 0 24 24">
-					<line stroke="#999" x1="12" y1="5" x2="12" y2="19" />
-					<line stroke="#999" x1="5" y1="12" x2="19" y2="12" />
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-5 w-5 absolute -inset-y-1"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+					/>
 				</svg>
 			</button>
 		</div>
@@ -200,6 +210,9 @@
 		position: relative;
 		background: #293548;
 		overflow: hidden;
+		-webkit-box-shadow: inset 0 -5px 0px -3px #3a485d, inset 0 10px 0px 0px #3a485d;
+		-moz-box-shadow: inset 0 -5px 0px -3px #3a485d, inset 0 10px 0px 0px #3a485d;
+		box-shadow: inset 0 -5px 0px -3px #3a485d, inset 0 10px 0px 0px #3a485d;
 	}
 
 	.file-tabs {
@@ -209,6 +222,7 @@
 		overflow-x: auto;
 		overflow-y: hidden;
 		height: 49px;
+		border-top: 9px solid #1e293b;
 	}
 
 	.file-tabs .button,
@@ -219,17 +233,60 @@
 		border: none;
 		border-bottom: 1px solid transparent;
 		padding: 12px 22px 6px 22px;
-		margin-top: 9px;
-		color: #f8fafc;
-		border-radius: 0;
+		color: #cbd5e1;
+		border-radius: 1px;
 		cursor: pointer;
+		z-index: 10;
+		border-top: 1px solid transparent;
+		border-bottom: 1px solid transparent;
+	}
+	button.add-new {
+		border-top: 0px !important;
+		border-bottom: 0px !important;
+	}
+	.file-tabs .button:hover,
+	.file-tabs button:hover {
+		color: #fff;
 	}
 
 	.file-tabs .button.active {
 		color: #7dd3fc;
 		border-bottom: 1px solid #7dd3fc !important;
+		border-top: 1px solid #1e293b;
+		border-left: 1px solid #3a485d;
+		border-right: 1px solid #3a485d;
 		background: #1e293b;
 		z-index: 10;
+		border-radius: 0;
+	}
+	.file-tabs .button.active::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: -4px;
+		width: 4px;
+		height: 100%;
+		background: red;
+		border-right: 1px solid #3a485d;
+		border-top: 1px solid #3a485d;
+		border-radius: 0px 10px 0px 0px;
+		z-index: 10;
+	}
+	.file-tabs .button.active:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0px;
+		width: 4px;
+		height: 100%;
+		border-left: 1px solid #3a485d;
+		border-top: 1px solid #3a485d;
+		border-radius: 0px 10px 0px 0px;
+		z-index: 10;
+	}
+	.file-tabs .button.active:before,
+	.file-tabs .button.active:after {
+		display: none;
 	}
 
 	.editable,
@@ -293,19 +350,6 @@
 		cursor: move;
 	}
 
-	.add-new {
-		position: absolute;
-		left: 0;
-		top: 0;
-		padding: 12px 10px 8px 0 !important;
-		height: 40px;
-		text-align: center;
-	}
-
-	.add-new:hover {
-		color: var(--flash) !important;
-	}
-
 	.drag-handle {
 		cursor: move;
 		width: 3px;
@@ -313,21 +357,5 @@
 		position: absolute;
 		left: 5px;
 		top: 9px;
-	}
-
-	svg {
-		position: relative;
-		overflow: hidden;
-		vertical-align: middle;
-		-o-object-fit: contain;
-		object-fit: contain;
-		-webkit-transform-origin: center center;
-		transform-origin: center center;
-
-		stroke: currentColor;
-		stroke-width: 2;
-		stroke-linecap: round;
-		stroke-linejoin: round;
-		fill: none;
 	}
 </style>

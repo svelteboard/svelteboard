@@ -35,7 +35,7 @@
 	}
 </script>
 
-<div class="editor-wrapper">
+<div class="editor-wrapper h-full pt-[48px]">
 	<div class="editor notranslate" translate="no">
 		<CodeMirror bind:this={editor} {errorLoc} {theme} on:change={handle_change} />
 	</div>
@@ -57,8 +57,6 @@
 		background: var(--back-light);
 		display: flex;
 		flex-direction: column;
-		border-top: 1px solid #3a485d;
-		margin-top: -1px;
 	}
 
 	.editor {

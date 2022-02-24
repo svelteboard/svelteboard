@@ -21,6 +21,7 @@
 	export let theme = 'svelte';
 	export let showModified = false;
 	export let showAst = false;
+	export let viewToggle;
 
 	const historyMap = new Map();
 
@@ -272,16 +273,16 @@
 
 <svelte:window on:beforeunload={beforeUnload} />
 
-<div class="cm-container" class:toggleable={$toggleable} bind:clientWidth={width}>
+<div class="h-full w-full relative" class:toggleable={$toggleable} bind:clientWidth={width}>
 	<div class="viewport" class:output={show_output}>
 		<SplitPane
 			type={orientation === 'rows' ? 'vertical' : 'horizontal'}
 			pos={mobile || fixed ? fixedPos : orientation === 'rows' ? 50 : 60}
 			{fixed}
 		>
-			<section slot="a">
+			<section slot="a" class="h-full">
 				<ComponentSelector {plMenu} show_modified={showModified} {handle_select} on:add on:remove />
-				<ModuleEditor errorLoc={sourceErrorLoc} {theme} />
+				<div class="absolute inset-0"><ModuleEditor errorLoc={sourceErrorLoc} {theme} /></div>
 			</section>
 
 			<section slot="b" style="height: 100%; border-left:1px solid #64748b">
@@ -294,6 +295,7 @@
 					{injectedCSS}
 					{theme}
 					{showAst}
+					{viewToggle}
 				/>
 			</section>
 		</SplitPane>

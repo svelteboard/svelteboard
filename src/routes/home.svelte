@@ -1,7 +1,16 @@
-<svelte:head>
-	<title>Svelte Board- Svelte Tutorials, Code Snippets, and Svmore!</title>
-</svelte:head>
-<div class="mx-2">
+<script>
+	import Repl from '$lib/repl';
+	import { onMount } from 'svelte';
+
+	let repl;
+
+	onMount(() => {
+		repl.set({
+			components: [
+				{
+					name: 'App',
+					type: 'svelte',
+					source: `<div class="mx-2">
 	<div
 		class="relative max-w-sm m-auto p-8 md:p-16 border-8 border-slate-800 text-slate-800 shadow-md hover:bg-green-900 hover:border-8 hover:border-orange-900 group transition-all"
 	>
@@ -58,4 +67,15 @@
 			Tutorials, Code Snippets, <span class="sm:whitespace-nowrap">and Svmore coming soon!</span>
 		</p>
 	</div>
+</div>
+`
+				}
+			]
+		});
+	});
+</script>
+
+<h1 class="text-4xl font-bold max-w-5xl m-auto  py-12">Svelte Board</h1>
+<div class="max-w-5xl m-auto h-96 border border-slate-200 shadow-xl rounded-lg overflow-clip">
+	<Repl bind:this={repl} showAst />
 </div>

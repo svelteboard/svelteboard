@@ -26,7 +26,7 @@
 </script>
 
 <SplitPane bind:max type="vertical" bind:pos>
-	<section slot="a">
+	<section slot="a" class="h-full">
 		<slot name="main" />
 	</section>
 

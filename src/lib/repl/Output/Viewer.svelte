@@ -7,6 +7,7 @@
 	import Message from '../Message.svelte';
 	import srcdoc from './srcdoc/index.html?raw';
 	import { browser } from '$app/env';
+	export let viewToggle;
 
 	const { bundle } = getContext('REPL');
 
@@ -190,9 +191,9 @@
 	}
 </script>
 
-<div class="iframe-container">
+<div class="iframe-container {viewToggle ? 'h-[calc(100%-51px)]' : 'h-full'}">
 	<PaneWithPanel pos={100} panel="Console">
-		<div slot="main">
+		<div slot="main" class="h-full">
 			<iframe
 				title="Result"
 				class:inited
@@ -232,7 +233,6 @@
 		background-color: white;
 		border: none;
 		width: 100%;
-		height: 100%;
 	}
 
 	iframe {

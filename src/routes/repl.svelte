@@ -4,6 +4,7 @@
 	import { desktopMenu } from '$lib/stores';
 
 	let repl;
+	let viewToggle = true;
 
 	onMount(() => {
 		repl.set({
@@ -26,7 +27,7 @@
 </script>
 
 <main>
-	<Repl bind:this={repl} showAst plMenu={!$desktopMenu} />
+	<Repl bind:this={repl} showAst plMenu={!$desktopMenu} {viewToggle} />
 </main>
 
 <style>

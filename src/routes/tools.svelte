@@ -23,7 +23,7 @@
 						<a target="_blank" href="https://tailwindui.com/">
 							<h3>Tailwind UI</h3>
 						</a>
-						<p>Use Tailwind</p>
+						<p>Beautiful Tailwind components to jumpstart your next project</p>
 					</li>
 				</ul>
 				<hr />
@@ -300,7 +300,10 @@
 						<a target="_blank" href="https://pages.cloudflare.com/">
 							<h3>Cloudflare Pages</h3>
 						</a>
-						<p>Cloudflare Pages</p>
+						<p>
+							A little more work to get started, but Cloudflare Pages has edge super powers. This
+							site is actually using Cloudflare Pages.
+						</p>
 					</li>
 				</ul>
 				<hr />
@@ -310,7 +313,10 @@
 						<a target="_blank" href="https://svelte.dev/tutorial/basics">
 							<h3>Svelte</h3>
 						</a>
-						<p>The Svelte Tutorial is a great interactive way to learn Svelte.</p>
+						<p>
+							The Svelte Tutorial is a great interactive way to learn Svelte and also a good
+							refresher, for when you forget something. (We stole the REPL too)
+						</p>
 					</li>
 				</ul>
 			</div>

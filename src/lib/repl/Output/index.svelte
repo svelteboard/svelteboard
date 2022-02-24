@@ -8,9 +8,7 @@
 	import CodeMirror from '../CodeMirror.svelte';
 	import AstView from './AstView.svelte';
 	import { is_browser } from '../env.js';
-
 	const { register_output, module_editor_ready } = getContext('REPL');
-
 	export let svelteUrl;
 	export let status;
 	export let sourceErrorLoc = null;
@@ -21,75 +19,69 @@
 	export let injectedCSS;
 	export let theme;
 	export let showAst;
+	export let viewToggle = false;
 
 	register_output({
 		set: async (selected, options) => {
 			selected_type = selected.type;
-
 			if (selected.type === 'js' || selected.type === 'json') {
 				js_editor.set(`/* Select a component to see its compiled code */`);
 				css_editor.set(`/* Select a component to see its compiled code */`);
 				return;
 			}
-
 			if (selected.type === 'md') {
 				markdown = parse(selected.source);
 				return;
 			}
-
 			const compiled = await compiler.compile(selected, options, showAst);
 			if (!js_editor) return; // unmounted
-
 			js_editor.set(compiled.js, 'js');
 			css_editor.set(compiled.css, 'css');
 			ast = compiled.ast;
 		},
-
 		update: async (selected, options) => {
 			if (selected.type === 'js' || selected.type === 'json') return;
-
 			if (selected.type === 'md') {
 				markdown = parse(selected.source);
 				return;
 			}
-
 			const compiled = await compiler.compile(selected, options, showAst);
 			if (!js_editor) return; // unmounted
-
 			js_editor.update(compiled.js);
 			css_editor.update(compiled.css);
 			ast = compiled.ast;
 		}
 	});
-
 	const compiler = is_browser && new Compiler(svelteUrl);
-
 	// refs
 	let js_editor;
 	let css_editor;
-
 	let view = 'result';
 	let selected_type = '';
 	let markdown = '';
 	let ast;
 </script>
 
-<div class="view-toggle">
-	{#if selected_type === 'md'}
-		<button class="active">Markdown</button>
-	{:else}
-		<button class:active={view === 'result'} on:click={() => (view = 'result')}>Result</button>
-		<button class:active={view === 'js'} on:click={() => (view = 'js')}>JS output</button>
-		<button class:active={view === 'css'} on:click={() => (view = 'css')}>CSS output</button>
-		{#if showAst}
-			<button class:active={view === 'ast'} on:click={() => (view = 'ast')}>AST output</button>
+{#if viewToggle}
+	<div class="view-toggle">
+		{#if selected_type === 'md'}
+			<button class="active">Markdown</button>
+		{:else}
+			<button class:active={view === 'result'} on:click={() => (view = 'result')}>Result</button>
+			<button class:active={view === 'js'} on:click={() => (view = 'js')}>JS output</button>
+			<button class:active={view === 'css'} on:click={() => (view = 'css')}>CSS output</button>
+			{#if showAst}
+				<button class:active={view === 'ast'} on:click={() => (view = 'ast')}>AST output</button>
+			{/if}
 		{/if}
-	{/if}
-</div>
+	</div>
+{:else}
+	<div class="absolute hidden" />
+{/if}
 
 <!-- component viewer -->
 <div class="tab-content" class:visible={selected_type !== 'md' && view === 'result'}>
-	<Viewer bind:error={runtimeError} {status} {relaxed} {injectedJS} {injectedCSS} />
+	<Viewer bind:error={runtimeError} {status} {relaxed} {injectedJS} {injectedCSS} {viewToggle} />
 </div>
 
 <!-- js output -->
@@ -98,7 +90,7 @@
 		<CodeMirror bind:this={js_editor} errorLoc={sourceErrorLoc} {theme} readonly />
 	{:else}
 		<PaneWithPanel pos={67} panel="Compiler options">
-			<div slot="main">
+			<div slot="main" class="h-full">
 				<CodeMirror bind:this={js_editor} errorLoc={sourceErrorLoc} {theme} readonly />
 			</div>
 
@@ -131,12 +123,11 @@
 
 <style>
 	.view-toggle {
-		height: 4.2rem;
+		height: 51px;
 		border-bottom: 1px solid #eee;
 		white-space: nowrap;
 		box-sizing: border-box;
 	}
-
 	button {
 		/* width: 50%;
 		height: 100%; */
@@ -150,26 +141,22 @@
 		color: #999;
 		border-radius: 0;
 	}
-
 	button.active {
 		border-bottom: 3px solid var(--prime);
 		color: #333;
 	}
-
 	div[slot] {
 		height: 100%;
 	}
-
 	.tab-content {
 		position: absolute;
 		width: 100%;
-		height: calc(100% - 51px) !important;
-		visibility: hidden;
+		height: 100%;
+		display: none;
 		pointer-events: none;
 	}
-
 	.tab-content.visible {
-		visibility: visible;
+		display: block;
 		pointer-events: all;
 	}
 	iframe {
