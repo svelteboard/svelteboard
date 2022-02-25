@@ -306,38 +306,9 @@
 </div>
 
 <style>
-	.cm-container {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		background: white;
-	}
-
-	.cm-container :global(section) {
-		position: relative;
-		padding: 51px 0 0 0;
-		height: 100%;
-		box-sizing: border-box;
-	}
-
-	.cm-container :global(section) > :global(*):first-child {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 51px;
-		box-sizing: border-box;
-	}
-
-	.cm-container :global(section) > :global(*):last-child {
-		width: 100%;
-		height: 100%;
-	}
-
 	.viewport {
 		height: 100%;
 	}
-
 	.toggleable .viewport {
 		width: 200%;
 		height: calc(100% - 51px);

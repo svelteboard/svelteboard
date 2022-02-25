@@ -56,7 +56,7 @@
 	<nav
 		class="{mobileMenu ? 'block' : 'hidden'} {$desktopMenu
 			? 'lg:ml-0 2xl:ml-0'
-			: 'lg:-ml-64 2xl:-ml-72'} group lg:block fixed top-0 left-0 z-30 h-full max-h-screen min-h-screen flex-none overflow-y-scroll border-r border-slate-100 pb-10 transition-all duration-150 ease-out dark:border-slate-800 dark:bg-slate-900 sm:pb-0 bg-slate-50 lg:dark:bg-slate-900 w-full max-w-[285px] lg:w-64 2xl:w-72 b-r-8"
+			: 'lg:-ml-64 2xl:-ml-72'} group lg:block fixed top-0 left-0 z-30 h-full max-h-screen min-h-screen flex-none overflow-y-scroll border-r border-slate-100 pb-10 transition-all duration-150 ease-out sm:pb-0 bg-slate-50 w-full max-w-[285px] lg:w-64 2xl:w-72 b-r-8"
 	>
 		<button
 			on:click={() => (mobileMenu = false)}
@@ -64,7 +64,7 @@
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
+				class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 hover:text-slate-700"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
@@ -97,13 +97,11 @@
 				/>
 			</svg>
 		</button>
-		<div
-			class="bg-gradient-to-tr from-green-700 to-green-900 relative w-12 h-12 rounded-lg shadow-2xl m-auto mt-4 overflow-hidden"
-		>
+		<div class="relative w-12 h-12 rounded-lg shadow-2xl m-auto mt-4 overflow-hidden">
 			<a href="/">
 				<img
-					class="mix-blend-overlay absolute inset-0 w-full h-full object-cover"
-					src="/felt.png"
+					class="absolute inset-0 w-full h-full object-cover"
+					src="/svelteboard-logo.png"
 					alt=""
 				/></a
 			>
@@ -115,7 +113,7 @@
 					<span class="flex items-center justify-center mr-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
+							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 hover:text-slate-700"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -128,15 +126,15 @@
 							/>
 						</svg>
 					</span>
-					<span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1"> Tutorials </span>
+					<span class="flex-1 text-slate-700 hover:text-slate-900 py-1"> Tutorials </span>
 				</a>
 			</li>
 			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
-				<a href="/repl" class="flex w-full p-2">
+				<a href="/snippets" class="flex w-full p-2">
 					<span class="flex items-center justify-center mr-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
+							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 hover:text-slate-700"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -148,9 +146,7 @@
 								d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"
 							/>
 						</svg>
-					</span><span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1"
-						>Code Snippets
-					</span>
+					</span><span class="flex-1 text-slate-700 hover:text-slate-900 py-1">Code Snippets </span>
 				</a>
 			</li>
 
@@ -159,7 +155,7 @@
 					<span class="flex items-center justify-center mr-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
+							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 hover:text-slate-700"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -171,8 +167,7 @@
 								d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
 							/>
 						</svg>
-					</span><span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1 ml-1">REPL</span
-					>
+					</span><span class="flex-1 text-slate-700 hover:text-slate-900 py-1 ml-1">REPL</span>
 				</a>
 			</li>
 			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
@@ -180,7 +175,7 @@
 					<span class="flex items-center justify-center mr-2">
 						<svg
 							viewBox="0 0 24 24"
-							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
+							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 hover:text-slate-700"
 							stroke="currentColor"
 							stroke-width="1.5"
 							fill="none"
@@ -190,9 +185,7 @@
 								d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
 							/></svg
 						>
-					</span><span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1 ml-1"
-						>Tools</span
-					>
+					</span><span class="flex-1 text-slate-700 hover:text-slate-900 py-1 ml-1">Tools</span>
 				</a>
 			</li>
 			<!-- <li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
@@ -200,7 +193,7 @@
 					<span class="flex items-center justify-center mr-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
+							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 hover:text-slate-700"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -212,7 +205,7 @@
 								d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
 							/>
 						</svg>
-					</span><span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1 ml-1"
+					</span><span class="flex-1 text-slate-700 hover:text-slate-900 py-1 ml-1"
 						>Ask a Question</span
 					>
 				</a>
@@ -231,14 +224,12 @@
 							fill="none"
 							stroke-linecap="round"
 							stroke-linejoin="round"
-							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 group-hover:text-slate-700"
+							class="h-6 w-6 2xl:h-8 2xl:w-8 2xl:p-1 text-slate-500 hover:text-slate-700"
 							><path
 								d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
 							/></svg
 						>
-					</span><span class="flex-1 text-slate-700 group-hover:text-slate-900 py-1 ml-1"
-						>Github</span
-					>
+					</span><span class="flex-1 text-slate-700 hover:text-slate-900 py-1 ml-1">Github</span>
 				</a>
 			</li>
 		</ul>

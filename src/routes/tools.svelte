@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>Tools</title>
+</svelte:head>
+
 <div class="bg-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-24">
 	<div class="relative max-w-2xl mx-auto">
 		<div class="text-center">
@@ -23,9 +27,19 @@
 						<a target="_blank" href="https://tailwindui.com/">
 							<h3>Tailwind UI</h3>
 						</a>
-						<p>Beautiful Tailwind components to jumpstart your next project</p>
+						<p>Beautiful Tailwind components to jumpstart your next project.</p>
+					</li>
+					<li>
+						<a target="_blank" href="https://fffuel.co/" class="flex">
+							<h3>fffuel</h3>
+						</a>
+						<p>
+							collection of free SVG generators for gradients, patterns, backgrounds & decorative
+							graphics.
+						</p>
 					</li>
 				</ul>
+
 				<hr />
 				<h2>Icons</h2>
 				<ul>
@@ -158,7 +172,7 @@
 					<li>
 						<a target="_blank" href="https://feathericons.com/"><h3>Feather Icons</h3></a>
 						286 icons from
-						<a href="https://twitter.com/colebemis" target="_blank">Cole Bemis</a>
+						<a href="https://twitter.com/colebemis" target="_blank">Cole Bemis</a>.
 						<div class="flex">
 							<svg
 								viewBox="0 0 24 24"
@@ -302,7 +316,8 @@
 						</a>
 						<p>
 							A little more work to get started, but Cloudflare Pages has edge super powers. This
-							site is actually using Cloudflare Pages.
+							site is actually using Cloudflare Pages. Turn on Fast Builds under the Settings >
+							Builds & Deploys to speed up your builds.
 						</p>
 					</li>
 				</ul>
