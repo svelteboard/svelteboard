@@ -64,8 +64,8 @@ let name = 'REPL'
 		</svg>
 	</button>
 </div>
-<div class="max-w-7xl m-auto h-[700px] border shadow-xl rounded-lg overflow-clip">
-	<Repl bind:this={repl} showAst on:change={(e) => (components = e.detail.components)} />
+<div class="max-w-full m-auto h-[700px] border shadow-xl rounded-lg overflow-clip">
+	<Repl bind:this={repl} on:change={(e) => (components = e.detail.components)} />
 </div>
 
 <div class="max-w-4xl m-auto mt-16">

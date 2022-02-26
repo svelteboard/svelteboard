@@ -1,8 +1,14 @@
 [
 	{
-		"tag": "SvelteKit",
-		"title": "SvelteKit ❤️ Tailwind",
+		"tag": "Component",
+		"title": "Simple Table",
+		"preview": "A simple sveltey table",
+		"url": "/tutorials/simple-table"
+	},
+	{
+		"tag": "REPL",
+		"title": "REPL Scratchpad",
 		"preview": "Getting started with SvelteKit and Tailwind.",
-		"url": "/"
+		"url": "/tutorials/repl"
 	}
 ]
