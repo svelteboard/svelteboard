@@ -207,7 +207,12 @@
 			>https://api-inference.huggingface.co/models/<span class="text-sky-300"
 				>{model.toLowerCase()}</span
 			></span
-		>.<br /> <br /> Different models will return different JSON outputs.
+		>.
+	</p>
+	<p>
+		Different models will use different JSON inputs/outputs. The Demo below makes a simple Post call
+		from the client, but in production you should have that as a SvelteKit endpoint and your API
+		token should be an API Key.
 	</p>
 </div>
 
