@@ -7,7 +7,7 @@
 	let API_TOKEN;
 	let model = 'GPT2';
 	let prompt = 'Hello world!';
-	let promise;
+	let promise = generated_text();
 	let repl;
 
 	let components = [
@@ -18,7 +18,7 @@
 	let API_TOKEN;
 	let model = 'GPT2';
 	let prompt = 'Hello world!';
-	let promise;
+	let promise = generated_text();
 
 	async function generated_text() {
 		const headers = new Headers({ Authorization: \`Bearer \${API_TOKEN}\` });
@@ -36,7 +36,7 @@
 		if (res.ok) {
 			return json;
 		} else {
-			throw new Error(json);
+			throw new Error(json.error);
 		}
 	}
 	function handle_submit() {
@@ -45,6 +45,37 @@
 <\/script>
 
 <div class="max-w-2xl m-auto p-4 sm:p-8">
+	<h2 class="text-slate-900 font-semibold text-2xl">Demo Time</h2>
+	<div class="flex space-x-8 pb-8 pt-4">
+		<button
+			type="button"
+			on:click={() => {
+				model = 'distilgpt2';
+				prompt = 'My name is Telemachus, and I like to';
+			}}
+			class="px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+			>distilgpt2</button
+		>
+		<button
+			type="button"
+			on:click={() => {
+				model = 'google/pegasus-xsum';
+				prompt =
+					'The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.';
+			}}
+			class="px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+			>google/pegasus-xsum</button
+		>
+		<button
+			type="button"
+			on:click={() => {
+				model = 'roberta-base';
+				prompt = 'The goal of life is <mask>.';
+			}}
+			class="px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+			>roberta-base</button
+		>
+	</div>
 	<div class="sm:flex">
 		<div class="sm:mr-4">
 			<label for="Model" class="block text-sm font-medium text-slate-700">Model<\/label>
@@ -97,7 +128,6 @@
 		>Submit<\/button
 	>
 <\/div>
-{#if promise}
 	{#await promise}
 		<div class="max-w-3xl m-auto clear-both prose prose-xl prose-slate pt-8">
 			<svg
@@ -115,17 +145,20 @@
 			<\/svg>
 		<\/div>
 	{:then result}
-		<div class="max-w-3xl m-auto clear-both prose prose-xl prose-slate p-4 pt-8">
-			<h4 class="block text-sm font-medium text-slate-700">Response<\/h4>
+		<div class="max-w-3xl m-auto clear-both prose prose-xl prose-slate pt-8 px-2">
 			{#if result[0].generated_text}
+				<h4 class="block text-sm font-medium text-slate-700">Response</h4>
 				{JSON.stringify(result[0].generated_text)}
 			{:else}
+				<h4 class="block text-sm font-medium text-slate-700">JSON Output</h4>
 				{JSON.stringify(result)}
 			{/if}
-		<\/div>
-	{\/await}
-{\/if}
-`
+		</div>
+	{:catch error}
+		<div class="max-w-2xl m-auto clear-both prose prose-xl prose-slate pt-8 px-4">
+			<p class="text-red-600">{error}</p>
+		</div>
+	{/await}`
 		}
 	];
 
@@ -179,7 +212,7 @@
 		to see some of the awesome ML apps the community has made.
 	</p>
 	<p>
-		This tutorial is a quick intro to that using the Hugging Face's
+		This tutorial is a quick intro to using Hugging Face's
 		<a
 			href="https://api-inference.huggingface.co/docs/node/html/index.html"
 			target="_blank"
@@ -210,9 +243,15 @@
 		>.
 	</p>
 	<p>
-		Different models will use different JSON inputs/outputs. The Demo below makes a simple Post call
-		from the client, but in production you should have that as a SvelteKit endpoint and your API
-		token should be an API Key.
+		Different models will use different JSON inputs/outputs. The demo below makes a simple Post
+		request from the client, but in production you would want to put the call to Hugging Face in an <a
+			class="text-blue-600"
+			target="_blank"
+			href="https://kit.svelte.dev/docs/routing#endpoints">endpoint</a
+		>. Svelte has a handy
+		<a class="text-blue-600" target="_blank" href="https://svelte.dev/tutorial/await-blocks"
+			>await block</a
+		> built into the language that allows you to wait for async data directly in your markup.
 	</p>
 </div>
 
@@ -300,39 +339,37 @@
 		>Submit</button
 	>
 </div>
-{#if promise}
-	{#await promise}
-		<div class="max-w-3xl m-auto clear-both prose prose-xl prose-slate pt-8">
-			<svg
-				class="animate-spin h-8 w-8 p-1 text-slate-700 m-auto"
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-			>
-				<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
-				<path
-					class="opacity-75"
-					fill="currentColor"
-					d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-				/>
-			</svg>
-		</div>
-	{:then result}
-		<div class="max-w-3xl m-auto clear-both prose prose-xl prose-slate pt-8">
-			{#if result[0].generated_text}
-				<h4 class="block text-sm font-medium text-slate-700">Response</h4>
-				{JSON.stringify(result[0].generated_text)}
-			{:else}
-				<h4 class="block text-sm font-medium text-slate-700">JSON Output</h4>
-				{JSON.stringify(result)}
-			{/if}
-		</div>
-	{:catch error}
-		<div class="max-w-2xl m-auto clear-both prose prose-xl prose-slate pt-8">
-			<p class="text-red-600">{error}</p>
-		</div>
-	{/await}
-{/if}
+{#await promise}
+	<div class="max-w-3xl m-auto clear-both prose prose-xl prose-slate pt-8">
+		<svg
+			class="animate-spin h-8 w-8 p-1 text-slate-700 m-auto"
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+		>
+			<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+			<path
+				class="opacity-75"
+				fill="currentColor"
+				d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+			/>
+		</svg>
+	</div>
+{:then result}
+	<div class="max-w-3xl m-auto clear-both prose prose-xl prose-slate pt-8">
+		{#if result[0].generated_text}
+			<h4 class="block text-sm font-medium text-slate-700">Response</h4>
+			{JSON.stringify(result[0].generated_text)}
+		{:else}
+			<h4 class="block text-sm font-medium text-slate-700">JSON Output</h4>
+			{JSON.stringify(result)}
+		{/if}
+	</div>
+{:catch error}
+	<div class="max-w-2xl m-auto clear-both prose prose-xl prose-slate pt-8">
+		<p class="text-red-600">{error}</p>
+	</div>
+{/await}
 <div class="max-w-3xl m-auto prose clear-both pt-8">
 	<h3>More Reading</h3>
 	<ul>
@@ -343,6 +380,9 @@
 		>
 			<li>API Infrence Docs</li>
 		</a>
+		<a href="https://huggingface.co/models" target="_blank" class="text-blue-600">
+			<li>Hugging Face Models</li>
+		</a>
 		<a href="https://huggingface.co/spaces" target="_blank" class="text-blue-600">
 			<li>Spaces</li>
 		</a>
@@ -351,6 +391,12 @@
 		</a>
 		<a href="https://kit.svelte.dev/docs/routing#endpoints" target="_blank" class="text-blue-600">
 			<li>SvelteKit Endpoints</li>
+		</a>
+		<a href="https://www.youtube.com/watch?v=J5sJJr4cNWs" target="_blank" class="text-blue-600">
+			<li>SvelteKit Endpoint Video</li>
+		</a>
+		<a href="https://svelte.dev/tutorial/await-blocks" target="_blank" class="text-blue-600">
+			<li>Svelte Await</li>
 		</a>
 	</ul>
 	<h3>Demo REPL below</h3>
