@@ -90,11 +90,11 @@
 		<\/div>
 		<div class="grow">
 			<label for="API Key" class="block text-sm font-medium text-slate-700"
-				>API Key (<a class="text-blue-600" target="_blank" href="https:\/\/huggingface.co\/join"
+				>API Key (<a  target="_blank" href="https:\/\/huggingface.co\/join"
 					>Sign up<\/a
 				>
 				and
-				<a class="text-blue-600" href="https:\/\/huggingface.co\/settings\/tokens" target="_blank"
+				<a  href="https:\/\/huggingface.co\/settings\/tokens" target="_blank"
 					>get your API token<\/a
 				>)
 			<\/label>
@@ -200,38 +200,30 @@
 		Introduction to the 🤗 Accelerated Inference API in Svelte
 	</h1>
 </div>
-<div class="max-w-3xl m-auto prose-xl p-4 prose-slate">
+<div class="max-w-3xl m-auto p-4 prose prose-xl prose-slate prose-a:text-blue-600">
 	<p>
 		Hugging Face is the easiest way to build, train, and deploy machine learning models. They have
 		done some amazing work in NLP and making Machine Learning more accessible. If you haven't heard
-		of them, check out <a
-			href="https://huggingface.co/spaces/"
-			target="_blank"
-			class="text-blue-600">Spaces</a
-		>
+		of them, check out <a href="https://huggingface.co/spaces/" target="_blank">Spaces</a>
 		to see some of the awesome ML apps the community has made.
 	</p>
 	<p>
 		This tutorial is a quick intro to using Hugging Face's
-		<a
-			href="https://api-inference.huggingface.co/docs/node/html/index.html"
-			target="_blank"
-			class="text-blue-600">Inference API</a
+		<a href="https://api-inference.huggingface.co/docs/node/html/index.html" target="_blank"
+			>Inference API</a
 		>.
 	</p>
 	<p>
 		Every request has to have a Model and a Prompt. The <a
-			class="text-blue-600"
 			target="_blank"
 			href="https://huggingface.co/settings/tokens">API Token</a
 		>
-		is optional, but it runs quicker with one, and allows your to use a
-		<a class="text-blue-600" target="_blank" href="https://huggingface.co/platform">private model</a
-		>.
+		is optional, but it runs quicker with one, and lets you use a
+		<a target="_blank" href="https://huggingface.co/platform">private model</a>.
 	</p>
 	<p>
-		Each <a class="text-blue-600" href="https://huggingface.co/models" target="_blank">Model</a> has
-		its own endpoint, but the base URL is:
+		Each <a href="https://huggingface.co/models" target="_blank">Model</a> has its own endpoint, but
+		the base URL is:
 		<span class="whitespace-nowrap bg-slate-800 text-white p-3 font-mono text-sm rounded-md"
 			>https://api-inference.huggingface.co/models</span
 		>.<br /><br />
@@ -243,15 +235,12 @@
 		>.
 	</p>
 	<p>
-		Different models will use different JSON inputs/outputs. The demo below makes a simple Post
-		request from the client, but in production you would want to put the call to Hugging Face in an <a
-			class="text-blue-600"
-			target="_blank"
-			href="https://kit.svelte.dev/docs/routing#endpoints">endpoint</a
-		>. Svelte has a handy
-		<a class="text-blue-600" target="_blank" href="https://svelte.dev/tutorial/await-blocks"
-			>await block</a
-		> built into the language that allows you to wait for async data directly in your markup.
+		Different models will use different JSON inputs/outputs. The demo below makes a simple POST
+		request from the client, but in production you would want to put the call to Hugging Face from
+		an <a target="_blank" href="https://kit.svelte.dev/docs/routing#endpoints">endpoint</a>. Svelte
+		has a handy
+		<a target="_blank" href="https://svelte.dev/tutorial/await-blocks">await block</a> that allows you
+		to wait for async data directly in your markup.
 	</p>
 </div>
 
@@ -301,13 +290,9 @@
 		</div>
 		<div class="grow">
 			<label for="API Key" class="block text-sm font-medium text-slate-700"
-				>API Key (<a class="text-blue-600" target="_blank" href="https://huggingface.co/join"
-					>Sign up</a
-				>
+				>API Key (<a target="_blank" href="https://huggingface.co/join">Sign up</a>
 				and
-				<a class="text-blue-600" href="https://huggingface.co/settings/tokens" target="_blank"
-					>get your API token</a
-				>)
+				<a href="https://huggingface.co/settings/tokens" target="_blank">get your API token</a>)
 			</label>
 			<div class="mt-1">
 				<input
@@ -358,11 +343,11 @@
 {:then result}
 	<div class="max-w-3xl m-auto clear-both prose prose-xl prose-slate pt-8">
 		{#if result[0].generated_text}
-			<h4 class="block text-sm font-medium text-slate-700">Response</h4>
-			{JSON.stringify(result[0].generated_text)}
+			<h4 class="block text-sm font-medium text-slate-800">Response</h4>
+			<p>{JSON.stringify(result[0].generated_text)}</p>
 		{:else}
-			<h4 class="block text-sm font-medium text-slate-700">JSON Output</h4>
-			{JSON.stringify(result)}
+			<h4 class="block text-sm font-medium text-slate-800">JSON Output</h4>
+			<p>{JSON.stringify(result)}</p>
 		{/if}
 	</div>
 {:catch error}
@@ -370,32 +355,52 @@
 		<p class="text-red-600">{error}</p>
 	</div>
 {/await}
-<div class="max-w-3xl m-auto prose clear-both pt-8">
+<div class="max-w-3xl m-auto prose prose-slate clear-both pt-8 prose-a:text-blue-600">
+	<h3>Next Steps</h3>
+	<p class="prose-xl">
+		Text Generation is just one use case for the API. It can also be used for <a
+			target="_blank"
+			href="https://huggingface.co/models?pipeline_tag=text-classification&sort=downloads"
+			>Text Classification</a
+		>,
+		<a
+			target="_blank"
+			href="https://huggingface.co/models?pipeline_tag=feature-extraction&sort=downloads"
+			>Feature Extraction</a
+		>,
+		<a
+			target="_blank"
+			href="https://huggingface.co/models?pipeline_tag=table-question-answering&sort=downloads"
+			>Table Question Answering</a
+		>,
+		<a
+			target="_blank"
+			href="https://huggingface.co/models?pipeline_tag=summarization&sort=downloads"
+			>Summarization</a
+		>, and more. Check out the
+		<a href="https://huggingface.co/course/chapter0/1">Hugging Face course</a> to go deeper into NLP.
+	</p>
 	<h3>More Reading</h3>
 	<ul>
-		<a
-			href="https://api-inference.huggingface.co/docs/node/html/quicktour.html"
-			target="_blank"
-			class="text-blue-600"
-		>
+		<a href="https://api-inference.huggingface.co/docs/node/html/quicktour.html" target="_blank">
 			<li>API Infrence Docs</li>
 		</a>
-		<a href="https://huggingface.co/models" target="_blank" class="text-blue-600">
+		<a href="https://huggingface.co/models" target="_blank">
 			<li>Hugging Face Models</li>
 		</a>
-		<a href="https://huggingface.co/spaces" target="_blank" class="text-blue-600">
+		<a href="https://huggingface.co/spaces" target="_blank">
 			<li>Spaces</li>
 		</a>
-		<a href="https://huggingface.co/docs/sagemaker/main" target="_blank" class="text-blue-600">
+		<a href="https://huggingface.co/docs/sagemaker/main" target="_blank">
 			<li>Hugging Face on Sage Maker</li>
 		</a>
-		<a href="https://kit.svelte.dev/docs/routing#endpoints" target="_blank" class="text-blue-600">
+		<a href="https://kit.svelte.dev/docs/routing#endpoints" target="_blank">
 			<li>SvelteKit Endpoints</li>
 		</a>
-		<a href="https://www.youtube.com/watch?v=J5sJJr4cNWs" target="_blank" class="text-blue-600">
+		<a href="https://www.youtube.com/watch?v=J5sJJr4cNWs" target="_blank">
 			<li>SvelteKit Endpoint Video</li>
 		</a>
-		<a href="https://svelte.dev/tutorial/await-blocks" target="_blank" class="text-blue-600">
+		<a href="https://svelte.dev/tutorial/await-blocks" target="_blank">
 			<li>Svelte Await</li>
 		</a>
 	</ul>
