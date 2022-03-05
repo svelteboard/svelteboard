@@ -35,7 +35,6 @@
 		"marked": "^4.0.12",
 		"rollup": "^2.68.0",
 		"sourcemap-codec": "^1.4.8",
-		"stripe": "^8.205.0",
 		"svelte-json-tree": "^0.1.0",
 		"yootils": "^0.3.1"
 	}

@@ -52,10 +52,3 @@ const stripe = await loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 <div class="max-w-full m-auto h-[700px] border shadow-xl rounded-lg overflow-clip">
 	<Repl bind:this={repl} on:change={(e) => (components = e.detail.components)} />
 </div>
-
-<style>
-	td:empty:before {
-		content: 'Type Something...';
-		color: #94a3b8;
-	}
-</style>
