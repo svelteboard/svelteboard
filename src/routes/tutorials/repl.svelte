@@ -41,7 +41,7 @@ let name = 'REPL'
 </svelte:head>
 
 <div class="flex max-w-3xl m-auto mt-16">
-	<h2 class="grow text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+	<h2 class="grow text-3xl tracking-tight font-extrabold text-slate-900 sm:text-4xl">
 		REPL Scratchpad
 	</h2>
 	<button

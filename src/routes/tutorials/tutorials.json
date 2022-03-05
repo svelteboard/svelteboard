@@ -1,5 +1,11 @@
 [
 	{
+		"tag": "Hugging Face",
+		"title": "Introduction to the 🤗 Accelerated Inference API in Svelte",
+		"preview": "Hugging Face is the easiest way to build, train, and deploy machine learning models.&nbsp;",
+		"url": "http://localhost:3000/tutorials/huggingface"
+	},
+	{
 		"tag": "Component",
 		"title": "Simple Table",
 		"preview": "A simple sveltey table",

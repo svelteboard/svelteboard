@@ -13,7 +13,7 @@
 
 <div class="max-w-7xl m-auto mt-16">
 	<div class="flex">
-		<h2 class="grow text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+		<h2 class="grow text-3xl tracking-tight font-extrabold text-slate-900 sm:text-4xl">
 			Table View
 		</h2>
 		<button

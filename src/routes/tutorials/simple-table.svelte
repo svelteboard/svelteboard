@@ -40,7 +40,7 @@
 
 <div class="max-w-4xl m-auto8 p-2">
 	<div class="flex">
-		<h2 class="grow text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+		<h2 class="grow text-3xl tracking-tight font-extrabold text-slate-900 sm:text-4xl">
 			Simple Svelte Table
 		<\/h2>
 		<button
@@ -140,7 +140,7 @@
 
 <div class="max-w-7xl m-auto px-2 pt-8 md:pt-32 pb-16">
 	<div class="flex">
-		<h2 class="grow text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+		<h2 class="grow text-3xl tracking-tight font-extrabold text-slate-900 sm:text-4xl">
 			Simple Svelte Table
 		</h2>
 		<button
