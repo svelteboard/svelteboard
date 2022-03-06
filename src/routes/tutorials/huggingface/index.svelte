@@ -90,11 +90,11 @@
 		<\/div>
 		<div class="grow">
 			<label for="API Key" class="block text-sm font-medium text-slate-700"
-				>API Key (<a  target="_blank" href="https:\/\/huggingface.co\/join"
+				>API Key (<a target="_blank" href="https:\/\/huggingface.co\/join" class="text-blue-600"
 					>Sign up<\/a
 				>
 				and
-				<a  href="https:\/\/huggingface.co\/settings\/tokens" target="_blank"
+				<a class="text-blue-600" href="https:\/\/huggingface.co\/settings\/tokens" target="_blank"
 					>get your API token<\/a
 				>)
 			<\/label>
@@ -290,9 +290,13 @@
 		</div>
 		<div class="grow">
 			<label for="API Key" class="block text-sm font-medium text-slate-700"
-				>API Key (<a target="_blank" href="https://huggingface.co/join">Sign up</a>
+				>API Key (<a class="text-blue-600" target="_blank" href="https://huggingface.co/join"
+					>Sign up</a
+				>
 				and
-				<a href="https://huggingface.co/settings/tokens" target="_blank">get your API token</a>)
+				<a href="https://huggingface.co/settings/tokens" class="text-blue-600" target="_blank"
+					>get your API token</a
+				>)
 			</label>
 			<div class="mt-1">
 				<input
