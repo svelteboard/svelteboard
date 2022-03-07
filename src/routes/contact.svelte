@@ -14,7 +14,7 @@
 			mode: 'cors',
 			body: JSON.stringify(body)
 		};
-		fetch('/api/send', options);
+		fetch('/contact', options);
 		submitButton.disabled = true;
 		sent = true;
 		submitButton.innerText = 'Question Sent!';
