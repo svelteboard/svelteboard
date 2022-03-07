@@ -188,7 +188,7 @@
 					</span><span class="flex-1 text-slate-700 hover:text-slate-900 py-1 ml-1">Tools</span>
 				</a>
 			</li>
-			<!-- <li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
+			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
 				<a href="/contact" class="flex w-full p-2">
 					<span class="flex items-center justify-center mr-2">
 						<svg
@@ -209,7 +209,7 @@
 						>Ask a Question</span
 					>
 				</a>
-			</li> -->
+			</li>
 			<li class="flex items-stretch space-x-1 hover:bg-slate-200 rounded-md group">
 				<a
 					href="https://github.com/svelteboard/svelteboard"
