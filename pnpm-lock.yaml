@@ -1,8 +1,8 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@sveltejs/adapter-cloudflare': ^1.0.0-next.14
-  '@sveltejs/kit': 1.0.0-next.290
+  '@sveltejs/adapter-cloudflare': ^1.0.0-next.15
+  '@sveltejs/kit': 1.0.0-next.294
   '@tailwindcss/forms': ^0.4.0
   '@tailwindcss/typography': ^0.5.2
   acorn: ^8.7.0
@@ -40,8 +40,8 @@ dependencies:
   yootils: 0.3.1
 
 devDependencies:
-  '@sveltejs/adapter-cloudflare': 1.0.0-next.14
-  '@sveltejs/kit': 1.0.0-next.290_svelte@3.46.4
+  '@sveltejs/adapter-cloudflare': 1.0.0-next.15
+  '@sveltejs/kit': 1.0.0-next.294_svelte@3.46.4
   autoprefixer: 10.4.2_postcss@8.4.6
   eslint: 7.32.0
   eslint-config-prettier: 8.3.0_eslint@7.32.0
@@ -144,14 +144,14 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@sveltejs/adapter-cloudflare/1.0.0-next.14:
-    resolution: {integrity: sha512-vD0+LdVIZO5/758KZuWzM58JIAeY+r/YKgoRkMjP9IUx+w+MJ869EyzOT81u/xN7x6cX2Ilu+/M60BwjqSDA7g==}
+  /@sveltejs/adapter-cloudflare/1.0.0-next.15:
+    resolution: {integrity: sha512-kq3vNFpKmRVgAOfz4HrcleBnUADs++dfVF8S61EAFqNTEvGtOVdJKLql66Pe/uxlY0VxAp1dplxtEDf4/R70lQ==}
     dependencies:
       esbuild: 0.14.21
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.290_svelte@3.46.4:
-    resolution: {integrity: sha512-3Q0uX/auFYsoj3o7+vQtZ+ZsuRLAmVsra5hvkvml18EjfX1wGRNdLlPcl6VE95eAvViWe/65vGaNNC+02h1crA==}
+  /@sveltejs/kit/1.0.0-next.294_svelte@3.46.4:
+    resolution: {integrity: sha512-whTYeri/oaV672KErlhCAvAawlsnd8iu/MQmjdu85TApDYolLe8FDTg6GQ55+0IJbx1N7dOer/HopWzKudPgFA==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
