@@ -1,4 +1,5 @@
 <script>
+	let formSubmit = false;
 	async function handleSubmit() {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -14,15 +15,12 @@
 			mode: 'cors',
 			body: JSON.stringify(body)
 		};
-		fetch('/contact', options);
-		submitButton.disabled = true;
-		sent = true;
-		submitButton.innerText = 'Question Sent!';
+		formSubmit = await fetch('/contact', options);
 	}
 	let fname, lname, email, quest, submitButton;
-	let sent = false;
 </script>
 
+{JSON.stringify(formSubmit)}
 <div class="bg-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-24">
 	<div class="relative max-w-xl mx-auto">
 		<div class="text-center">
@@ -93,17 +91,27 @@
 				</div>
 
 				<div class="sm:col-span-2">
-					<button
-						bind:this={submitButton}
-						type="submit"
-						class="{sent
-							? 'text-green-800 bg-green-50'
-							: 'text-white bg-green-700 hover:bg-green-600 hover:border-green-300 border-t border-green-500'} block w-full py-3 text-center rounded font-semibold shadow focus:outline-none focus-visible:underline lg:text-base"
-						>Ask Question</button
-					>
+					{#if formSubmit}
+						{#await formSubmit}
+							<p>...Sending</p>
+						{:then}
+							<button
+								type="submit"
+								disabled
+								class="text-green-800 bg-green-50 block w-full py-3 text-center rounded font-semibold shadow focus:outline-none focus-visible:underline lg:text-base"
+								>Question Sent!</button
+							>
+						{/await}
+					{:else}
+						<button
+							type="submit"
+							class="text-white bg-green-700 hover:bg-green-600 hover:border-green-300 border-t border-green-500' block w-full py-3 text-center rounded font-semibold shadow focus:outline-none focus-visible:underline lg:text-base"
+							>Ask Question</button
+						>
+					{/if}
 				</div>
 			</form>
-			{#if sent}
+			{#if formSubmit}
 				<p class="mt-4 text-xl leading-6 text-slate-600 text-center">
 					Great, we got your question! <br />
 					With any luck we may have an answer for you!

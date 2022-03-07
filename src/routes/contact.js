@@ -33,9 +33,7 @@ export async function post({ request }) {
 		headers: corsHeaders,
 		body: JSON.stringify(res)
 	};
+	const pipe = await fetch(import.meta.env.VITE_PIPEDREAM_CONTACT_URL, options);
 
-	const pipedreamForm = import.meta.env.VITE_PIPEDREAM_CONTACT;
-
-	const pipe = await fetch('https://eo7kwhtkijw77n6.m.pipedream.net', options);
-	return { body: { status: '200' } };
+	return { body: { status: '200', body: pipe.status } };
 }
