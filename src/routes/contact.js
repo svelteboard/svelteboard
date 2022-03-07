@@ -4,7 +4,7 @@ export async function post({ request }) {
 	const res = await request.json();
 	//const headers = new Headers();
 	//	headers.append('Content-Type', 'application/json');
-	corsHeaders = {
+	const corsHeaders = {
 		'Content-Type': 'text/JSON',
 		'Access-Control-Allow-Headers': '*',
 		'Access-Control-Allow-Methods': '*',
