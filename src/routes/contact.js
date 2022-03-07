@@ -14,7 +14,6 @@ export async function post({ request }) {
 	const options = {
 		method: 'POST',
 		headers: corsHeaders,
-		mode: 'cors',
 		body: JSON.stringify(res)
 	};
 	fetch('https://eo7kwhtkijw77n6.m.pipedream.net', options);
