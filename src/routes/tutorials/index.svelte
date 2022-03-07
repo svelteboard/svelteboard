@@ -10,7 +10,7 @@
 	<div>
 		<h2 class="text-3xl tracking-tight font-extrabold text-slate-900 sm:text-4xl">Tutorials</h2>
 	</div>
-	<div class="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
+	<div class="relative max-w-lg mx-auto divide-y-2 divide-slate-200 lg:max-w-7xl">
 		<div class="mt-12 grid gap-16 pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
 			{#each tutorials as { tag, title, preview, url }}
 				<div>
