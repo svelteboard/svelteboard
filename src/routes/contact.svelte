@@ -1,5 +1,4 @@
 <script>
-	let formSubmit = false;
 	async function handleSubmit() {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -17,10 +16,9 @@
 		};
 		formSubmit = await fetch('/contact', options);
 	}
-	let fname, lname, email, quest, submitButton;
+	let fname, lname, email, quest, formSubmit;
 </script>
 
-{JSON.stringify(formSubmit)}
 <div class="bg-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-24">
 	<div class="relative max-w-xl mx-auto">
 		<div class="text-center">
