@@ -40,7 +40,7 @@ let name = 'REPL'
 	<title>REPL Scratchpad</title>
 </svelte:head>
 
-<div class="flex max-w-3xl m-auto mt-16">
+<div class="flex max-w-3xl m-auto mt-16 prose prose-slate prose-xl">
 	<h2 class="grow text-3xl tracking-tight font-extrabold text-slate-900 sm:text-4xl">
 		REPL Scratchpad
 	</h2>
@@ -64,11 +64,19 @@ let name = 'REPL'
 		</svg>
 	</button>
 </div>
+
+<div class="prose prose-xl prose-slate max-w-2xl m-auto pb-4 prose-a:text-blue-600">
+	<p>
+		This is the REPL we use to generate the JSON output we use to embed with an example. This is
+		based on the <a href="https://svelte.dev/repl/" target="_blank">Svlete REPL</a> with a Tailwind Theme.
+	</p>
+</div>
+
 <div class="max-w-full m-auto h-[700px] border shadow-xl rounded-lg overflow-clip">
 	<Repl bind:this={repl} on:change={(e) => (components = e.detail.components)} />
 </div>
 
-<div class="max-w-4xl m-auto mt-16">
+<div class="max-w-4xl m-auto my-16">
 	<h3 class="text-xl font-semibold">REPL JSON</h3>
 	{cleanInput(components)}
 </div>
