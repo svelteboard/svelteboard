@@ -193,8 +193,18 @@
 
 <svelte:head>
 	<title>Introduction to the 🤗 Accelerated Inference API in Svelte</title>
+	<meta
+		property="og:title"
+		content="Hugging Face is the easiest way to build, train, and deploy machine learning models."
+	/>
+	<meta property="og:site_name" content="Svelte Board" />
+	<meta
+		property="og:description"
+		content="Generate speech from text with the Hugging Face Inference API."
+	/>
+	<meta property="og:type" content="article" />
+	<meta property="og:image" content="/content/InferenceAPI.png" />
 </svelte:head>
-
 <div class="max-w-4xl m-auto mt-20 p-4 text-center">
 	<h1 class="text-3xl tracking-tight font-extrabold text-slate-900">
 		Introduction to the 🤗 Accelerated Inference API in Svelte
