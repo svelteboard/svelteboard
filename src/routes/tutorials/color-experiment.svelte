@@ -92,7 +92,10 @@
 	<meta property="og:url" content="https://svelteboard.com/tutorials/color-experiment" />
 	<meta property="og:description" content="Using Mix Blend to Fine Tune Your Color Pallet" />
 	<meta property="og:type" content="article" />
-	<meta property="og:image" content="https://svelteboard.com/content/colorExperimentMixBlend.png" />
+	<meta
+		property="og:image"
+		content="https://svelteboard.com/content/colorExperimentMixBlend2.png"
+	/>
 	<meta name="twitter:card" content="summary_large_image" />
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </svelte:head>
