@@ -217,6 +217,11 @@
 			>"og:image"</span
 		>
 		content=<span class="text-[#7dd3fc]">"{image || 'https://yourwebsite.com/yourimage.jpg'}"</span>
+		/><br />
+		<span class="text-[#f472b6]">{`<`}meta</span> name=<span class="text-[#7dd3fc]"
+			>"twitter:card"</span
+		>
+		content=<span class="text-[#7dd3fc]">"summary_large_image"</span>
 		/>
 	</div>
 </div>

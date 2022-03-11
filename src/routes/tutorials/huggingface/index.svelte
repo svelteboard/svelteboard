@@ -204,7 +204,7 @@
 	/>
 	<meta property="og:type" content="article" />
 	<meta property="og:image" content="https://svelteboard.com/content/InferenceAPI.png" />
-	<meta name="”twitter:card”" content="”summary”" />
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 <div class="max-w-4xl m-auto mt-20 p-4 text-center">
 	<h1 class="text-3xl tracking-tight font-extrabold text-slate-900">
