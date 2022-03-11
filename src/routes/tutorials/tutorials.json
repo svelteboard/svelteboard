@@ -1,5 +1,11 @@
 [
 	{
+		"tag": "Experiment",
+		"title": "Color Experiment",
+		"preview": "Using Mix Blend to Fine Tune Your Color Pallet",
+		"url": "/tutorials/color-experiment"
+	},
+	{
 		"tag": "Hugging Face",
 		"title": "Introduction to the 🤗 Accelerated Inference API in Svelte",
 		"preview": "Hugging Face is the easiest way to build, train, and deploy machine learning models.",
