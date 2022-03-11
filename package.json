@@ -32,6 +32,7 @@
 		"codemirror": "^5.65.1",
 		"cssnano": "^5.0.17",
 		"estree-walker": "^3.0.1",
+		"html-to-image": "^1.9.0",
 		"marked": "^4.0.12",
 		"rollup": "^2.68.0",
 		"sourcemap-codec": "^1.4.8",

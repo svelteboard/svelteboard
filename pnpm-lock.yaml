@@ -13,6 +13,7 @@ specifiers:
   eslint-config-prettier: ^8.3.0
   eslint-plugin-svelte3: ^3.2.1
   estree-walker: ^3.0.1
+  html-to-image: ^1.9.0
   marked: ^4.0.12
   postcss: ^8.4.5
   postcss-load-config: ^3.1.1
@@ -33,6 +34,7 @@ dependencies:
   codemirror: 5.65.1
   cssnano: 5.0.17_postcss@8.4.6
   estree-walker: 3.0.1
+  html-to-image: 1.9.0
   marked: 4.0.12
   rollup: 2.68.0
   sourcemap-codec: 1.4.8
@@ -1199,6 +1201,10 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: true
+
+  /html-to-image/1.9.0:
+    resolution: {integrity: sha512-9gaDCIYg62Ek07F2pBk76AHgYZ2gxq2YALU7rK3gNCqXuhu6cWzsOQqM7qGbjZiOzxGzrU1deDqZpAod2NEwbA==}
+    dev: false
 
   /ignore/4.0.6:
     resolution: {integrity: sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==}

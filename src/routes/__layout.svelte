@@ -9,6 +9,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet" />
 </svelte:head>
+
 <button on:click={() => ($desktopMenu = true)} class="m-2 fixed z-30 left-0 top-0 hidden lg:block">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
