@@ -203,7 +203,7 @@
 		content="Generate speech from text with the Hugging Face Inference API."
 	/>
 	<meta property="og:type" content="article" />
-	<meta property="og:image" content="/content/InferenceAPI.png" />
+	<meta property="og:image" content="https://svelteboard.com/content/InferenceAPI.png" />
 </svelte:head>
 <div class="max-w-4xl m-auto mt-20 p-4 text-center">
 	<h1 class="text-3xl tracking-tight font-extrabold text-slate-900">
