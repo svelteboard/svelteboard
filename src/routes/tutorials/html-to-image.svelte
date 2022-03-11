@@ -7,7 +7,7 @@
 	let src, image;
 	let title = 'Color Experiment';
 	let name = 'Svelte Board';
-	let subtitle = 'Using Mix Blend to Fine Tune Your Color Pallet';
+	let subtitle = 'Using Mix Blend to Fine Tune Your Color Palette';
 	let url = 'https://svelteboard.com/tutorials/open-graph';
 	let description = 'REPL';
 	let type = 'Article';
