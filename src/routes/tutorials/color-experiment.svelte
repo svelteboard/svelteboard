@@ -94,7 +94,7 @@
 	<meta property="og:type" content="article" />
 	<meta
 		property="og:image"
-		content="https://svelteboard.com/content/colorExperimentMixBlend2.png"
+		content="https://svelteboard.com/content/colorExperimentMixBlendMode.png"
 	/>
 	<meta name="twitter:card" content="summary_large_image" />
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
