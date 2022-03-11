@@ -1,5 +1,4 @@
 <script>
-	import * as htmlToImage from 'html-to-image';
 	import { toPng } from 'html-to-image';
 
 	let w = 1200;
