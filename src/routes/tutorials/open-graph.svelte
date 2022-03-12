@@ -21,7 +21,7 @@
 		content="Using Open Graph to make your links more shareable."
 	/>
 	<meta property="og:type" content="article" />
-	<meta property="og:image" content="https://svetlteboard.com/content/openGraph.png" />
+	<meta property="og:image" content="https://svelteboard.com/content/openGraph.png" />
 	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
