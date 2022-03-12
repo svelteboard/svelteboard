@@ -192,19 +192,14 @@
 </script>
 
 <svelte:head>
-	<title>Introduction to the 🤗 Accelerated Inference API in Svelte</title>
-	<meta
-		property="og:title"
-		content="Hugging Face is the easiest way to build, train, and deploy machine learning models."
-	/>
-	<meta property="og:site_name" content="Svelte Board" />
-	<meta
-		property="og:description"
-		content="Generate speech from text with the Hugging Face Inference API."
-	/>
-	<meta property="og:type" content="article" />
-	<meta property="og:image" content="https://svelteboard.com/content/InferenceAPI.png" />
-	<meta name="twitter:card" content="summary_large_image" />
+	<title>Hugging Face Inference API Tutorial</title>
+<meta property="og:title" content="Hugging Face API in Svelte" />
+<meta property="og:site_name" content="Svelte Board"/>
+<meta property="og:url" content="https://svelteboard.com/tutorials/huggingface"/>
+<meta property="og:description" content="Getting started with the Hugging Face Inference API in Svelte to get started with Natural Language Processing in your app." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://svelteboard.com/InferenceAPI.png" />
+<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 <div class="max-w-4xl m-auto mt-20 p-4 text-center">
 	<h1 class="text-3xl tracking-tight font-extrabold text-slate-900">

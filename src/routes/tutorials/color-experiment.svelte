@@ -203,7 +203,7 @@
 		id="screen"
 	>
 		<div
-			class="border shadow-xl max-w-full m-auto mt-9 relative overflow-hidden {phone
+			class="border shadow-xl max-w-full m-auto mt-9 relative overflow-clip {phone
 				? 'rounded-[60px] border-[14px] border-black'
 				: ''}"
 			style="width:{w}px; height:{h}px"

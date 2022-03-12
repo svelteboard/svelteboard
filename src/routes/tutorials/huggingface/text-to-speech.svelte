@@ -128,7 +128,8 @@ let prompt =
 		content="Generate speech from text with the Hugging Face Inference API."
 	/>
 	<meta property="og:type" content="article" />
-	<meta property="og:image" content="/content/Text-to-Speech-with-Hugging-Face.png" />
+	<meta property="og:image" content="/content/text-to-speech.png" />
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <div class="max-w-4xl m-auto mt-20 p-4 text-center">
