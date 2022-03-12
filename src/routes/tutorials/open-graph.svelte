@@ -7,7 +7,7 @@
 	let url = 'https://svelteboard.com/tutorials/open-graph';
 	let image = '';
 	let description =
-		'This is an introduction to using Open Graph to make your links more shareable.';
+		'Using Open Graph to make your links more shareable.';
 	let type = 'Article';
 </script>
 
@@ -18,7 +18,7 @@
 	<meta property="og:url" content="https://svelteboard.com/tutorials/open-graph" />
 	<meta
 		property="og:description"
-		content="This is an introduction to using Open Graph to make your links more shareable."
+		content="Using Open Graph to make your links more shareable."
 	/>
 	<meta property="og:type" content="article" />
 	<meta property="og:image" content="https://svetlteboard.com/content/openGraph.png" />
