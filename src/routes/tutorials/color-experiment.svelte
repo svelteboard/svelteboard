@@ -12,7 +12,6 @@
 		}
 	}
 	//RESIZE
-	let screenWidth;
 	let w = 375;
 	let width = '375';
 	let h = 812;
