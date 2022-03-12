@@ -3,26 +3,36 @@
 	let h = 630;
 	let title = 'Open Graph Tutorial';
 	let name = 'Svelte Board';
-	let subtitle = 'Using open graph';
+	let subtitle = 'Using open graph with Svelte';
 	let url = 'https://svelteboard.com/tutorials/open-graph';
 	let image = '';
-	let description = 'REPL';
+	let description =
+		'This is an introduction to using Open Graph to make your links more shareable.';
 	let type = 'Article';
 </script>
 
 <svelte:head>
 	<title>{title}</title>
 	<meta property="og:title" content="Open Graph Tutorial" />
+	<meta property="og:site_name" content="Svelte Board" />
+	<meta property="og:url" content="https://svelteboard.com/tutorials/open-graph" />
+	<meta
+		property="og:description"
+		content="This is an introduction to using Open Graph to make your links more shareable."
+	/>
+	<meta property="og:type" content="article" />
+	<meta property="og:image" content="https://svetlteboard.com/content/openGraph.png" />
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <div class="max-w-4xl m-auto mt-4 md:mt-20 p-4 text-center">
-	<h1 class="text-3xl tracking-tight font-extrabold text-slate-900">Open Graph</h1>
+	<h1 class="text-3xl tracking-tight font-extrabold text-slate-900">Open Graph Introduction</h1>
 </div>
 <div class="2xl:flex">
 	<div class="max-w-2xl w-full m-auto">
 		<div class="mx-4 my-8">
 			<div
-				class="w-[506px] m-auto max-w-full h-[374px] border border-[#cfd9de] rounded-lg overflow-clip"
+				class="w-[506px] m-auto max-w-full h-[385px] border border-[#cfd9de] rounded-lg overflow-clip"
 			>
 				{#if !image}
 					<div class="h-[264px] bg-slate-900 overflow-clip relative z-0">
@@ -34,16 +44,16 @@
 						/>
 
 						<div
-							class="absolute bg-gradient-to-r from-slate-50/60 to-slate-900  w-full h-[1px] left-44 rotate-90"
+							class="absolute bg-gradient-to-r from-slate-50/60 to-slate-900  w-[1px] h-full left-12"
 						/>
 						<div
-							class="absolute bg-gradient-to-r from-slate-50/80 to-slate-900 w-full h-[1px] -left-44 rotate-90"
+							class="absolute bg-gradient-to-r from-slate-50/80 to-slate-900 w-[1px] h-full right-16"
 						/>
 						<div
-							class="absolute bg-gradient-to-r from-slate-50/40 to-slate-900  w-full h-[1px] left-60 rotate-90"
+							class="absolute bg-gradient-to-r from-slate-50/40 to-slate-900  w-[1px] h-full right-8"
 						/>
 						<div
-							class="absolute bg-gradient-to-r from-slate-50/70 to-slate-900 w-full h-[1px] -left-60 rotate-90"
+							class="absolute bg-gradient-to-r from-slate-50/30 to-slate-900 w-[1px] h-full left-8"
 						/>
 
 						<div class="absolute bg-blue-500/70 w-full h-2 bottom-4 border-b border-blue-400" />
@@ -243,33 +253,43 @@
 		<span class="text-[#f472b6]">/></span>
 	</div>
 </div>
-<div class="prose prose-slate max-w-3xl m-auto my-16">
-	<div class="mx-4 prose-xl">
+<div class="prose prose-slate max-w-3xl m-auto my-16 prose-xl prose-a:text-blue-600">
+	<div class="mx-4">
 		<h3 class="mb-0">og:title</h3>
 		<p>
 			The title of your page, content, object etc. as you would like for it to appear when
 			displayed.
 		</p>
 		<h3 class="mb-0">og:site_name</h3>
-		<p>the name of your site.</p>
+		<p>The name of your site.</p>
 
 		<h3 class="mb-0">og:url</h3>
 		<p>This will be the URL that will be associated with your content ie the link.</p>
 
 		<h3 class="mb-0">og:description</h3>
-		<p>Character count...</p>
+		<p>Around 200 characters is recommended for the description.</p>
 
 		<h3 class="mb-0">og:type</h3>
-		<p>Website and article are the most common. Video, recipe</p>
-
+		<p>
+			There are <a href="https://ogp.me/#types" target="_blank">other types</a> besides article, website,
+			and video.
+		</p>
 		<h3 class="mb-0">og:image</h3>
-		<p>1200px x 630px ratio.</p>
+		<p>
+			1200×630 px is the recommended size for this image. Use the absolute path rather than a
+			relative path here.
+		</p>
 		<h3 class="mb-0">twitter:card</h3>
-		<p>Twitter Card</p>
+		<p>
+			summary_large_image is the most common, but there are <a
+				href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started"
+				>other options</a
+			>.
+		</p>
 	</div>
 </div>
 
-<div class="prose prose-slate max-w-3xl m-auto mb-32">
+<div class="prose prose-slate max-w-3xl m-auto mb-32 prose-a:text-blue-600">
 	<div class="mx-4">
 		<h3>More Reading</h3>
 		<ul>

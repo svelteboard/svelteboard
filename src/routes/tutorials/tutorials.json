@@ -1,5 +1,17 @@
 [
 	{
+		"tag": "Tool",
+		"title": "Open Graph",
+		"preview": "Make your links more shareable with Open Graph",
+		"url": "/tutorials/open-graph"
+	},
+	{
+		"tag": "Tool",
+		"title": "HTML to Image",
+		"preview": "Generating images with html-to-image",
+		"url": "/tutorials/html-to-image"
+	},
+	{
 		"tag": "Experiment",
 		"title": "Color Experiment",
 		"preview": "Using Mix Blend to Fine Tune Your Color Pallet",
