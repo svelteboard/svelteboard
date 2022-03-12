@@ -99,7 +99,8 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </svelte:head>
-<div class="mx-auto max-w-3xl pt-16 pb-4">
+
+<div class="mx-auto max-w-3xl pt-16 pb-4 px-4">
 	<h1 class="text-4xl font-semibold tracking-tight">Color Experiment</h1>
 	<p class="text-xl text-slate-600 mt-2">
 		This is a color experiement inspired by <a
@@ -109,25 +110,28 @@
 		>.
 	</p>
 </div>
-
-<div class="m-auto max-w-lg pb-16">
-	<blockquote class="twitter-tweet">
-		<p lang="en" dir="ltr">
-			💡 An experiment you can try on your next web/app project to get a more interesting color
-			palette is color grading your design.<br /><br />🧵
-			<a href="https://t.co/CtGSMwbMtb">pic.twitter.com/CtGSMwbMtb</a>
-		</p>
-		&mdash; Steve Schoger (@steveschoger)<a
-			href="https://twitter.com/steveschoger/status/1502318105124646924?ref_src=twsrc%5Etfw"
-			>March 11, 2022</a
-		>
-	</blockquote>
+<div class="px-8">
+	<div class="m-auto max-w-lg pb-16">
+		<blockquote class="twitter-tweet">
+			<p lang="en" dir="ltr">
+				💡 An experiment you can try on your next web/app project to get a more interesting color
+				palette is color grading your design.<br /><br />🧵
+				<a href="https://t.co/CtGSMwbMtb">pic.twitter.com/CtGSMwbMtb</a>
+			</p>
+			&mdash; Steve Schoger (@steveschoger)<a
+				href="https://twitter.com/steveschoger/status/1502318105124646924?ref_src=twsrc%5Etfw"
+				>March 11, 2022</a
+			>
+		</blockquote>
+	</div>
 </div>
 
 <div class="max-w-xl m-auto">
-	<div class="sm:flex space-x-4">
-		<div class="flex space-x-4">
-			<div class="flex items-center ml-4">
+	<div class="">
+		<div
+			class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 space-x-4 justify-items-center"
+		>
+			<div class="flex items-center">
 				<button
 					on:click={() => (toggleMask = !toggleMask)}
 					type="button"
@@ -145,19 +149,19 @@
 							: 'translate-x-0'} pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
 					/>
 				</button>
-				<span class="ml-3" id="annual-billing-label">
+				<span class="ml-3">
 					<span class="text-sm font-medium text-slate-900">Toggle Overlay</span>
 				</span>
 			</div>
-			<div class="flex items-center m">
+			<div class="flex items-center">
 				<input class="h-10 w-10 border" bind:value={color} type="color" />
-				<span class="ml-3" id="annual-billing-label">
+				<span class="ml-3">
 					<span class="text-sm font-medium text-slate-900">Overlay Color</span>
 				</span>
 			</div>
-			<div class="flex items-center m">
-				<input class="h-10 w-24 border" bind:value={opacity} type="number" />
-				<span class="ml-3" id="annual-billing-label">
+			<div class="flex items-center md:col-span-2 lg:col-span-1">
+				<input class="h-10 w-16 border" bind:value={opacity} type="number" />
+				<span class="ml-3">
 					<span class="text-sm font-medium text-slate-900">Opacity (%)</span>
 				</span>
 			</div>
