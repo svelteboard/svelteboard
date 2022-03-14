@@ -243,7 +243,7 @@
 		<span class="text-[#f472b6]">{`<`}meta</span> property=<span class="text-[#7dd3fc]"
 			>"og:image"</span
 		>
-		content=<span class="text-[#7dd3fc]">"{image || 'https://yourwebsite.com/yourimage.jpg'}"</span>
+		content=<span class="text-[#7dd3fc]">"{image || 'https://svelteboard.com/content/yourimage.png'}"</span>
 		<span class="text-[#f472b6]">/></span>
 		<br />
 		<span class="text-[#f472b6]">{`<`}meta</span> name=<span class="text-[#7dd3fc]"
@@ -305,6 +305,9 @@
 
 			<a href="https://ogp.me/" target="_blank">
 				<li>Open Graph Protocol</li>
+			</a>
+						<a href="https://metatags.io/" target="_blank">
+				<li>Meta Tags is a great tool for generating these also</li>
 			</a>
 			<a
 				href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started"
