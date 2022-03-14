@@ -9,9 +9,9 @@
 
 <svelte:window bind:innerHeight bind:innerWidth on:mousemove={handleMousemove} />
 
-<div class="bg-slate-900 min-h-screen">
-	<div class="relative z-0 h-96 -mb-96">
-		<div class="w-full h-96 sm:h-[550px] absolute overflow-hidden">
+<div class="bg-slate-900 min-h-screen marshmallow">
+	<div class="relative z-0 h-72 sm:h-96 -mb-72 sm:-mb-96">
+		<div class="w-full h-[325px] sm:h-[550px] absolute overflow-hidden">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				version="1.1"
@@ -68,26 +68,30 @@
 		</div>
 	</div>
 	<h2
-		class="text-center text-white text-3xl sm:text-7xl tracking-tighter font-semibold pt-20 -mb-40 z-10 relative"
+		class="text-center text-white text-3xl sm:text-7xl tracking-tighter font-semibold pt-20 -mb-52 z-10 relative"
 	>
 		Tutorials <br />
 		Code Snippets and <br />
 		Svmore Coming soon.
 	</h2>
 	<div
-		class="max-w-full w-40 m-auto relative h-96 z-20 -mb-12 sm:-mb-40"
+		class="max-w-full w-40 m-auto relative h-72 z-20 -mb-8"
 		style="transform: perspective(4cm) rotateX({rotateY * 15}deg) rotateY({rotateX * 20}deg);"
 	>
-		<div class="absolute w-28 h-48 bg-slate-700 -rotate-12 -left-16 blur-3xl animate-pulse" />
 		<div
-			class="absolute w-40 h-40 bg-slate-700/70 top-24 rotate-12 right-0 blur-3xl animate-pulse"
+			class="absolute w-28 sm:w-28 h-24 sm:h-48 bg-slate-700 -rotate-12 -left-16 blur-3xl animate-pulse"
 		/>
 		<div
-			class="absolute w-40 h-40 bg-yellow-600/80 blur-3xl -rotate-6 -left-4 top-64 animate-glow"
+			class="absolute w-28 sm:w-40 h-20 sm:h-40 bg-slate-700/70 top-20 sm:top-24 rotate-12 right-0 blur-3xl animate-pulse"
 		/>
-		<div class="absolute w-40 h-40 bg-red-600/80 blur-3xl -rotate-6 -left-4 top-52 animate-glow2" />
 		<div
-			class="absolute w-40 h-40 bg-orange-600/70 blur-3xl -rotate-6 left-4 top-48 animate-glow"
+			class="absolute w-28 sm:w-40 h-20 sm:h-40 bg-yellow-600/80 blur-3xl -rotate-6 -left-4 top-28 sm:top-32 animate-glow"
+		/>
+		<div
+			class="absolute w-28 sm:w-40 h-20 sm:h-40 bg-red-600/80 blur-3xl -rotate-6 -left-4 top-32 sm:top-52 animate-glow2"
+		/>
+		<div
+			class="absolute w-40 h-40 bg-orange-600/70 blur-3xl -rotate-6 left-4 top-40 sm:top-48 animate-glow"
 		/>
 	</div>
 	<div class="w-full relative">
@@ -141,5 +145,8 @@
 		50% {
 			opacity: 0.2;
 		}
+	}
+	.marshmallow {
+		cursor: url('/content/marshmallow.png'), auto;
 	}
 </style>
