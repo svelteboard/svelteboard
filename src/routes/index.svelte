@@ -19,6 +19,20 @@
 	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
+<div class="bg-white">
+	<div class="py-32 max-w-4xl m-auto">
+		<h1 class="text-center text-5xl lg:text-8xl px-2 font-semibold tracking-tighter text-slate-900">
+			Svelte is the easiest way to ship your code.
+		</h1>
+		<p
+			class="text-xl lg:text-2xl max-w-2xl m-auto mt-4 text-slate-800 px-4 text-center lg:text-left"
+		>
+			Svelte Board is a collection of tutorials, code snippets, demos, playgrounds, tools, and
+			resources to help you ship your project.
+		</p>
+	</div>
+</div>
+
 <div class="bg-slate-900 min-h-screen marshmallow">
 	<div class="relative z-0 h-72 sm:h-96 -mb-72 sm:-mb-96">
 		<div class="w-full h-[325px] sm:h-[550px] absolute overflow-hidden">
@@ -78,11 +92,10 @@
 		</div>
 	</div>
 	<h2
-		class="text-center text-white text-3xl sm:text-7xl tracking-tighter font-semibold pt-20 -mb-52 z-10 relative"
+		class="text-center text-white text-3xl sm:text-8xl tracking-tighter font-semibold pt-20 -mb-52 z-10 relative"
 	>
-		Tutorials <br />
-		Code Snippets and <br />
-		Svmore Coming soon.
+		Tutorials, <br />
+		Code Snippets, <br /> and Svmore.
 	</h2>
 	<div
 		class="max-w-full w-40 m-auto relative h-72 z-20 -mb-8"
