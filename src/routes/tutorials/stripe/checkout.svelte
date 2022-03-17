@@ -15,7 +15,7 @@
 	/>
 	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
-<div class="max-w-2xl m-auto mt-16">
+<div class="max-w-2xl m-auto mt-16 p-4">
 	<h1 class="text-3xl tracking-tight font-extrabold text-slate-900">Stripe Checkout Playground</h1>
 	<h3 class="text-slate-600 mb-4">
 		Stripe Checkout lets you integrate payment processing into your app.<br />
@@ -24,7 +24,7 @@
 			>stripeplayground.vercel.app</a
 		>
 	</h3>
-	<p class="prose prose-slate prose-xl">
+	<p class="prose prose-slate prose-xl break-words">
 		Stripe Checkout supports one-time payments, subscriptions, and a ton of different payment
 		methods. Checkout works by first creating a checkout session which tells Stripe, and then
 		redirecting to Stripe. The session you create tells Stripe what the customer is buying (by
