@@ -1,6 +1,12 @@
 [
 	{
 		"tag": "Tool",
+		"title": "Stripe Checkout Playground",
+		"preview": "Stripe playground to test the Stripe Checkout API.",
+		"url": "/tutorials/stripe/checkout"
+	},
+	{
+		"tag": "Tool",
 		"title": "Open Graph",
 		"preview": "Make your links more shareable with Open Graph",
 		"url": "/tutorials/open-graph"

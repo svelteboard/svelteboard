@@ -26,7 +26,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@stripe/stripe-js": "^1.24.0",
 		"@tailwindcss/forms": "^0.4.0",
 		"@tailwindcss/typography": "^0.5.2",
 		"acorn": "^8.7.0",
@@ -37,7 +36,6 @@
 		"marked": "^4.0.12",
 		"rollup": "^2.68.0",
 		"sourcemap-codec": "^1.4.8",
-		"stripe": "^8.209.0",
 		"svelte-json-tree": "^0.1.0",
 		"yootils": "^0.3.1"
 	}

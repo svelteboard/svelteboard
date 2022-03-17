@@ -32,9 +32,7 @@
 		<p
 			class="text-xl lg:text-2xl max-w-3xl m-auto mt-4 text-slate-800 px-4 text-center lg:text-left"
 		>
-			Our goal is to make shipping a little faster, easier, and svmore fun. Svelte Board is a
-			collection of tutorials, code snippets, demos, playgrounds, tools, and resources to help you
-			ship your project.
+			Our goal is to make shipping a little faster, easier, and svmore fun.
 		</p>
 	</div>
 </div>
