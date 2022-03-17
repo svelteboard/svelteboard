@@ -13,29 +13,7 @@
 	on:mousemove={handleMousemove}
 	on:dblclick={() => (marshmallowBurnt = false)}
 />
-<svelte:head>
-	<title>Svelte Board</title>
-	<meta property="og:title" content="Svelte Board" />
-	<meta property="og:site_name" content="Svelte Board" />
-	<meta property="og:url" content="https://svelteboard.com/" />
-	<meta property="og:description" content="Svelte tutorials, code snippets and svmore. " />
-	<meta property="og:type" content="website" />
-	<meta property="og:image" content="https://svelteboard.com/content/svelteboard.png" />
-	<meta name="twitter:card" content="summary_large_image" />
-</svelte:head>
 
-<div class="bg-white">
-	<div class="py-32 max-w-4xl m-auto">
-		<h1 class="text-center text-5xl lg:text-8xl px-2 font-semibold tracking-tighter text-slate-900">
-			Svelte is the fastest way to ship your code.
-		</h1>
-		<p
-			class="text-xl lg:text-2xl max-w-3xl m-auto mt-4 text-slate-800 px-4 text-center lg:text-left"
-		>
-			Our goal is to make shipping a little faster, easier, and svmore fun.
-		</p>
-	</div>
-</div>
 <div
 	class="bg-slate-900 min-h-screen marshmallow"
 	style="cursor: url('/content/{marshmallowBurnt ? 'burnt-' : ''}marshmallow.png'), auto;"
@@ -213,12 +191,12 @@
 			</div>
 
 			<div
-				class="group relative rounded-lg border-2 border-slate-300 bg-white/90 hover:bg-white backdrop-blur-sm px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-green-500 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+				class="group relative rounded-lg border-2 border-slate-300 bg-white/90 hover:bg-white backdrop-blur-sm px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-blue-500 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
 			>
-				<div class="flex-shrink-0 bg-green-200 p-2 rounded-full">
+				<div class="flex-shrink-0 bg-blue-200 p-2 rounded-full">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6 text-green-700 group-hover:rotate-6 transition-all"
+						class="hidden sm:block h-6 w-6 text-blue-700 group-hover:rotate-6 transition-all"
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
@@ -227,16 +205,16 @@
 						<path
 							stroke-linecap="round"
 							stroke-linejoin="round"
-							d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+							d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
 						/>
 					</svg>
 				</div>
 				<div class="flex-1 min-w-0">
 					<a href="/tutorials/stripe/checkout" class="focus:outline-none">
 						<span class="absolute inset-0" aria-hidden="true" />
-						<p class="text-sm font-medium text-slate-900">Color Experiment</p>
+						<p class="text-sm font-medium text-slate-900">Stripe Checkout Playground</p>
 						<p class="text-sm text-slate-500 truncate">
-							Using Mix Blend to Fine Tune Your Color Pallet.
+							Stripe Playground to help you integrate payments.
 						</p>
 					</a>
 				</div>
