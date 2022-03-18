@@ -37,6 +37,12 @@
 		"rollup": "^2.68.0",
 		"sourcemap-codec": "^1.4.8",
 		"svelte-json-tree": "^0.1.0",
-		"yootils": "^0.3.1"
+		"yootils": "^0.3.1",
+		"buffer": "^6.0.3",
+		"crypto-browserify": "^3.12.0",
+		"events": "^3.3.0",
+		"path-browserify": "^1.0.1",
+		"stream-browserify": "^3.0.0",
+		"stripe": "^8.186.0"
 	}
 }
