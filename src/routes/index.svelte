@@ -1,18 +1,8 @@
 <script>
-	let rotateX, rotateY, innerHeight, innerWidth;
 	let marshmallowBurnt = false;
-	function handleMousemove(event) {
-		rotateX = (event.clientX - innerWidth / 2) / innerWidth;
-		rotateY = (event.clientY - innerHeight / 2) / innerHeight;
-	}
 </script>
 
-<svelte:window
-	bind:innerHeight
-	bind:innerWidth
-	on:mousemove={handleMousemove}
-	on:dblclick={() => (marshmallowBurnt = false)}
-/>
+<svelte:window on:dblclick={() => (marshmallowBurnt = false)} />
 <svelte:head>
 	<title>Svelte Board</title>
 	<meta property="og:title" content="Svelte Board" />
@@ -103,10 +93,7 @@
 		Tutorials, <br />
 		Tools and, <br /> Svmore.
 	</h2>
-	<div
-		class="max-w-full w-40 m-auto relative h-72 z-20 -mb-8"
-		style="transform: perspective(4cm) rotateX({rotateY * 9}deg) rotateY({rotateX * 20}deg);"
-	>
+	<div class="max-w-full w-40 m-auto relative h-40 sm:h-72 z-20 -mb-8">
 		<div
 			class="absolute w-28 sm:w-28 h-24 sm:h-48 bg-slate-700 -rotate-12 -left-16 blur-3xl animate-pulse"
 		/>
@@ -115,17 +102,17 @@
 		/>
 	</div>
 
-	<div class="relative m-auto w-64 mt-72">
+	<div class="relative m-auto w-40 sm:w-64 mt-72">
 		<div
-			class="bg-orange-900 w-64 h-12 rounded-2xl absolute -bottom-8 border border-amber-700 rotate-6"
+			class="bg-orange-900 w-40 sm:w-64 h-12 rounded-2xl absolute -bottom-8 border border-amber-700 rotate-6"
 		>
-			<div class="w-56 h-px mt-2 bg-amber-700" />
-			<div class="w-60 h-px mt-2 bg-amber-700" />
-			<div class="w-60 h-px mt-2 bg-amber-700" />
-			<div class="w-56 h-px mt-2 bg-amber-700" />
+			<div class="w-32 sm:w-56 h-px mt-2 bg-amber-700" />
+			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700" />
+			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700" />
+			<div class="w-36 sm:w-56 h-px mt-2 bg-amber-700" />
 		</div>
 		<div
-			class="bg-orange-900 w-64 h-12 rounded-2xl absolute -bottom-8 border border-amber-700 -rotate-12"
+			class="bg-orange-900 w-40 sm:w-64 h-12 rounded-2xl absolute -bottom-8 border border-amber-700 -rotate-12"
 		>
 			<div class="w-6 h-12 bg-amber-800 border border-amber-700 absolute rounded-full">
 				<svg
@@ -143,36 +130,36 @@
 					/>
 				</svg>
 			</div>
-			<div class="w-56 h-px mt-2 bg-amber-700" />
-			<div class="w-60 h-px mt-2 bg-amber-700" />
-			<div class="w-60 h-px mt-2 bg-amber-700" />
-			<div class="w-56 h-px mt-2 bg-amber-700" />
+			<div class="w-32 sm:w-56 h-px mt-2 bg-amber-700" />
+			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700" />
+			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700" />
+			<div class="w-36 sm:w-56 h-px mt-2 bg-amber-700" />
 		</div>
 
 		<div
-			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full -rotate-45 w-64 h-64 bg-gradient-to-t from-red-700 to-red-900 shadow-1"
+			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full -rotate-45 w-40 sm:w-64 h-40 sm:h-64 bg-gradient-to-t from-red-700 to-red-900 shadow-sm"
 		/>
 		<div
-			class="absolute bottom-0 rounded-b-full rounded-tl-full -rotate-45 w-64 h-64 bg-gradient-to-t from-red-700 to-red-900 shadow-1 border-3xl"
+			class="absolute bottom-0 rounded-b-full rounded-tl-full -rotate-45 w-40 sm:w-64 h-40 sm:h-64 bg-gradient-to-t from-red-700 to-red-900 shadow-1 border-3xl"
 		/>
 		<div
-			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full left-12 -rotate-45 w-40 h-40 bg-orange-600 shadow-2"
+			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full left-6 sm:left-12 -rotate-45 w-32 sm:w-40 h-32 sm:h-40 bg-orange-600 shadow-sm"
 		/>
 		<div
-			class="absolute bottom-0 rounded-b-full rounded-tl-full left-12 -rotate-45 w-40 h-40 bg-orange-600 shadow-2 blur-3xl"
+			class="absolute bottom-0 rounded-b-full rounded-tl-full left-6 sm:left-12 -rotate-45 w-32 sm:w-40 h-32 sm:h-40 bg-orange-600 shadow-2 blur-3xl"
 		/>
 		<div
-			class="absolute bottom-20 rounded-b-full rounded-tl-full left-12 -rotate-45 w-40 h-40 bg-orange-600/50 shadow-2 blur-3xl animate-pulse"
+			class="absolute bottom-20 rounded-b-full rounded-tl-full left-6 sm:left-12 -rotate-45 w-32 sm:w-40 h-32 sm:h-40 bg-orange-600/50 shadow-2 blur-3xl animate-pulse"
 		/>
 		<div
-			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full left-20 -rotate-45 w-28 h-28 bg-amber-500 shadow-3"
+			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full left-10 sm:left-20 -rotate-[47deg] w-24 sm:w-28 h-24 sm:h-28 bg-amber-500 shadow-sm"
 		/>
 		<div
-			class="absolute bottom-8 rounded-b-full rounded-tl-full left-20 -rotate-45 w-28 h-28 bg-amber-500/50 shadow-3 blur-3xl animate-pulse"
+			class="absolute bottom-8 rounded-b-full rounded-tl-full left-10 sm:left-20 -rotate-45 w-24 sm:w-28 h-24 sm:h-28 bg-amber-500/50 shadow-3 blur-3xl animate-pulse"
 		/>
 
 		<div
-			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full left-24 -rotate-45 w-20 h-20 bg-yellow-50 shadow-4"
+			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full left-16 sm:left-24 -rotate-45 w-12 sm:w-16 h-12 sm:h-16 bg-yellow-50 shadow-sm"
 		/>
 		<div
 			on:mouseenter={() => (marshmallowBurnt = true)}
@@ -185,7 +172,7 @@
 			<div
 				class="group relative rounded-lg border-2 border-slate-300 bg-white/90 hover:bg-white backdrop-blur-sm px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-blue-500 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
 			>
-				<div class="hidden sm:block flex-shrink-0 bg-blue-200 p-2 rounded-full">
+				<div class="flex-shrink-0 bg-blue-200 p-2 rounded-full">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-6 w-6 text-blue-700 group-hover:rotate-6 transition-all"
