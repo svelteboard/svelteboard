@@ -5,13 +5,13 @@
 	export let type;
 	export let pos = 50;
 	export let fixed = false;
-	export let buffer = 42;
+	export let bufferSplit = 42;
 	export let min;
 	export let max;
 	let w;
 	let h;
 	$: size = type === 'vertical' ? h : w;
-	$: min = 100 * (buffer / size);
+	$: min = 100 * (bufferSplit / size);
 	$: max = 100 - min;
 	$: pos = yootils.clamp(pos, min, max);
 	const refs = {};
