@@ -19,6 +19,7 @@ const textWidth = context.measureText(text).width;
 context.fillRect(600 - textWidth / 2 - 10, 170 - 5, textWidth + 20, 120);
 context.fillStyle = '#fff';
 context.fillText(text, 600, 170);
+const buffer = canvas.toBuffer('image/png');
 
 export async function get({ params }) {
 	return {
