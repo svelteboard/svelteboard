@@ -1,9 +1,7 @@
-import { createCanvas } from 'canvas';
-
 const width = 1200;
 const height = 630;
+const canvas = new OffscreenCanvas(width, height);
 
-const canvas = createCanvas(width, height);
 const context = canvas.getContext('2d');
 
 context.fillStyle = '#000';
