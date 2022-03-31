@@ -1,10 +1,10 @@
 <script>
-	import { createCanvas } from 'canvas';
+	import can from 'canvas';
 
 	const width = 1200;
 	const height = 630;
 
-	const canvas = createCanvas(width, height);
+	const canvas = can.createCanvas(width, height);
 	const context = canvas.getContext('2d');
 
 	context.fillStyle = '#000';
