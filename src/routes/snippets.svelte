@@ -14,7 +14,7 @@
 		<div class="bg-slate-900 font-mono text-slate-50 p-4 rounded-b-lg">
 			npm init svelte@next my-app<br />
 			cd my-app<br />
-			npx svelte-add@latest tailwindcss<br />
+			pnpx svelte-add@latest tailwindcss<br />
 			pnpm install<br />
 			pnpm dev
 		</div>
