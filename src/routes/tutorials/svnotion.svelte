@@ -306,7 +306,7 @@ export const slashProps = writable({ editor: null, range: null });
 			<a href="http://svelte-tiptap.vercel.app/" target="_blank">svelte-tiptap.vercel.app</a> <br />
 			<b>Github Repo:</b>
 			<a href="https://github.com/andheller/svelte-tiptap" target="_blank"
-				>https://github.com/andheller/svelte-tiptap</a
+				>github.com/andheller/svelte-tiptap</a
 			>.
 		</p>
 		<h2>Overview</h2>
