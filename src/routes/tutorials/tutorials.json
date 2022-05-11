@@ -1,5 +1,11 @@
 [
 	{
+		"tag": "Video",
+		"title": "Svnotion",
+		"preview": "Building a Notion editor clone with Svelte, Tiptap, and Tailwind.",
+		"url": "/tutorials/svnotion"
+	},
+	{
 		"tag": "Tool",
 		"title": "Stripe Checkout Playground",
 		"preview": "Stripe playground to test the Stripe Checkout API.",

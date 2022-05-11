@@ -95,7 +95,7 @@
 	<meta property="og:url" content="https://svelteboard.com/tutorials/html-to-image" />
 	<meta property="og:description" content="Make images on the fly with Svelte and HTML to Image." />
 	<meta property="og:type" content="article" />
-	<meta property="og:image" content="https://svelteboard.com/html-to-image.jpg" />
+	<meta property="og:image" content="https://svelteboard.com/html-to-image.png" />
 	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
