@@ -12,7 +12,7 @@
 			<h4 class="grow text-white ">SvelteKit + Tailwind</h4>
 		</div>
 		<div class="bg-slate-900 font-mono text-slate-50 p-4 rounded-b-lg">
-			pnpm init svelte@next my-app<br />
+			pnpm create svelte@latest my-app<br />
 			cd my-app<br />
 			pnpx svelte-add@latest tailwindcss<br />
 			pnpm install<br />
