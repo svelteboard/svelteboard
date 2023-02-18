@@ -1,7 +1,7 @@
 <script>
 	import Repl from '$lib/repl';
 	import { onMount } from 'svelte';
-	import tutorials from './tutorials.json';
+	import tutorials from '../tutorials.json';
 	let table = tutorials;
 	let newRow = {
 		tag: '',
