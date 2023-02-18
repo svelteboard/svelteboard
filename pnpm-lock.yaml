@@ -25,6 +25,7 @@ specifiers:
   y-indexeddb: ^9.0.9
   y-webrtc: ^10.2.3
   yjs: ^13.5.46
+  yootils: ^0.3.1
 
 dependencies:
   '@codemirror/lang-html': 6.4.2
@@ -42,6 +43,7 @@ dependencies:
   y-indexeddb: 9.0.9_yjs@13.5.46
   y-webrtc: 10.2.4
   yjs: 13.5.46
+  yootils: 0.3.1
 
 devDependencies:
   '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.7.2
@@ -1413,4 +1415,8 @@ packages:
     resolution: {integrity: sha512-KIY4BEWYCm79Sr4JTDvgirXmz3lVZ5n7h6nKlsBYu97f/HDQo+XSoq92RqBiybejF9E/L5Iz+56zZrSfBKZ5DQ==}
     dependencies:
       lib0: 0.2.62
+    dev: false
+
+  /yootils/0.3.1:
+    resolution: {integrity: sha512-A7AMeJfGefk317I/3tBoUYRcDcNavKEkpiPN/nQsBz/viI2GvT7BtrqdPD6rGqBFN8Ax7v4obf+Cl32JF9DDVw==}
     dev: false
