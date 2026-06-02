@@ -1,0 +1,7 @@
+{
+	"name": "svelte-compiler",
+	"main": "src/index.js",
+	"compatibility_date": "2026-06-02",
+	"workers_dev": true,
+	"account_id": "261e1ddbc5f9cbf983e0fd6f51378e72"
+}
