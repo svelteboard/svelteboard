@@ -8,9 +8,10 @@
 	import Output from './Output/index.svelte';
 	import Bundler from './Bundler.js';
 	import { is_browser } from './env.js';
+	import sveltePackage from 'svelte/package.json';
 
-	export let packagesUrl = 'https://unpkg.com';
-	export let svelteUrl = `${packagesUrl}/svelte`;
+	export let packagesUrl = 'https://esm.sh';
+	export let svelteUrl = `${packagesUrl}/svelte@${sveltePackage.version}`;
 	export let embedded = false;
 	export let orientation = 'columns';
 	export let relaxed = false;
@@ -75,8 +76,8 @@
 			module_editor.update(matched_component.source);
 			output.update(matched_component, $compile_options);
 		} else {
-			module_editor.set(matched_component.source, matched_component.type);
-			output.set(matched_component, $compile_options);
+			module_editor.set($selected.source, $selected.type);
+			output.set($selected, $compile_options);
 
 			module_editor.clearHistory();
 		}
@@ -92,13 +93,11 @@
 	const toggleable = writable(false);
 
 	const compile_options = writable({
-		generate: 'dom',
+		generate: 'client',
 		dev: false,
-		css: false,
-		hydratable: false,
+		css: 'external',
 		customElement: false,
-		immutable: false,
-		legacy: false
+		immutable: false
 	});
 
 	let module_editor;

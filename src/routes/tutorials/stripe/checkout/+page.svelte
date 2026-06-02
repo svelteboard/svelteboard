@@ -108,5 +108,5 @@
 		class="w-full h-[2500px] md:h-[1500px]"
 		src="https://stripeplayground.vercel.app/embed"
 		title="Stripe Playground"
-	/>
+	></iframe>
 </div>

@@ -96,20 +96,20 @@
 	<div class="max-w-full w-40 m-auto relative h-40 sm:h-72 z-20 -mb-8">
 		<div
 			class="absolute w-28 sm:w-28 h-24 sm:h-48 bg-slate-700 -rotate-12 -left-16 blur-3xl animate-pulse"
-		/>
+		></div>
 		<div
 			class="absolute w-28 sm:w-40 h-20 sm:h-40 bg-slate-700/70 top-20 sm:top-24 rotate-12 right-0 blur-3xl animate-pulse"
-		/>
+		></div>
 	</div>
 
 	<div class="relative m-auto w-40 sm:w-64 mt-72">
 		<div
 			class="bg-orange-900 w-40 sm:w-64 h-12 rounded-2xl absolute -bottom-8 border border-amber-700 rotate-6"
 		>
-			<div class="w-32 sm:w-56 h-px mt-2 bg-amber-700" />
-			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700" />
-			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700" />
-			<div class="w-36 sm:w-56 h-px mt-2 bg-amber-700" />
+			<div class="w-32 sm:w-56 h-px mt-2 bg-amber-700"></div>
+			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700"></div>
+			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700"></div>
+			<div class="w-36 sm:w-56 h-px mt-2 bg-amber-700"></div>
 		</div>
 		<div
 			class="bg-orange-900 w-40 sm:w-64 h-12 rounded-2xl absolute -bottom-8 border border-amber-700 -rotate-12"
@@ -130,41 +130,42 @@
 					/>
 				</svg>
 			</div>
-			<div class="w-32 sm:w-56 h-px mt-2 bg-amber-700" />
-			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700" />
-			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700" />
-			<div class="w-36 sm:w-56 h-px mt-2 bg-amber-700" />
+			<div class="w-32 sm:w-56 h-px mt-2 bg-amber-700"></div>
+			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700"></div>
+			<div class="w-40 sm:w-60 h-px mt-2 bg-amber-700"></div>
+			<div class="w-36 sm:w-56 h-px mt-2 bg-amber-700"></div>
 		</div>
 
 		<div
 			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full -rotate-45 w-40 sm:w-64 h-40 sm:h-64 bg-gradient-to-t from-red-700 to-red-900 shadow-sm"
-		/>
+		></div>
 		<div
 			class="absolute bottom-0 rounded-b-full rounded-tl-full -rotate-45 w-40 sm:w-64 h-40 sm:h-64 bg-gradient-to-t from-red-700 to-red-900 shadow-1 border-3xl"
-		/>
+		></div>
 		<div
 			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full left-6 sm:left-12 -rotate-45 w-32 sm:w-40 h-32 sm:h-40 bg-orange-600 shadow-sm"
-		/>
+		></div>
 		<div
 			class="absolute bottom-0 rounded-b-full rounded-tl-full left-6 sm:left-12 -rotate-45 w-32 sm:w-40 h-32 sm:h-40 bg-orange-600 shadow-2 blur-3xl"
-		/>
+		></div>
 		<div
 			class="absolute bottom-20 rounded-b-full rounded-tl-full left-6 sm:left-12 -rotate-45 w-32 sm:w-40 h-32 sm:h-40 bg-orange-600/50 shadow-2 blur-3xl animate-pulse"
-		/>
+		></div>
 		<div
 			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full left-10 sm:left-20 -rotate-[47deg] w-24 sm:w-28 h-24 sm:h-28 bg-amber-500 shadow-sm"
-		/>
+		></div>
 		<div
 			class="absolute bottom-8 rounded-b-full rounded-tl-full left-10 sm:left-20 -rotate-45 w-24 sm:w-28 h-24 sm:h-28 bg-amber-500/50 shadow-3 blur-3xl animate-pulse"
-		/>
+		></div>
 
 		<div
 			class="campfire border-r-3 border-bottom-2 absolute bottom-0 rounded-b-full rounded-tl-full left-16 sm:left-24 -rotate-45 w-12 sm:w-16 h-12 sm:h-16 bg-yellow-50 shadow-sm"
-		/>
+		></div>
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			on:mouseenter={() => (marshmallowBurnt = true)}
 			class="absolute bottom-8 rounded-b-full rounded-tl-full left-24 -rotate-45 w-12 h-12 bg-yellow-50 shadow-4 blur-3xl animate-pulse"
-		/>
+		></div>
 	</div>
 	<div class="max-w-4xl m-auto p-4 pt-20 sm:pt-4 pb-16">
 		<h2 class="text-white text-2xl md:text-5xl font-semibold tracking-tighter">Tutorials</h2>
@@ -190,7 +191,7 @@
 				</div>
 				<div class="flex-1 min-w-0">
 					<a href="/tutorials/stripe/checkout" class="focus:outline-none">
-						<span class="absolute inset-0" aria-hidden="true" />
+						<span class="absolute inset-0" aria-hidden="true"></span>
 						<p class="text-sm font-medium text-slate-900">Stripe Checkout Playground</p>
 						<p class="text-sm text-slate-500 truncate">
 							Stripe Playground to help you integrate payments.
@@ -220,7 +221,7 @@
 				</div>
 				<div class="flex-1 min-w-0">
 					<a href="/tutorials/stripe/checkout" class="focus:outline-none">
-						<span class="absolute inset-0" aria-hidden="true" />
+						<span class="absolute inset-0" aria-hidden="true"></span>
 						<p class="text-sm font-medium text-slate-900">Color Experiment</p>
 						<p class="text-sm text-slate-500 truncate">
 							Using Mix Blend to Fine Tune Your Color Pallet.

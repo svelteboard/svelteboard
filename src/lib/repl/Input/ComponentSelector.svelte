@@ -18,9 +18,32 @@
 		}
 	}
 
+	function selectComponentWithKeyboard(event, component) {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			selectComponent(component);
+		}
+	}
+
 	function editTab(component) {
 		if ($selected === component) {
 			editing = $selected;
+		}
+	}
+
+	function editTabWithKeyboard(event, component) {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			event.stopPropagation();
+			editTab(component);
+		}
+	}
+
+	function removeWithKeyboard(event, component) {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			event.stopPropagation();
+			remove(component);
 		}
 	}
 
@@ -133,16 +156,19 @@
 
 <div class="component-selector pl-16 {plMenu ? 'lg:pl-14' : 'lg:pl-0'} transition-all">
 	{#if $components.length}
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div class="file-tabs" on:dblclick={addNew}>
 			{#each $components as component, index}
 				<div
 					id={component.name}
 					class="button"
 					role="button"
+					tabindex="0"
 					class:active={component === $selected}
 					class:draggable={component !== editing && index !== 0}
 					class:drag-over={over === component.name}
 					on:click={() => selectComponent(component)}
+					on:keydown={(event) => selectComponentWithKeyboard(event, component)}
 					on:dblclick={(e) => e.stopPropagation()}
 					draggable={component !== editing}
 					on:dragstart={dragStart}
@@ -150,7 +176,7 @@
 					on:dragleave={dragLeave}
 					on:drop={dragEnd}
 				>
-					<i class="drag-handle bg-transparent border-x border-slate-400/80 border-dotted" />
+					<i class="drag-handle bg-transparent border-x border-slate-400/80 border-dotted"></i>
 					{#if component.name === 'App' && component !== editing}
 						<div class="uneditable">
 							App.svelte{#if show_modified && component.modified}*{/if}
@@ -171,11 +197,25 @@
 							class:duplicate={isComponentNameUsed(editing)}
 						/>
 					{:else}
-						<div class="editable" title="edit component name" on:click={() => editTab(component)}>
+						<div
+							class="editable"
+							title="edit component name"
+							role="button"
+							tabindex="0"
+							on:click|stopPropagation={() => editTab(component)}
+							on:keydown={(event) => editTabWithKeyboard(event, component)}
+						>
 							{component.name}.{component.type}{#if show_modified && component.modified}*{/if}
 						</div>
 
-						<span class="remove" on:click={() => remove(component)}>
+						<span
+							class="remove"
+							role="button"
+							tabindex="0"
+							aria-label="Remove {component.name}.{component.type}"
+							on:click|stopPropagation={() => remove(component)}
+							on:keydown={(event) => removeWithKeyboard(event, component)}
+						>
 							<svg width="12" height="12" viewBox="0 0 24 24">
 								<line stroke="#999" x1="18" y1="6" x2="6" y2="18" />
 								<line stroke="#999" x1="6" y1="6" x2="18" y2="18" />

@@ -1,5 +1,5 @@
 <script>
-	import JSONNode from 'svelte-json-tree';
+	import JsonValue from './JsonValue.svelte';
 
 	export let data;
 	export let columns;
@@ -14,8 +14,8 @@
 		const columns = new Set([INDEX_KEY]);
 		for (const key of keys) {
 			const value = data[key];
-			if (typeof value === 'object') {
-				Object.keys(value).forEach(key => columns.add(key));
+			if (value && typeof value === 'object') {
+				Object.keys(value).forEach((key) => columns.add(key));
 			} else {
 				columns.add(VALUE_KEY);
 			}
@@ -41,9 +41,9 @@
 						{#if column === INDEX_KEY}
 							<td>{key}</td>
 						{:else if column === VALUE_KEY}
-							<td><JSONNode value={data[key]} /></td>
-						{:else if column in data[key]}
-							<td><JSONNode value={data[key][column]} /></td>
+							<td><JsonValue value={data[key]} /></td>
+						{:else if data[key] && typeof data[key] === 'object' && column in data[key]}
+							<td><JsonValue value={data[key][column]} /></td>
 						{:else}
 							<td></td>
 						{/if}
@@ -80,7 +80,8 @@
 	tr:nth-child(2n) {
 		background: #f2f7fd;
 	}
-	th, td {
+	th,
+	td {
 		border-right: 1px solid #aaa;
 	}
 </style>

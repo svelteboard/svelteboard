@@ -80,19 +80,19 @@
 	>
 		<div
 			class="absolute w-28 sm:w-28 h-24 sm:h-48 bg-slate-700 -rotate-12 -left-16 blur-3xl animate-pulse"
-		/>
+		></div>
 		<div
 			class="absolute w-28 sm:w-40 h-20 sm:h-40 bg-slate-700/70 top-20 sm:top-24 rotate-12 right-0 blur-3xl animate-pulse"
-		/>
+		></div>
 		<div
 			class="absolute w-28 sm:w-40 h-20 sm:h-40 bg-yellow-600/80 blur-3xl -rotate-6 -left-4 top-28 sm:top-32 animate-glow"
-		/>
+		></div>
 		<div
 			class="absolute w-28 sm:w-40 h-20 sm:h-40 bg-red-600/80 blur-3xl -rotate-6 -left-4 top-32 sm:top-52 animate-glow2"
-		/>
+		></div>
 		<div
 			class="absolute w-40 h-40 bg-orange-600/70 blur-3xl -rotate-6 left-4 top-40 sm:top-48 animate-glow"
-		/>
+		></div>
 	</div>
 	<div class="w-full relative">
 		<svg
@@ -123,10 +123,10 @@
 	<div class="max-w-full w-32 sm:w-60 m-auto  -mt-4 sm:-mt-8 left relative">
 		<div
 			class="bg-gradient-to-r from-yellow-900 to-yellow-800/90 rounded-md w-full h-3 sm:h-4 absolute -rotate-12"
-		/>
+		></div>
 		<div
 			class="bg-gradient-to-r from-yellow-900 to-yellow-800/90 rounded-md w-full h-3 sm:h-4 absolute rotate-12"
-		/>
+		></div>
 	</div>
 </div>
 

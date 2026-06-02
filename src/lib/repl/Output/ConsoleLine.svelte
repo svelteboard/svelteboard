@@ -1,6 +1,6 @@
 <script>
-	import JSONNode from 'svelte-json-tree';
 	import ConsoleTable from './ConsoleTable.svelte';
+	import JsonValue from './JsonValue.svelte';
 
 	export let log;
 	export let level = 1;
@@ -14,12 +14,18 @@
 	<ConsoleTable data={log.args[0]} columns={log.args[1]} />
 {/if}
 
-<div class="log console-{log.level}" style="padding-left: {level * 15}px" on:click={log.level === 'group' ? toggleGroupCollapse : undefined}>
+<!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
+<div
+	class="log console-{log.level}"
+	style="padding-left: {level * 15}px"
+	on:click={log.level === 'group' ? toggleGroupCollapse : undefined}
+>
 	{#if log.count > 1}
 		<span class="count">{log.count}x</span>
 	{/if}
 
 	{#if log.level === 'trace' || log.level === 'assert'}
+		<!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
 		<div class="arrow" class:expand={!log.collapsed} on:click={toggleGroupCollapse}>▶</div>
 	{/if}
 
@@ -35,24 +41,24 @@
 		<div class="arrow" class:expand={!log.collapsed}>▶</div>
 		<span class="title">{log.label}</span>
 	{:else if log.level.startsWith('system')}
-		{#each log.args as arg}
+		{#each Array.isArray(log.args) ? log.args : [log.args] as arg}
 			{arg}
 		{/each}
 	{:else if log.level === 'table'}
-		<JSONNode value={log.args[0]} />
+		<JsonValue value={log.args[0]} />
 	{:else}
 		{#each log.args as arg}
-			<JSONNode value={arg} />
+			<JsonValue value={arg} />
 		{/each}
 	{/if}
 	{#each new Array(level - 1) as _, idx}
-		<div class="outline" style="left: {idx * 15 + 15}px" />
+		<div class="outline" style="left: {idx * 15 + 15}px"></div>
 	{/each}
 </div>
 
 {#if log.level === 'group' && !log.collapsed}
 	{#each log.logs as childLog}
-		<svelte:self log={childLog} level={level + 1}/>
+		<svelte:self log={childLog} level={level + 1} />
 	{/each}
 {/if}
 
@@ -79,22 +85,26 @@
 		font-family: var(--font-mono);
 	}
 
-	.console-warn, .console-system-warn {
+	.console-warn,
+	.console-system-warn {
 		background: #fffbe6;
 		border-color: #fff4c4;
 	}
 
-	.console-error, .console-assert {
+	.console-error,
+	.console-assert {
 		background: #fff0f0;
 		border-color: #fed6d7;
 	}
 
-	.console-group, .arrow {
+	.console-group,
+	.arrow {
 		cursor: pointer;
 		user-select: none;
 	}
 
-	.console-trace, .console-assert {
+	.console-trace,
+	.console-assert {
 		border-bottom: none;
 	}
 

@@ -230,8 +230,13 @@
 	}
 </script>
 
-<div class="codemirror-container font-mono" bind:offsetWidth={w} bind:offsetHeight={h}>
-	<textarea bind:this={refs.editor} readonly value={code} />
+<div
+	class="codemirror-container font-mono"
+	data-testid={readonly ? 'repl-output-editor' : 'repl-source-editor'}
+	bind:offsetWidth={w}
+	bind:offsetHeight={h}
+>
+	<textarea bind:this={refs.editor} readonly value={code}></textarea>
 
 	{#if !CodeMirror}
 		<pre style="position: absolute; left: 0; top: 0">{code}</pre>

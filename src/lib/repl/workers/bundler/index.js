@@ -1,9 +1,8 @@
-import * as rollup from 'rollup/dist/es/rollup.browser.js';
-import { sleep } from 'yootils';
+import * as rollup from '@rollup/browser';
+import * as compiler from 'svelte/compiler';
 import commonjs from './plugins/commonjs.js';
 import glsl from './plugins/glsl.js';
 import json from './plugins/json.js';
-import replace from './plugins/replace.js';
 
 self.window = self; // egregious hack to get magic-string to work in a worker
 
@@ -19,14 +18,8 @@ const ready = new Promise((f) => {
 self.addEventListener('message', async (event) => {
 	switch (event.data.type) {
 		case 'init':
-			packagesUrl = event.data.packagesUrl;
-			svelteUrl = event.data.svelteUrl;
-
-			try {
-				importScripts(`${svelteUrl}/compiler.js`);
-			} catch {
-				await import(/* @vite-ignore */ `${svelteUrl}/compiler.js`);
-			}
+			packagesUrl = remove_trailing_slash(event.data.packagesUrl);
+			svelteUrl = remove_trailing_slash(event.data.svelteUrl);
 
 			fulfil_ready();
 			break;
@@ -44,7 +37,7 @@ self.addEventListener('message', async (event) => {
 
 				const result = await bundle({ uid, components });
 
-				if (result.error === ABORT) return;
+				if (is_abort(result.error)) return;
 				if (result && uid === current_id) postMessage(result);
 			});
 
@@ -57,53 +50,14 @@ let cached = {
 	ssr: {}
 };
 
-const ABORT = { aborted: true };
+const ABORT = Object.assign(new Error('ABORT'), { aborted: true });
 
-const fetch_cache = new Map();
-async function fetch_if_uncached(url, uid) {
-	if (fetch_cache.has(url)) {
-		return fetch_cache.get(url);
-	}
-
-	await sleep(200);
-	if (uid !== current_id) throw ABORT;
-
-	const promise = fetch(url)
-		.then(async (r) => {
-			if (r.ok) {
-				return {
-					url: r.url,
-					body: await r.text()
-				};
-			}
-
-			throw new Error(await r.text());
-		})
-		.catch((err) => {
-			fetch_cache.delete(url);
-			throw err;
-		});
-
-	fetch_cache.set(url, promise);
-	return promise;
+function is_abort(error) {
+	return error === ABORT || error?.aborted || /\bABORT\b/.test(error?.message || '');
 }
 
-async function follow_redirects(url, uid) {
-	const res = await fetch_if_uncached(url, uid);
-	return res.url;
-}
-
-function compare_to_version(major, minor, patch) {
-	const v = svelte.VERSION.match(/^(\d+)\.(\d+)\.(\d+)/);
-	return v[1] - major || v[2] - minor || v[3] - patch;
-}
-
-function is_legacy_package_structure() {
-	return compare_to_version(3, 4, 4) <= 0;
-}
-
-function has_loopGuardTimeout_feature() {
-	return compare_to_version(3, 14, 0) >= 0;
+function remove_trailing_slash(value) {
+	return value.endsWith('/') ? value.slice(0, -1) : value;
 }
 
 async function get_bundle(uid, mode, cache, lookup) {
@@ -112,113 +66,60 @@ async function get_bundle(uid, mode, cache, lookup) {
 	const imports = new Set();
 	const warnings = [];
 	const all_warnings = [];
+	const needs_commonjs = Object.values(lookup).some((component) =>
+		/\b(require|module|exports)\b/.test(component.source)
+	);
+	const needs_json = Object.keys(lookup).some((id) => id.endsWith('.json'));
+	const needs_glsl = Object.keys(lookup).some((id) => id.endsWith('.glsl'));
 
 	const new_cache = {};
 
 	const repl_plugin = {
+		name: 'repl',
 		async resolveId(importee, importer) {
 			if (uid !== current_id) throw ABORT;
-
-			// importing from Svelte
-			if (importee === `svelte`) return `${svelteUrl}/index.mjs`;
-			if (importee.startsWith(`svelte/`)) {
-				return is_legacy_package_structure()
-					? `${svelteUrl}/${importee.slice(7)}.mjs`
-					: `${svelteUrl}/${importee.slice(7)}/index.mjs`;
-			}
-
-			// importing one Svelte runtime module from another
-			if (importer && importer.startsWith(svelteUrl)) {
-				const resolved = new URL(importee, importer).href;
-				if (resolved.endsWith('.mjs')) return resolved;
-				return is_legacy_package_structure() ? `${resolved}.mjs` : `${resolved}/index.mjs`;
-			}
-
-			// importing from another file in REPL
-			if (importee in lookup && (!importer || importer in lookup)) return importee;
-			if (importee + '.js' in lookup) return importee + '.js';
-			if (importee + '.json' in lookup) return importee + '.json';
-
-			// remove trailing slash
-			if (importee.endsWith('/')) importee = importee.slice(0, -1);
-
-			// importing from a URL
-			if (importee.startsWith('http:') || importee.startsWith('https:')) return importee;
-
-			// importing from (probably) unpkg
-			if (importee.startsWith('.')) {
-				const url = new URL(importee, importer).href;
-				self.postMessage({ type: 'status', uid, message: `resolving ${url}` });
-
-				return await follow_redirects(url, uid);
-			} else {
-				// fetch from unpkg
-				self.postMessage({ type: 'status', uid, message: `resolving ${importee}` });
-
-				if (importer in lookup) {
-					const match = /^(@[^/]+\/)?[^/]+/.exec(importee);
-					if (match) imports.add(match[0]);
-				}
-
-				try {
-					const pkg_url = await follow_redirects(`${packagesUrl}/${importee}/package.json`, uid);
-					const pkg_json = (await fetch_if_uncached(pkg_url, uid)).body;
-					const pkg = JSON.parse(pkg_json);
-
-					if (pkg.svelte || pkg.module || pkg.main) {
-						const url = pkg_url.replace(/\/package\.json$/, '');
-						return new URL(pkg.svelte || pkg.module || pkg.main, `${url}/`).href;
-					}
-				} catch (err) {
-					// ignore
-				}
-
-				return await follow_redirects(`${packagesUrl}/${importee}`, uid);
-			}
+			const resolved = await resolve_repl_import(importee, importer);
+			return resolved ?? null;
 		},
 		async load(resolved) {
 			if (uid !== current_id) throw ABORT;
 
 			if (resolved in lookup) return lookup[resolved].source;
-
-			if (!fetch_cache.has(resolved)) {
-				self.postMessage({ type: 'status', uid, message: `fetching ${resolved}` });
-			}
-
-			const res = await fetch_if_uncached(resolved, uid);
-			return res.body;
 		},
 		transform(code, id) {
 			if (uid !== current_id) throw ABORT;
 
 			self.postMessage({ type: 'status', uid, message: `bundling ${id}` });
 
-			if (!/\.svelte$/.test(id)) return null;
+			const original = code;
+			const replaced = original.replace(
+				/\bprocess\.env\.NODE_ENV\b/g,
+				JSON.stringify('production')
+			);
+			code = replaced;
+
+			if (!/\.svelte$/.test(id)) {
+				return replaced === original ? null : { code: replaced, map: null };
+			}
 
 			const name = id.split('/').pop().split('.')[0];
 
 			const result =
 				cache[id] && cache[id].code === code
 					? cache[id].result
-					: svelte.compile(
-							code,
-							Object.assign(
-								{
-									generate: mode,
-									format: 'esm',
-									dev: true,
-									filename: name + '.svelte'
-								},
-								has_loopGuardTimeout_feature() && {
-									loopGuardTimeout: 100
-								}
-							)
-					  );
+					: compiler.compile(code, {
+							generate: mode,
+							css: 'injected',
+							dev: true,
+							filename: name + '.svelte',
+							compatibility: {
+								componentApi: 4
+							}
+						});
 
 			new_cache[id] = { code, result };
 
-			(result.warnings || result.stats.warnings).forEach((warning) => {
-				// TODO remove stats post-launch
+			result.warnings.forEach((warning) => {
 				warnings.push({
 					message: warning.message,
 					filename: warning.filename,
@@ -231,19 +132,43 @@ async function get_bundle(uid, mode, cache, lookup) {
 		}
 	};
 
+	async function resolve_repl_import(importee, importer) {
+		const local = resolve_local_import(importee, importer, lookup);
+		if (local) return local;
+
+		if (importee.endsWith('/')) importee = importee.slice(0, -1);
+
+		if (importee === 'svelte' || importee.startsWith('svelte/')) {
+			if (is_local_importer(importer, lookup)) imports.add('svelte');
+			return external(get_svelte_runtime_url(importee));
+		}
+
+		if (importee.startsWith('http:') || importee.startsWith('https:')) {
+			return external(importee);
+		}
+
+		if (importer && /^https?:/.test(importer) && importee.startsWith('/')) {
+			return external(new URL(importee, importer).href);
+		}
+
+		if (!importee.startsWith('.')) {
+			if (is_local_importer(importer, lookup)) imports.add(get_package_name(importee));
+			return external(get_package_module_url(importee));
+		}
+
+		return null;
+	}
+	const plugins = [
+		repl_plugin,
+		...(needs_commonjs ? [commonjs] : []),
+		...(needs_json ? [json] : []),
+		...(needs_glsl ? [glsl] : [])
+	];
+
 	try {
 		bundle = await rollup.rollup({
 			input: './App.svelte',
-			plugins: [
-				repl_plugin,
-				commonjs,
-				json,
-				glsl,
-				replace({
-					'process.env.NODE_ENV': JSON.stringify('production')
-				})
-			],
-			inlineDynamicImports: true,
+			plugins,
 			onwarn(warning) {
 				all_warnings.push({
 					message: warning.message
@@ -260,6 +185,8 @@ async function get_bundle(uid, mode, cache, lookup) {
 			all_warnings
 		};
 	} catch (error) {
+		if (is_abort(error)) throw ABORT;
+
 		return { error, imports: null, bundle: null, cache: new_cache, warnings, all_warnings };
 	}
 }
@@ -267,7 +194,7 @@ async function get_bundle(uid, mode, cache, lookup) {
 async function bundle({ uid, components }) {
 	if (import.meta.env.PROD) {
 		console.clear();
-		console.log(`running Svelte compiler version %c${svelte.VERSION}`, 'font-weight: bold');
+		console.log(`running Svelte compiler version %c${compiler.VERSION}`, 'font-weight: bold');
 	}
 
 	const lookup = {};
@@ -280,7 +207,7 @@ async function bundle({ uid, components }) {
 	let error;
 
 	try {
-		dom = await get_bundle(uid, 'dom', cached.dom, lookup);
+		dom = await get_bundle(uid, 'client', cached.dom, lookup);
 		if (dom.error) {
 			throw dom.error;
 		}
@@ -289,9 +216,7 @@ async function bundle({ uid, components }) {
 
 		const dom_result = (
 			await dom.bundle.generate({
-				format: 'iife',
-				name: 'SvelteComponent',
-				exports: 'named',
+				format: 'es',
 				sourcemap: true
 			})
 		).output[0];
@@ -310,12 +235,10 @@ async function bundle({ uid, components }) {
 		const ssr_result = ssr
 			? (
 					await ssr.bundle.generate({
-						format: 'iife',
-						name: 'SvelteComponent',
-						exports: 'named',
+						format: 'es',
 						sourcemap: true
 					})
-			  ).output[0]
+				).output[0]
 			: null;
 
 		return {
@@ -327,6 +250,8 @@ async function bundle({ uid, components }) {
 			error: null
 		};
 	} catch (err) {
+		if (is_abort(err)) return { error: ABORT };
+
 		console.error(err);
 
 		const e = error || err;
@@ -337,11 +262,68 @@ async function bundle({ uid, components }) {
 			dom: null,
 			ssr: null,
 			imports: null,
-			warnings: dom.warnings,
+			warnings: dom?.warnings || [],
 			error: Object.assign({}, e, {
-				message: e.message,
+				message: e.message || String(e),
 				stack: e.stack
 			})
 		};
 	}
+}
+
+function resolve_local_import(importee, importer, lookup) {
+	if (!is_local_importer(importer, lookup)) return null;
+
+	const candidates = [];
+	const base = importer ? importer.slice(0, importer.lastIndexOf('/') + 1) : './';
+	const resolved = importee.startsWith('.') ? normalize_local_path(`${base}${importee}`) : importee;
+
+	candidates.push(resolved);
+	candidates.push(`${resolved}.svelte`, `${resolved}.js`, `${resolved}.json`, `${resolved}.glsl`);
+	candidates.push(`${resolved}/index.svelte`, `${resolved}/index.js`);
+
+	return candidates.find((candidate) => candidate in lookup) || null;
+}
+
+function is_local_importer(importer, lookup) {
+	return !importer || importer in lookup;
+}
+
+function normalize_local_path(path) {
+	const stack = [];
+
+	for (const part of path.split('/')) {
+		if (!part || part === '.') continue;
+		if (part === '..') stack.pop();
+		else stack.push(part);
+	}
+
+	return `./${stack.join('/')}`;
+}
+
+function external(id) {
+	return { id, external: true };
+}
+
+function get_svelte_runtime_url(importee) {
+	const subpath = importee === 'svelte' ? '' : importee.slice('svelte'.length);
+	const base = svelteUrl.includes('esm.sh')
+		? svelteUrl
+		: `https://esm.sh/svelte@${compiler.VERSION}`;
+	return with_bundle_query(`${base}${subpath}`);
+}
+
+function get_package_module_url(importee) {
+	const base = packagesUrl.includes('esm.sh') ? packagesUrl : 'https://esm.sh';
+	return `${base}/${importee}`;
+}
+
+function with_bundle_query(url) {
+	return url.includes('?') ? `${url}&bundle` : `${url}?bundle`;
+}
+
+function get_package_name(specifier) {
+	const parts = specifier.split('/');
+
+	return specifier[0] === '@' ? `${parts[0]}/${parts[1]}` : parts[0];
 }

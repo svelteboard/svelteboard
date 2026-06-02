@@ -10,7 +10,7 @@ export default {
 	name: 'commonjs',
 
 	transform: (code, id) => {
-		if (!/\b(require|module|exports)\b/.test(code)) return;
+		if (!/\b(require|module|exports)\b/.test(code)) return null;
 
 		try {
 			const ast = acorn.parse(code, {

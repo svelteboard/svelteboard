@@ -17,6 +17,7 @@
 			Table View
 		</h2>
 		<button
+			aria-label="Copy table JSON"
 			class="relative hover:bg-slate-100 rounded-lg"
 			on:click={() => navigator.clipboard.writeText(JSON.stringify(table))}
 		>
@@ -37,46 +38,51 @@
 		</button>
 	</div>
 	<table class="min-w-full divide-y divide-slate-200">
-		<tr>
-			<th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider"
-				>Title</th
-			>
-			<th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider"
-				>Preview</th
-			>
-			<th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider"
-				>Tag</th
-			>
-			<th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider"
-				>URL</th
-			>
-		</tr>
-		{#each table as { title, preview, tag, url }}
+		<thead>
 			<tr>
-				<td
-					class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900"
-					contenteditable="true"
-					bind:innerHTML={title}>{title}</td
+				<th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider"
+					>Title</th
 				>
-				<td
-					class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900"
-					contenteditable="true"
-					bind:innerHTML={preview}>{preview}</td
+				<th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider"
+					>Preview</th
 				>
-				<td
-					class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900"
-					contenteditable="true"
-					bind:innerHTML={tag}>{tag}</td
+				<th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider"
+					>Tag</th
 				>
-				<td
-					class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900"
-					contenteditable="true"
-					bind:innerHTML={url}>{url}</td
+				<th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider"
+					>URL</th
 				>
 			</tr>
-		{/each}
+		</thead>
+		<tbody>
+			{#each table as { title, preview, tag, url }}
+				<tr>
+					<td
+						class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900"
+						contenteditable="true"
+						bind:innerHTML={title}>{title}</td
+					>
+					<td
+						class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900"
+						contenteditable="true"
+						bind:innerHTML={preview}>{preview}</td
+					>
+					<td
+						class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900"
+						contenteditable="true"
+						bind:innerHTML={tag}>{tag}</td
+					>
+					<td
+						class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900"
+						contenteditable="true"
+						bind:innerHTML={url}>{url}</td
+					>
+				</tr>
+			{/each}
+		</tbody>
 	</table>
 	<button
+		aria-label="Add row"
 		class="relative hover:bg-slate-100 rounded-lg float-right"
 		on:click={() => {
 			table.push(newRow);

@@ -11,11 +11,11 @@
 	<div class="option">
 		<span class="key">generate:</span>
 
-		<input id="dom-input" type="radio" bind:group={$compile_options.generate} value="dom" />
-		<label for="dom-input"><span class="string">"dom"</span></label>
+		<input id="client-input" type="radio" bind:group={$compile_options.generate} value="client" />
+		<label for="client-input"><span class="string">"client"</span></label>
 
-		<input id="ssr-input" type="radio" bind:group={$compile_options.generate} value="ssr" />
-		<label for="ssr-input"><span class="string">"ssr"</span>,</label>
+		<input id="server-input" type="radio" bind:group={$compile_options.generate} value="server" />
+		<label for="server-input"><span class="string">"server"</span>,</label>
 	</div>
 
 	<label class="option">
@@ -24,17 +24,15 @@
 		<span class="boolean">{$compile_options.dev}</span>,
 	</label>
 
-	<label class="option">
+	<div class="option">
 		<span class="key">css:</span>
-		<Checkbox bind:checked={$compile_options.css} />
-		<span class="boolean">{$compile_options.css}</span>,
-	</label>
 
-	<label class="option">
-		<span class="key">hydratable:</span>
-		<Checkbox bind:checked={$compile_options.hydratable} />
-		<span class="boolean">{$compile_options.hydratable}</span>,
-	</label>
+		<input id="external-css-input" type="radio" bind:group={$compile_options.css} value="external" />
+		<label for="external-css-input"><span class="string">"external"</span></label>
+
+		<input id="injected-css-input" type="radio" bind:group={$compile_options.css} value="injected" />
+		<label for="injected-css-input"><span class="string">"injected"</span>,</label>
+	</div>
 
 	<label class="option">
 		<span class="key">customElement:</span>
@@ -45,13 +43,7 @@
 	<label class="option">
 		<span class="key">immutable:</span>
 		<Checkbox bind:checked={$compile_options.immutable} />
-		<span class="boolean">{$compile_options.immutable}</span>,
-	</label>
-
-	<label class="option">
-		<span class="key">legacy:</span>
-		<Checkbox bind:checked={$compile_options.legacy} />
-		<span class="boolean">{$compile_options.legacy}</span>
+		<span class="boolean">{$compile_options.immutable}</span>
 	</label>
 	});
 </div>
@@ -133,7 +125,6 @@
 		height: 15px;
 		margin-left: -21px;
 		margin-top: 4px;
-		vertical-align: top;
 		cursor: pointer;
 		text-align: center;
 		transition: box-shadow 0.1s ease-out;

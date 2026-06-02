@@ -45,6 +45,7 @@ let name = 'REPL'
 		REPL Scratchpad
 	</h2>
 	<button
+		aria-label="Copy REPL components"
 		class="relative hover:bg-slate-100 rounded-lg"
 		on:click={() => navigator.clipboard.writeText(cleanInput(components))}
 	>

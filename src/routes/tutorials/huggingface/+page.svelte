@@ -112,12 +112,12 @@
 	<div class="my-4">
 		<label for="API Key" class="block text-sm font-medium text-slate-700">Prompt<\/label>
 		<div class="mt-1">
-			<textarea
-				type="text"
-				name="Prompt"
-				bind:value={prompt}
-				class="py-3 px-4 block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 border-slate-300 rounded-md text-slate-800"
-			\/>
+				<textarea
+					type="text"
+					name="Prompt"
+					bind:value={prompt}
+					class="py-3 px-4 block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 border-slate-300 rounded-md text-slate-800"
+				><\/textarea>
 		<\/div>
 	<\/div>
 
@@ -193,13 +193,16 @@
 
 <svelte:head>
 	<title>Hugging Face Inference API Tutorial</title>
-<meta property="og:title" content="Hugging Face API in Svelte" />
-<meta property="og:site_name" content="Svelte Board"/>
-<meta property="og:url" content="https://svelteboard.com/tutorials/huggingface"/>
-<meta property="og:description" content="Getting started with the Hugging Face Inference API in Svelte to get started with Natural Language Processing in your app." />
-<meta property="og:type" content="article" />
-<meta property="og:image" content="https://svelteboard.com/InferenceAPI.png" />
-<meta name="twitter:card" content="summary_large_image" />
+	<meta property="og:title" content="Hugging Face API in Svelte" />
+	<meta property="og:site_name" content="Svelte Board" />
+	<meta property="og:url" content="https://svelteboard.com/tutorials/huggingface" />
+	<meta
+		property="og:description"
+		content="Getting started with the Hugging Face Inference API in Svelte to get started with Natural Language Processing in your app."
+	/>
+	<meta property="og:type" content="article" />
+	<meta property="og:image" content="https://svelteboard.com/InferenceAPI.png" />
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 <div class="max-w-4xl m-auto mt-20 p-4 text-center">
 	<h1 class="text-3xl tracking-tight font-extrabold text-slate-900">
@@ -323,7 +326,7 @@
 				name="Prompt"
 				bind:value={prompt}
 				class="py-3 px-4 block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 border-slate-300 rounded-md text-slate-800"
-			/>
+			></textarea>
 		</div>
 	</div>
 

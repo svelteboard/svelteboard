@@ -30,21 +30,21 @@
 <div class="m-auto w-[500px]">
 	<div class="w-[500px] h-[300px] bg-slate-900" bind:this={image}>
 		<div class="bg-slate-900 relative z-0 w-[500px] h-[300px] m-auto">
-			<div class="absolute bg-gradient-to-r from-slate-50\/50 to-slate-900 w-full h-[1px] top-20" \/>
+			<div class="absolute bg-gradient-to-r from-slate-50\/50 to-slate-900 w-full h-[1px] top-20"><\/div>
 			<div
 				class="absolute bg-gradient-to-r from-slate-50\/40 to-slate-900 w-full h-[1px] bottom-20"
-			\/>
+			><\/div>
 
-			<div class="absolute bg-gradient-to-b from-slate-50\/60 to-slate-900 w-[1px] h-full left-0" \/>
-			<div class="absolute bg-gradient-to-b from-slate-50\/80 to-slate-900 w-[1px] h-full left-16" \/>
-			<div class="absolute bg-gradient-to-b from-slate-50\/40 to-slate-900 w-[1px] h-full left-32" \/>
-			<div class="absolute bg-gradient-to-b from-slate-50\/70 to-slate-900 w-[1px] h-full left-64" \/>
-			<div class="absolute bg-gradient-to-b from-slate-50\/10 to-slate-900 w-[1px] h-full left-48" \/>
-			<div class="absolute bg-gradient-to-b from-slate-50\/30 to-slate-900 w-[1px] h-full left-96" \/>
+			<div class="absolute bg-gradient-to-b from-slate-50\/60 to-slate-900 w-[1px] h-full left-0"><\/div>
+			<div class="absolute bg-gradient-to-b from-slate-50\/80 to-slate-900 w-[1px] h-full left-16"><\/div>
+			<div class="absolute bg-gradient-to-b from-slate-50\/40 to-slate-900 w-[1px] h-full left-32"><\/div>
+			<div class="absolute bg-gradient-to-b from-slate-50\/70 to-slate-900 w-[1px] h-full left-64"><\/div>
+			<div class="absolute bg-gradient-to-b from-slate-50\/10 to-slate-900 w-[1px] h-full left-48"><\/div>
+			<div class="absolute bg-gradient-to-b from-slate-50\/30 to-slate-900 w-[1px] h-full left-96"><\/div>
 
-			<div class="absolute bg-blue-500\/70 w-full h-2 bottom-4 border-b border-blue-400" \/>
-			<div class="absolute bg-blue-600\/60 w-full h-8 blur-lg bottom-0" \/>
-			<div class="absolute bg-blue-700\/40 w-full h-12 blur-lg bottom-0" \/>
+			<div class="absolute bg-blue-500\/70 w-full h-2 bottom-4 border-b border-blue-400"><\/div>
+			<div class="absolute bg-blue-600\/60 w-full h-8 blur-lg bottom-0"><\/div>
+			<div class="absolute bg-blue-700\/40 w-full h-12 blur-lg bottom-0"><\/div>
 
 			<div class="flex flex-col justify-center items-center h-[300px] z-10 w-full">
 				<h1
@@ -119,21 +119,35 @@
 <div class="m-auto w-[1200px]">
 	<div class="w-[1200px] h-[630px] bg-slate-900" bind:this={image}>
 		<div class="bg-slate-900 relative z-0 w-[1200px] h-[630px] m-auto">
-			<div class="absolute bg-gradient-to-r from-slate-50/50 to-slate-900 w-full h-[1px] top-20" />
+			<div
+				class="absolute bg-gradient-to-r from-slate-50/50 to-slate-900 w-full h-[1px] top-20"
+			></div>
 			<div
 				class="absolute bg-gradient-to-r from-slate-50/40 to-slate-900 w-full h-[1px] bottom-20"
-			/>
+			></div>
 
-			<div class="absolute bg-gradient-to-b from-slate-50/60 to-slate-900 w-[1px] h-full left-0" />
-			<div class="absolute bg-gradient-to-b from-slate-50/80 to-slate-900 w-[1px] h-full left-16" />
-			<div class="absolute bg-gradient-to-b from-slate-50/40 to-slate-900 w-[1px] h-full left-32" />
-			<div class="absolute bg-gradient-to-b from-slate-50/70 to-slate-900 w-[1px] h-full left-64" />
-			<div class="absolute bg-gradient-to-b from-slate-50/10 to-slate-900 w-[1px] h-full left-48" />
-			<div class="absolute bg-gradient-to-b from-slate-50/30 to-slate-900 w-[1px] h-full left-96" />
+			<div
+				class="absolute bg-gradient-to-b from-slate-50/60 to-slate-900 w-[1px] h-full left-0"
+			></div>
+			<div
+				class="absolute bg-gradient-to-b from-slate-50/80 to-slate-900 w-[1px] h-full left-16"
+			></div>
+			<div
+				class="absolute bg-gradient-to-b from-slate-50/40 to-slate-900 w-[1px] h-full left-32"
+			></div>
+			<div
+				class="absolute bg-gradient-to-b from-slate-50/70 to-slate-900 w-[1px] h-full left-64"
+			></div>
+			<div
+				class="absolute bg-gradient-to-b from-slate-50/10 to-slate-900 w-[1px] h-full left-48"
+			></div>
+			<div
+				class="absolute bg-gradient-to-b from-slate-50/30 to-slate-900 w-[1px] h-full left-96"
+			></div>
 
-			<div class="absolute bg-blue-500/70 w-full h-2 bottom-4 border-b border-blue-400" />
-			<div class="absolute bg-blue-600/60 w-full h-8 blur-lg bottom-0" />
-			<div class="absolute bg-blue-700/40 w-full h-12 blur-lg bottom-0" />
+			<div class="absolute bg-blue-500/70 w-full h-2 bottom-4 border-b border-blue-400"></div>
+			<div class="absolute bg-blue-600/60 w-full h-8 blur-lg bottom-0"></div>
+			<div class="absolute bg-blue-700/40 w-full h-12 blur-lg bottom-0"></div>
 
 			<div class="flex flex-col justify-center items-center h-[630px] z-10 w-full">
 				<h1

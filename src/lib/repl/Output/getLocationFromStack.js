@@ -1,4 +1,4 @@
-import { decode } from 'sourcemap-codec';
+import { decode } from '@jridgewell/sourcemap-codec';
 
 export default function getLocationFromStack(stack, map) {
 	if (!stack) return;

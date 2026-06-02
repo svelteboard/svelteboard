@@ -88,12 +88,12 @@
 			style="{side}: calc({pos}% - 8px)"
 			use:drag={setPos}
 			use:touchDrag={setTouchPos}
-		/>
+		></div>
 	{/if}
 </div>
 
 {#if dragging}
-	<div class="mousecatcher" />
+	<div class="mousecatcher"></div>
 {/if}
 
 <style>

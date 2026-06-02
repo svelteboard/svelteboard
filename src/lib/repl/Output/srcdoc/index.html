@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
 		<script>
@@ -14,8 +14,9 @@
 					if (action === 'eval') {
 						try {
 							const { script } = ev.data.args;
-							eval(script);
-							send_ok();
+							Promise.resolve(eval(script)).then(send_ok, (e) => {
+								send_error(e.message, e.stack);
+							});
 						} catch (e) {
 							send_error(e.message, e.stack);
 						}
@@ -69,7 +70,7 @@
 				window.addEventListener('unhandledrejection', (event) => {
 					parent.postMessage({ action: 'unhandledrejection', value: event.reason }, '*');
 				});
-			}.call(this));
+			}).call(this);
 
 			let previous = { level: null, args: null };
 
@@ -209,7 +210,7 @@
 				}
 			}
 		</script>
-		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 	</head>
 	<body></body>
 </html>

@@ -46,11 +46,13 @@ let prompt =
 	<\/h1>
 <\/div>
 <div class="max-w-2xl m-auto mx-4">
-	<div
-		class="p-4 prose prose-xl prose-slate shadow-md border mb-4 m-auto"
-		contenteditable
-		bind:textContent={prompt}
-	\/>
+		<div
+			class="p-4 prose prose-xl prose-slate shadow-md border mb-4 m-auto"
+			contenteditable
+			bind:textContent={prompt}
+		>
+			{prompt}
+		<\/div>
 
 	<button
 		on:click={handle_submit}
@@ -79,7 +81,7 @@ let prompt =
 	{:then result}
 		<div class="max-w-3xl m-auto clear-both prose prose-xl prose-slate pt-8 mx-4">
 			<h4 class="block text-sm font-medium text-slate-800">Audio Output<\/h4>
-			<audio controls src={result} \/>
+			<audio controls src={result}><\/audio>
 		<\/div>
 	{:catch error}
 		<div class="max-w-2xl m-auto clear-both prose prose-xl prose-slate pt-8">
@@ -142,7 +144,7 @@ let prompt =
 		class="p-4 prose prose-xl prose-slate shadow-md border mb-4 m-auto"
 		contenteditable
 		bind:textContent={prompt}
-	/>
+	></div>
 
 	<button
 		on:click={handle_submit}
@@ -171,7 +173,7 @@ let prompt =
 	{:then result}
 		<div class="max-w-3xl m-auto clear-both prose prose-xl prose-slate pt-8">
 			<h4 class="block text-sm font-medium text-slate-800">Audio Output</h4>
-			<audio controls src={result} />
+			<audio controls src={result}></audio>
 		</div>
 	{:catch error}
 		<div class="max-w-2xl m-auto clear-both prose prose-xl prose-slate pt-8">

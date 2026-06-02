@@ -89,12 +89,19 @@
 
 
 \<svelte:head>\
-	<script src='https://cdn.tailwindcss.com?plugins=forms,typography'>\</script\>\
+	<script src='https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'>\</script\>\
 <\/svelte:head>
 
 
-<div class="prose prose-slate sm:prose-xl lg:prose-3xl p-4">
-	<div bind:this={element} on:keydown|capture={handleKeydown} \/>
+	<div class="prose prose-slate sm:prose-xl lg:prose-3xl p-4">
+		<div
+			bind:this={element}
+			role="textbox"
+			aria-label="Editor"
+			aria-multiline="true"
+			tabindex="0"
+			on:keydown|capture={handleKeydown}
+		><\/div>
 <\/div>
 
 <CommandList {selectedIndex} \/>
@@ -115,7 +122,12 @@
 <svelte:window bind:innerHeight={height} \/>
 
 {#if $slashVisible}
-	<div class="w-full absolute h-screen top-0" on:click={() => ($slashVisible = false)} \/>
+	<button
+		type="button"
+		aria-label="Close command menu"
+		class="w-full absolute h-screen top-0 bg-transparent border-0 p-0"
+		on:click={() => ($slashVisible = false)}
+	><\/button>
 	<div
 		class="absolute bg-white shadow-xl w-96 max-w-full rounded-lg overflow-scroll"
 		style="left: {$slashLocaltion.x}px; top: {$slashLocaltion.y + $slashLocaltion.height + 384 >
@@ -125,8 +137,9 @@
 	>
 		<div class="p-2 text-sm text-slate-500">BLOCKS<\/div>
 		{#each $slashItems as { title, subtitle, command }, i}
-			<div
-				class="p-3 cursor-pointer {i == selectedIndex ? 'bg-slate-100' : 'bg-white'}"
+			<button
+				type="button"
+				class="block w-full text-left p-3 cursor-pointer {i == selectedIndex ? 'bg-slate-100' : 'bg-white'}"
 				on:mouseenter={() => (selectedIndex = i)}
 				on:click={() => {
 					$slashVisible = false;
@@ -136,7 +149,7 @@
 			>
 				<div class="">{title}<\/div>
 				<div class="text-sm text-slate-500">{subtitle ? subtitle : ''}<\/div>
-			<\/div>
+			<\/button>
 		{\/each}
 	<\/div>
 {\/if}
@@ -299,7 +312,7 @@ export const slashProps = writable({ editor: null, range: null });
 				mozallowfullscreen
 				allowfullscreen
 				style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-			/>
+			></iframe>
 		</div>
 		<p>
 			<b>Demo site:</b>

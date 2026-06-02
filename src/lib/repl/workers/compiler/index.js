@@ -1,3 +1,5 @@
+import * as compiler from 'svelte/compiler';
+
 self.window = self; // egregious hack to get magic-string to work in a worker
 
 let fulfil_ready;
@@ -8,12 +10,6 @@ const ready = new Promise((f) => {
 self.addEventListener('message', async (event) => {
 	switch (event.data.type) {
 		case 'init':
-			try {
-				importScripts(`${event.data.svelteUrl}/compiler.js`);
-			} catch {
-				await import(/* @vite-ignore */ `${event.data.svelteUrl}/compiler.js`);
-			}
-
 			fulfil_ready();
 			break;
 
@@ -26,19 +22,26 @@ self.addEventListener('message', async (event) => {
 
 const common_options = {
 	dev: false,
-	css: false
+	css: 'external',
+	generate: 'client',
+	compatibility: {
+		componentApi: 4
+	}
 };
 
 function compile({ id, source, options, return_ast }) {
 	try {
-		const { js, css, ast } = svelte.compile(source, Object.assign({}, common_options, options));
+		const { js, css, ast } = compiler.compile(
+			source,
+			Object.assign({}, common_options, normalize_options(options))
+		);
 
 		return {
 			id,
 			result: {
 				js: js.code,
 				css:
-					css.code ||
+					css?.code ||
 					`/* Add a <sty` +
 						`le> tag to see compiled CSS (The tailwind styles are using the CDN and won't show up here*/`,
 				ast: return_ast ? ast : null
@@ -57,4 +60,23 @@ function compile({ id, source, options, return_ast }) {
 			}
 		};
 	}
+}
+
+function normalize_options(options = {}) {
+	const normalized = { ...options };
+
+	if (normalized.generate === 'dom') normalized.generate = 'client';
+	if (normalized.generate === 'ssr') normalized.generate = 'server';
+	if (typeof normalized.css === 'boolean') normalized.css = normalized.css ? 'injected' : 'external';
+
+	delete normalized.format;
+	delete normalized.hydratable;
+	delete normalized.legacy;
+
+	normalized.compatibility = {
+		componentApi: 4,
+		...normalized.compatibility
+	};
+
+	return normalized;
 }

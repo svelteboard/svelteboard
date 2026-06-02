@@ -84,7 +84,7 @@
 							rows="4"
 							bind:value={quest}
 							class="py-3 px-4 block w-full shadow-sm focus:ring-green-500 focus:border-green-500 border border-slate-300 rounded-md"
-						/>
+						></textarea>
 					</div>
 				</div>
 

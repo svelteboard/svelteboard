@@ -10,7 +10,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet" />
 </svelte:head>
 
-<button on:click={() => ($desktopMenu = true)} class="m-2 fixed z-30 left-0 top-0 hidden lg:block">
+<button
+	aria-label="Open desktop menu"
+	on:click={() => ($desktopMenu = true)}
+	class="m-2 fixed z-30 left-0 top-0 hidden lg:block"
+>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		class="w-10 h-10 text-slate-500 hover:text-slate-500 animate-all backdrop-blur-sm bg-slate-200/70 hover:bg-slate-200 p-2 rounded-lg"
@@ -27,8 +31,10 @@
 	</svg>
 </button>
 
-<div
-	class="bg-green-50 shadow-sm p-2 m-2 fixed cursor-pointer z-30 rounded-full lg:hidden"
+<button
+	type="button"
+	aria-label="Open menu"
+	class="bg-green-50 shadow-sm p-2 m-2 fixed cursor-pointer z-30 rounded-full lg:hidden border-0"
 	on:click={() => (mobileMenu = true)}
 >
 	<svg
@@ -45,21 +51,24 @@
 			d="M4 6h16M4 12h16M4 18h16"
 		/>
 	</svg>
-</div>
+</button>
 
 <div class="flex h-full min-h-screen w-full">
-	<div
+	<button
+		type="button"
+		aria-label="Close menu"
 		on:click={() => (mobileMenu = false)}
-		class="bg-slate-900/20 backdrop-blur-sm w-full h-full z-20 absolute transition-all duration-750 lg:hidden {mobileMenu
+		class="bg-slate-900/20 backdrop-blur-sm w-full h-full z-20 absolute transition-all duration-750 lg:hidden border-0 p-0 {mobileMenu
 			? 'block opacity-100'
 			: 'hidden opacity-0'} "
-	/>
+	></button>
 	<nav
 		class="{mobileMenu ? 'block' : 'hidden'} {$desktopMenu
 			? 'lg:ml-0 2xl:ml-0'
 			: 'lg:-ml-64 2xl:-ml-72'} group lg:block fixed top-0 left-0 z-30 h-full max-h-screen min-h-screen flex-none overflow-y-scroll border-r border-slate-100 pb-10 transition-all duration-150 ease-out sm:pb-0 bg-slate-50 w-full max-w-[285px] lg:w-64 2xl:w-72 b-r-8"
 	>
 		<button
+			aria-label="Close menu"
 			on:click={() => (mobileMenu = false)}
 			class="m-2 absolute z-30 hover:bg-slate-200 p-2 rounded-lg lg:hidden mt-4"
 		>
@@ -80,6 +89,7 @@
 		</button>
 
 		<button
+			aria-label="Collapse desktop menu"
 			on:click={() => ($desktopMenu = false)}
 			class="m-2 absolute z-30 right-0 hidden mt-4 group-hover:lg:block"
 		>

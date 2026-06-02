@@ -146,7 +146,7 @@
 						class="{toggleMask
 							? 'translate-x-5'
 							: 'translate-x-0'} pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
-					/>
+					></span>
 				</button>
 				<span class="ml-3">
 					<span class="text-sm font-medium text-slate-900">Toggle Overlay</span>
@@ -215,9 +215,9 @@
 						style="grid-template-columns: 7.125rem 1fr 7.125rem;"
 					>
 						<div class="flex items-center">
-							<div class="w-2.5 h-2.5 rounded-full bg-[#EC6A5F]" />
-							<div class="ml-1.5 w-2.5 h-2.5 rounded-full bg-[#F4BF50]" />
-							<div class="ml-1.5 w-2.5 h-2.5 rounded-full bg-[#61C454]" />
+							<div class="w-2.5 h-2.5 rounded-full bg-[#EC6A5F]"></div>
+							<div class="ml-1.5 w-2.5 h-2.5 rounded-full bg-[#F4BF50]"></div>
+							<div class="ml-1.5 w-2.5 h-2.5 rounded-full bg-[#61C454]"></div>
 							<svg
 								width="24"
 								height="24"
@@ -245,6 +245,7 @@
 							>
 						</div>
 						<div>
+							<!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
 							<div
 								on:click={selectURL(desktopUrl)}
 								class="bg-slate-100 rounded-md font-medium text-xs leading-6 py-1 flex items-center justify-center ring-1 ring-inset ring-slate-900/5 mx-auto w-5/5 dark:bg-slate-800 dark:text-slate-500"
@@ -258,13 +259,13 @@
 										d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
 										clip-rule="evenodd"
 									/></svg
-								><span
+								><!-- svelte-ignore a11y_no_static_element_interactions --><span
 									contenteditable="true"
 									bind:this={desktopUrl}
 									class="outline-none"
 									on:keydown={updateURL}
 									bind:innerHTML={url}
-								/>
+								></span>
 							</div>
 						</div>
 						<div class="flex">
@@ -342,22 +343,23 @@ c-52 33 -88 86 -102 147 -14 62 -14 1898 0 1960 18 80 85 155 155 173 10 2
 					class="w-full h-full absolute pb-[50px] bg-transparent {mouseDownX
 						? 'z-50'
 						: 'z-0'} {mouseDownY ? 'z-50' : ''}"
-				/>
+				></div>
 				<div
 					style="background-color:{color}; opacity:{opacity / 100}; mix-blend-mode:{mixBlend};"
 					class="absolute mix-blend-darken inset-0 z-10 {toggleMask ? '' : 'hidden'}"
-				/>
+				></div>
 				<iframe
 					src="https://tailwindcss.com/"
 					bind:this={iframe}
 					class="w-full h-full absolute pb-[50px]"
 					title="Simulator"
-				/>
+				></iframe>
 			</div>
 			{#if phone}
 				<div
 					class="absolute bottom-0 w-full pt-2 px-8 bg-slate-50/80 backdrop-blur-md rounded-br-[44px] rounded-bl-[44px] z-20"
 				>
+					<!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
 					<div
 						on:click={selectURL(mobileUrl)}
 						class="bg-slate-100 rounded-md font-medium text-xs leading-6 py-1 flex items-center justify-center ring-1 ring-inset ring-slate-900/5 mx-auto w-5/5 dark:bg-slate-800 dark:text-slate-500"
@@ -368,16 +370,16 @@ c-52 33 -88 86 -102 147 -14 62 -14 1898 0 1960 18 80 85 155 155 173 10 2
 							class="text-slate-300 w-3.5 h-3.5 mr-1.5 dark:text-slate-500"
 							><path
 								fill-rule="evenodd"
-								d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-								clip-rule="evenodd"
-							/></svg
-						><span
+							d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+							clip-rule="evenodd"
+						/></svg
+						><!-- svelte-ignore a11y_no_static_element_interactions --><span
 							contenteditable="true"
 							class="outline-none"
 							on:keydown={updateURL}
 							bind:innerHTML={url}
 							bind:this={mobileUrl}
-						/>
+						></span>
 					</div>
 					<div class="grid grid-cols-5 place-items-center px-4 py-2 text-center">
 						<svg
@@ -450,21 +452,23 @@ c-52 33 -88 86 -102 147 -14 62 -14 1898 0 1960 18 80 85 155 155 173 10 2
 				</div>
 			{/if}
 		</div>
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			class="z-10 p-2 demo-sm:flex items-center pointer-events-auto cursor-ew-resize justify-self-start grid content-center"
 			style="user-select: none; touch-action: pan-y; max-width:22px;"
 			on:mousedown={handleMousedownX}
 		>
-			<div class="w-1.5 h-8 bg-slate-500/60 rounded-full cursor-ew-resize absolute" />
+			<div class="w-1.5 h-8 bg-slate-500/60 rounded-full cursor-ew-resize absolute"></div>
 		</div>
 	</div>
 	<div class="flex m-auto" style="width:{w + 22}px;" bind:this={screen} id="screen">
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			class="min-w-full z-10 p-2 flex items-center pointer-events-auto cursor-ns-resize justify-self-start grid content-center"
 			style="user-select: none; touch-action: pan-x; max-width:22px;"
 			on:mousedown={handleMousedownY}
 		>
-			<div class="w-8 h-1.5 bg-slate-500/60 rounded-full cursor-ns-resize m-auto z-50" />
+			<div class="w-8 h-1.5 bg-slate-500/60 rounded-full cursor-ns-resize m-auto z-50"></div>
 		</div>
 	</div>
 </div>

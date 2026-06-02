@@ -6,7 +6,7 @@
 	import Console from './Console.svelte';
 	import Message from '../Message.svelte';
 	import srcdoc from './srcdoc/index.html?raw';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 	export let viewToggle;
 
 	const { bundle } = getContext('REPL');
@@ -91,15 +91,15 @@
 		try {
 			clear_logs();
 
-			await proxy.eval(`
+			await proxy.eval(`(async () => {
 				${injectedJS}
 
 				${styles}
 
-				const styles = document.querySelectorAll('style[id^=svelte-]');
+				const svelteStyles = document.querySelectorAll('style[id^=svelte-]');
 
-				let i = styles.length;
-				while (i--) styles[i].parentNode.removeChild(styles[i]);
+				let i = svelteStyles.length;
+				while (i--) svelteStyles[i].parentNode.removeChild(svelteStyles[i]);
 
 				if (window.component) {
 					try {
@@ -109,16 +109,25 @@
 					}
 				}
 
-				document.body.innerHTML = '';
+				if (window.__svelteboardModuleUrl) {
+					URL.revokeObjectURL(window.__svelteboardModuleUrl);
+				}
+
+				const target = document.body || document.documentElement.appendChild(document.createElement('body'));
+				target.innerHTML = '';
 				window.location.hash = '';
 				window._svelteTransitionManager = null;
 
-				${$bundle.dom.code}
+				const source = ${JSON.stringify($bundle.dom.code)};
+				window.__svelteboardModuleUrl = URL.createObjectURL(
+					new Blob([source], { type: 'text/javascript' })
+				);
 
+				const SvelteComponent = await import(window.__svelteboardModuleUrl);
 				window.component = new SvelteComponent.default({
-					target: document.body
+					target
 				});
-			`);
+			})()`);
 
 			error = null;
 		} catch (e) {
@@ -203,7 +212,7 @@
 					: ''}"
 				class={error || pending || pending_imports ? 'greyed-out' : ''}
 				srcdoc={browser ? srcdoc : ''}
-			/>
+			></iframe>
 		</div>
 
 		<div slot="panel-header">

@@ -38,27 +38,27 @@
 					<div class="h-[264px] bg-slate-900 overflow-clip relative z-0">
 						<div
 							class="absolute bg-gradient-to-r from-slate-50/50 to-slate-900 w-full h-[1px] top-20"
-						/>
+						></div>
 						<div
 							class="absolute bg-gradient-to-r from-slate-50/40 to-slate-900 w-full h-[1px] bottom-20"
-						/>
+						></div>
 
 						<div
 							class="absolute bg-gradient-to-r from-slate-50/60 to-slate-900  w-[1px] h-full left-12"
-						/>
+						></div>
 						<div
 							class="absolute bg-gradient-to-r from-slate-50/80 to-slate-900 w-[1px] h-full right-16"
-						/>
+						></div>
 						<div
 							class="absolute bg-gradient-to-r from-slate-50/40 to-slate-900  w-[1px] h-full right-8"
-						/>
+						></div>
 						<div
 							class="absolute bg-gradient-to-r from-slate-50/30 to-slate-900 w-[1px] h-full left-8"
-						/>
+						></div>
 
-						<div class="absolute bg-blue-500/70 w-full h-2 bottom-4 border-b border-blue-400" />
-						<div class="absolute bg-blue-600/60 w-full h-8 blur-lg bottom-0" />
-						<div class="absolute bg-blue-700/40 w-full h-12 blur-lg bottom-0" />
+						<div class="absolute bg-blue-500/70 w-full h-2 bottom-4 border-b border-blue-400"></div>
+						<div class="absolute bg-blue-600/60 w-full h-8 blur-lg bottom-0"></div>
+						<div class="absolute bg-blue-700/40 w-full h-12 blur-lg bottom-0"></div>
 
 						<div class="flex flex-col justify-center items-center h-full z-10">
 							<h1
@@ -78,7 +78,7 @@
 						</div>
 					</div>
 				{:else}
-					<div style="background-image:url({image})" class="h-[264px] bg-cover" />
+					<div style="background-image:url({image})" class="h-[264px] bg-cover"></div>
 				{/if}
 
 				<div class="p-[12px]">
@@ -89,12 +89,12 @@
 						class="text-[#0F1419] outline-none text-ellipsis max-w-full w-[504px] overflow-hidden whitespace-nowrap"
 						contenteditable="true"
 						bind:textContent={title}
-					/>
+					></div>
 					<div
 						class="text-[#536471] outline-none"
 						contenteditable="true"
 						bind:textContent={description}
-					/>
+					></div>
 				</div>
 			</div>
 		</div>
@@ -161,7 +161,7 @@
 						bind:value={description}
 						placeholder="Enter Description"
 						class="max-w-2xl block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 2xl:max-w-sm 2xl:text-sm border-slate-300 rounded-md"
-					/>
+					></textarea>
 				</div>
 			</div>
 			<div

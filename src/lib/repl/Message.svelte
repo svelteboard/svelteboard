@@ -24,13 +24,15 @@
 	}
 </script>
 
-<div
-	transition:slide={{ duration: 100 }}
-	class="message {kind}"
-	class:truncate
->
+<div transition:slide={{ duration: 100 }} class="message {kind}" class:truncate>
 	{#if details}
-		<p class:navigable={details.filename} on:click={() => navigate(details)}>{message(details)}</p>
+		{#if details.filename}
+			<button type="button" class="navigable" on:click={() => navigate(details)}>
+				{message(details)}
+			</button>
+		{:else}
+			<p>{message(details)}</p>
+		{/if}
 	{:else}
 		<slot />
 	{/if}
@@ -74,8 +76,18 @@
 		text-overflow: ellipsis;
 	}
 
-	p {
+	p,
+	button {
 		margin: 0;
+	}
+
+	button {
+		border: 0;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		padding: 0;
+		text-align: left;
 	}
 
 	.error {

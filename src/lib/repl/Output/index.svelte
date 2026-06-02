@@ -76,7 +76,7 @@
 		{/if}
 	</div>
 {:else}
-	<div class="absolute hidden" />
+	<div class="absolute hidden"></div>
 {/if}
 
 <!-- component viewer -->
@@ -118,7 +118,7 @@
 
 <!-- markdown output -->
 <div class="tab-content" class:visible={selected_type === 'md'}>
-	<iframe title="Markdown" srcdoc={markdown} class="h-full" />
+	<iframe title="Markdown" srcdoc={markdown} class="h-full"></iframe>
 </div>
 
 <style>

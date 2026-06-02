@@ -23,6 +23,13 @@
 			driver.set(max);
 		}
 	};
+
+	function toggleWithKeyboard(event) {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			toggle();
+		}
+	}
 </script>
 
 <SplitPane bind:max type="vertical" bind:pos>
@@ -31,7 +38,7 @@
 	</section>
 
 	<section slot="b">
-		<div class="panel-header" on:click={toggle}>
+		<div class="panel-header" role="button" tabindex="0" on:click={toggle} on:keydown={toggleWithKeyboard}>
 			<h3>{panel}</h3>
 			<slot name="panel-header" />
 		</div>
@@ -45,6 +52,7 @@
 <style>
 	.panel-header {
 		height: 51px;
+		width: 100%;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
