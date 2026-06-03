@@ -25,8 +25,11 @@
 		set: async (selected, options) => {
 			selected_type = selected.type;
 			if (selected.type === 'js' || selected.type === 'json') {
-				js_editor.set(`/* Select a component to see its compiled code */`);
-				css_editor.set(`/* Select a component to see its compiled code */`);
+				set_compiled_output({
+					js: `/* Select a component to see its compiled code */`,
+					css: `/* Select a component to see its compiled code */`,
+					ast: null
+				});
 				return;
 			}
 			if (selected.type === 'md') {
@@ -34,10 +37,7 @@
 				return;
 			}
 			const compiled = await compiler.compile(selected, options, showAst);
-			if (!js_editor) return; // unmounted
-			js_editor.set(compiled.js, 'js');
-			css_editor.set(compiled.css, 'css');
-			ast = compiled.ast;
+			set_compiled_output(compiled);
 		},
 		update: async (selected, options) => {
 			if (selected.type === 'js' || selected.type === 'json') return;
@@ -46,10 +46,7 @@
 				return;
 			}
 			const compiled = await compiler.compile(selected, options, showAst);
-			if (!js_editor) return; // unmounted
-			js_editor.update(compiled.js);
-			css_editor.update(compiled.css);
-			ast = compiled.ast;
+			update_compiled_output(compiled);
 		}
 	});
 	const compiler = is_browser && new Compiler(svelteUrl);
@@ -60,6 +57,35 @@
 	let selected_type = '';
 	let markdown = '';
 	let ast;
+	let pending_compiled;
+
+	function set_compiled_output(compiled) {
+		if (!js_editor || !css_editor) {
+			pending_compiled = compiled;
+			return;
+		}
+
+		js_editor.set(compiled.js, 'js');
+		css_editor.set(compiled.css, 'css');
+		ast = compiled.ast;
+		pending_compiled = null;
+	}
+
+	function update_compiled_output(compiled) {
+		if (!js_editor || !css_editor) {
+			pending_compiled = compiled;
+			return;
+		}
+
+		js_editor.update(compiled.js);
+		css_editor.update(compiled.css);
+		ast = compiled.ast;
+		pending_compiled = null;
+	}
+
+	$: if (pending_compiled && js_editor && css_editor) {
+		set_compiled_output(pending_compiled);
+	}
 </script>
 
 {#if viewToggle}
